@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+     <record id="view_student_tree" model="ir.ui.view">
+        <field name="name">Student List Tree</field>
+        <field name="model">sm.students</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"></field>
+                <field name="roll"></field>
+                <field name="group"></field>
+                <field name="session_start"></field>
+                <field name="session_end"></field>
+            </tree>
+        </field>
+     </record>
+     <record id="view_student_form" model="ir.ui.view">
+        <field name="name">sm.students.form</field>
+        <field name="model">sm.students</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" placeholder="Student Name" />
+                        <field name="roll" placeholder="Student Roll" />
+                        <field name="group" widget="radio" options="{'horizontal': True}" />
+                        <field name="session_start" placeholder="Example: 2023" />
+                        <field name="session_end" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_student" model="ir.actions.act_window">
+            <field name="name">Student List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sm.students</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face"> Create your first First Student</p>
+            </field>
+    </record>
+
+</odoo>
