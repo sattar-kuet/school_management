@@ -9,8 +9,8 @@
                 <field name="name"></field>
                 <field name="roll"></field>
                 <field name="group"></field>
-                <field name="session_start"></field>
-                <field name="session_end"></field>
+                <field name="session_dates"></field>
+                
             </tree>
         </field>
      </record>

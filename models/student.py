@@ -19,6 +19,7 @@ class Student(models.Model):
     # session_end = fields.Char(string='Session End', required=True)
     session_start = fields.Char(string='Session Start', required=True)
     session_end = fields.Char(string='Session End', compute='_compute_session_end', store=True, default='Null')
+    session_dates = fields.Char(string='Session', compute='_compute_session_dates')
 
     @api.depends('session_start')
     def _compute_session_end(self):
@@ -27,3 +28,10 @@ class Student(models.Model):
             start_year = int(record.session_start)
             end_year = start_year + 1
             record.session_end = str(end_year)
+
+    @api.depends('session_start', 'session_end')
+    def _compute_session_dates(self):
+        for record in self:
+            if record.session_start and record.session_end:
+                session_dates = f"{record.session_start} - {record.session_end}"
+                record.session_dates = session_dates
