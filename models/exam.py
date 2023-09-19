@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import fields, models
-from odoo.odoo import api
+from odoo import api
 
 
 class Exam(models.Model):
