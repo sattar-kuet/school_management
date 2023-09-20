@@ -37,13 +37,15 @@
             # 'school_management/static/adminLTE-3.2.0/plugins/jqvmap/maps/jquery.vmap.usa.js',
             # 'school_management/static/adminLTE-3.2.0/plugins/jquery-knob/jquery.knob.min.js',
             # 'school_management/static/adminLTE-3.2.0/plugins/moment/moment.min.js',
-            # 'school_management/static/adminLTE-3.2.0/plugins/daterangepicker/daterangepicker.js',
+            'school_management/static/adminLTE-3.2.0/plugins/daterangepicker/daterangepicker.js',
             # 'school_management/static/adminLTE-3.2.0/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js',
-            # 'school_management/static/adminLTE-3.2.0/plugins/summernote/summernote-bs4.min.js',
-            # 'school_management/static/adminLTE-3.2.0/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js',
+            'school_management/static/adminLTE-3.2.0/plugins/summernote/summernote-bs4.min.js',
+            'school_management/static/adminLTE-3.2.0/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js',
             'school_management/static/adminLTE-3.2.0/dist/js/adminlte.js',
             'school_management/static/adminLTE-3.2.0/dist/js/demo.js',
             'school_management/static/adminLTE-3.2.0/dist/js/pages/dashboard.js',
+            'school_management/static/adminLTE-3.2.0/custom-js/custom.js',
+            'school_management/static/adminLTE-3.2.0/custom-css/custom.scss'
         ]
     }
 }
