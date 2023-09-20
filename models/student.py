@@ -9,7 +9,7 @@ class Student(models.Model):
     _description = 'School Management'
 
     name = fields.Char(string='Name', required=True, translate=True)
-    code = fields.Char(string='Code', compute='pass',store=True)
+    code = fields.Char(string='Code', compute='_compute_code', store=True)
     roll = fields.Char(string="Roll", required=True, default=False)
     blood_group = fields.Selection([
         ('a+', 'A+'),
@@ -17,6 +17,4 @@ class Student(models.Model):
         ('ab+', 'AB+'),
     ], string='Blood Group', required=True, translate=True)
     guardian = fields.Many2one("res.users", string="Guardian")
-    class_config = fields.Many2one("school_management.student")
-
-    
+    class_config = fields.Many2one("school_management.class_config")

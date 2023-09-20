@@ -8,4 +8,4 @@ class ClassConfig(models.Model):
     _name = 'school_management.class_config'
     _description = 'School Management'
 
-    name = fields.Char(string='Name', required=True, translate=True)
+    name = fields.Char(string='Name', required=True)

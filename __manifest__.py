@@ -8,6 +8,7 @@
     'depends': ['base'],
     'data': [
 
+        'views/dashboard.xml',
         'views/template.xml',
         # 'views/student_view.xml',
         # 'views/subject_view.xml',
