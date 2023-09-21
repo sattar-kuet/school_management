@@ -16,6 +16,9 @@
         'views/result_config_view.xml',
         'views/class_config_view.xml',
         'views/subject_config_view.xml',
+        
+        'views/subject_wizard_view.xml',
+
         'security/ir.model.access.csv',
         
     ],

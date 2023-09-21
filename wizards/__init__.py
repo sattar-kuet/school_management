@@ -1,1 +1,1 @@
-from . import subject
+from . import subject_wizard
