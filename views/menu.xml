@@ -10,21 +10,7 @@
                     parent="menu_sm_root"
                     action=""
                     sequence="1" />
-          <menuitem id="menu_student_list"
-                    name="Student"
-                    parent="menu_data"
-                    action="action_student"
-                    sequence="1" />
-          <menuitem id="menu_subject_list"
-                    name="Subject"
-                    parent="menu_data"
-                    action="action_subject"
-                    sequence="2" />
-          <menuitem id="menu_exam_list"
-                    name="Exam"
-                    parent="menu_sm_root"
-                    action="action_exam"
-                    sequence="3" />
+          
 
 
     </data>

@@ -3,29 +3,32 @@
 <odoo>
      <record id="view_student_tree" model="ir.ui.view">
         <field name="name">Student List Tree</field>
-        <field name="model">school_management.students</field>
+        <field name="model">school_management.student</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"></field>
+                <field name="code"></field>
                 <field name="roll"></field>
-                <field name="group"></field>
-                <field name="session_dates"></field>
+                <field name="blood_group"></field>
+                <field name="guardian"></field>
+                <field name="class_config"></field>
                 
             </tree>
         </field>
      </record>
      <record id="view_student_form" model="ir.ui.view">
         <field name="name">school_management.students.form</field>
-        <field name="model">school_management.students</field>
+        <field name="model">school_management.student</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
                     <group>
                         <field name="name" placeholder="Student Name" />
+                        <field name="code" placeholder="Code" />
                         <field name="roll" placeholder="Student Roll" />
-                        <field name="group" widget="radio" options="{'horizontal': True}" />
-                        <field name="session_start" placeholder="Example: 2023" />
-                        <field name="session_end" />
+                        <field name="blood_group" widget="radio" options="{'horizontal': True}" />
+                        <field name="guardian" placeholder="Example: 2023" />
+                        <field name="class_config" />
                     </group>
                 </sheet>
             </form>
@@ -35,12 +38,17 @@
     <record id="action_student" model="ir.actions.act_window">
             <field name="name">Student List</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">school_management.students</field>
+            <field name="res_model">school_management.student</field>
             <field name="view_mode">tree,form</field>
             <field name="target">current</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_school_managementiling_face"> Create your first First Student</p>
             </field>
     </record>
+    <menuitem id="menu_student_list"
+                    name="Student"
+                    parent="menu_data"
+                    action="action_student"
+                    sequence="1" />
 
 </odoo>

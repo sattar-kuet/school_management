@@ -5,16 +5,16 @@
     'license': 'LGPL-3',
     'author': 'Your Name',
     'website': 'https://www.itscholarbd.com',
-    'depends': ['base'],
+    'depends': ['portal'],
     'data': [
 
         'views/dashboard.xml',
         'views/template.xml',
-        # 'views/student_view.xml',
+        'views/student_view.xml',
         # 'views/subject_view.xml',
         # 'views/exam_view.xml',
         'security/ir.model.access.csv',
-        # 'views/menu.xml',
+        'views/menu.xml',
     ],
     'assets': {
         'web.assets_frontend': [
