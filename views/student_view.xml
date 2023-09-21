@@ -45,10 +45,11 @@
                 <p class="o_view_nocontent_school_managementiling_face"> Create your first First Student</p>
             </field>
     </record>
-    <menuitem id="menu_student_list"
-                    name="Student"
-                    parent="menu_data"
-                    action="action_student"
-                    sequence="1" />
+    <menuitem 
+            name="Student"
+            id="menu_student_list"
+            parent="menu_data"
+            action="action_student"
+            sequence="1" />
 
 </odoo>

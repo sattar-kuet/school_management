@@ -10,7 +10,7 @@ class Student(models.Model):
 
     name = fields.Char(string='Name', required=True, translate=True)
     code = fields.Char(string='Code', compute='_compute_code', store=True)
-    roll = fields.Char(string="Roll", required=True, default=False)
+    roll = fields.Char(string="Roll", required=True)
     blood_group = fields.Selection([
         ('a+', 'A+'),
         ('b+', 'B+'),
