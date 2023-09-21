@@ -13,7 +13,7 @@
         # 'views/student_view.xml',
         # 'views/subject_view.xml',
         # 'views/exam_view.xml',
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         # 'views/menu.xml',
     ],
     'assets': {
