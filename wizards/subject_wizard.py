@@ -3,7 +3,7 @@
 from odoo import fields, models
 
 
-class Subject(models.TransientModel):
+class SubjectWizard(models.TransientModel):
     _name = 'school_management.subject.wizard'
     _description = 'Subject Wizard'
 
