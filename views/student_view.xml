@@ -48,8 +48,8 @@
     <menuitem 
             name="Student"
             id="menu_student_list"
-            parent="menu_data"
+            sequence="0"
             action="action_student"
-            sequence="1" />
+            parent="menu_data"/>
 
 </odoo>
