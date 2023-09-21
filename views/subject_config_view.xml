@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+     <record id="view_subject_config_tree" model="ir.ui.view">
+        <field name="name">Subject List Tree</field>
+        <field name="model">school_management.subject_config</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="class_config" />
+                <field name="subject" widget="many2many_tags" />
+            </tree>
+        </field>
+     </record>
+     <record id="view_subject_config_form" model="ir.ui.view">
+        <field name="name">school_management.subject_config.form</field>
+        <field name="model">school_management.subject_config</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="class_config" />
+                        <field name="subject" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_subject_config" model="ir.actions.act_window">
+            <field name="name">Subject List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">school_management.subject_config</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_school_managementiling_face"> Create your first First Subject</p>
+            </field>
+    </record>
+    <menuitem 
+            name="Subject Config"
+            id="menu_subject_config_view"
+            sequence="1"
+            action="action_subject_config"
+            parent="menu_Subject"/>
+
+</odoo>
