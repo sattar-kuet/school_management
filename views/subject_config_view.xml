@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="class_config" />
-                <field name="subject" widget="many2many_tags" />
+                <field name="subject" widget="many2many_tags"/>
             </tree>
         </field>
      </record>
