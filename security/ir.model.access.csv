@@ -1,4 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-school_management.access_students,access_students,school_management.model_school_management_student,,1,1,1,1
-school_management.access_sm_subjects,access_sm_subjects,school_management.model_sm_subjects,,1,1,1,1
-school_management.access_sm_exams,access_sm_exams,school_management.model_sm_exams,,1,1,1,1
+school_management.access_student,access_student,school_management.model_school_management_student,,1,1,1,1
+school_management.access_class_config,access_class_config,school_management.model_school_management_class_config,,1,1,1,1
+school_management.access_exam,access_exam,school_management.model_school_management_exam,,1,1,1,1
+school_management.access_result_config,access_result_config,school_management.model_school_management_result_config,,1,1,1,1
+school_management.access_result,access_result,school_management.model_school_management_result,,1,1,1,1
+school_management.access_subject_config,access_subject_config,school_management.model_school_management_subject_config,,1,1,1,1
+school_management.access_subject,access_subject,school_management.model_school_management_subject,,1,1,1,1
