@@ -11,14 +11,12 @@
         'views/dashboard.xml',
         'views/template.xml',
         'views/student_view.xml',
+        'wizards/subject_wizard_view.xml',
         'views/subject_view.xml',
         'views/exam_view.xml',
         'views/result_config_view.xml',
         'views/class_config_view.xml',
         'views/subject_config_view.xml',
-        
-        'wizards/subject_wizard_view.xml',
-
         'security/ir.model.access.csv',
         
     ],

@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-from odoo import fields, models
+from odoo import fields, models, api
 
 
 class SubjectWizard(models.TransientModel):
@@ -8,9 +6,57 @@ class SubjectWizard(models.TransientModel):
     _description = 'Subject Wizard'
 
     name = fields.Char(string='Name', required=True)
-    part1 = fields.Char(compute="_compute_part1")
-    part2 = fields.Char(compute="_compute_part2")
     has_practical = fields.Boolean(string='Has Practical')
     has_mcq = fields.Boolean(string='Has MCQ')
     has_written = fields.Boolean(string='Has Written')
-    has_two_part = fields.Char(string='Has two Part', compute='pass')
+    has_two_part = fields.Boolean(string='Has two Part')
+    part1 = fields.Char(string='Part 1', compute='_compute_parts', store=True)
+    part2 = fields.Char(string='Part 2', compute='_compute_parts', store=True)
+
+    @api.depends('name', 'has_two_part')
+    def _compute_parts(self):
+        for record in self:
+            if record.has_two_part and record.name:
+                record.part1 = record.name + ' Part Paper'
+                record.part2 = record.name + ' Second Paper'
+            else:
+                record.part1 = False
+                record.part2 = False
+
+    def add_subject(self):
+        if self.has_two_part:
+            subject1 = self.env['school_management.subject'].create({
+                'name': self.part1,
+                'has_practical': self.has_practical,
+                'has_mcq': self.has_mcq,
+                'has_written': self.has_written
+            })
+
+            subject2 = self.env['school_management.subject'].create({
+                'name': self.part2,
+                'has_practical': self.has_practical,
+                'has_mcq': self.has_mcq,
+                'has_written': self.has_written
+            })
+            self.env['school_management.combined_subject'].create({
+                'title': self.name,
+                'subject': [subject1.id, subject2.id],
+                'has_practical': self.has_practical,
+                'has_mcq': self.has_mcq,
+                'has_written': self.has_written
+            })
+        else:
+            subject = self.env['school_management.subject'].create({
+                'name': self.name,
+                'has_practical': self.has_practical,
+                'has_mcq': self.has_mcq,
+                'has_written': self.has_written
+            })
+
+            self.env['school_management.combined_subject'].create({
+                'title': self.name,
+                'subject': [subject.id],
+                'has_practical': self.has_practical,
+                'has_mcq': self.has_mcq,
+                'has_written': self.has_written
+            })

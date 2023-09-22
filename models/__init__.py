@@ -5,3 +5,4 @@ from . import class_config
 from . import result_config
 from . import subject_config
 from . import result
+from . import combined_subject

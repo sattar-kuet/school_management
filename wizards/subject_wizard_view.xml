@@ -7,15 +7,15 @@
                 <form>
                     <group>
                         <field name="name" />
-                        <field name="part1" />
-                        <field name="part2" />
+                        <field name="has_two_part" />
+                        <field name="part1" attrs="{'invisible': [('has_two_part', '=', False)]}" />
+                        <field name="part2" attrs="{'invisible': [('has_two_part', '=', False)]}" />
                         <field name="has_practical" />
                         <field name="has_mcq" />
                         <field name="has_written" />
-                        <field name="has_two_part" />
                     </group>
                     <footer>
-                        <button string="Confirm" type="object" name="add_credit" class="btn btn-primary"/>
+                        <button string="Confirm" type="object" name="add_subject" class="btn btn-primary"/>
                         <button string="Cancel" special="cancel" class="btn btn-secondary"/>
                     </footer>
                 </form>
@@ -23,10 +23,10 @@
         </record>
 
         <record id="action_add_subject_wizard" model="ir.actions.act_window">
-            <field name="name">Add Credit</field>
+            <field name="name">Add Subject</field>
             <field name="res_model">school_management.subject.wizard</field>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="school_management.add_subject.form.wizard" />
+            <field name="view_id" ref="school_management.add_subject_form_wizard" />
             <field name="target">new</field>
             <field name="binding_view_types">form</field>
         </record>
