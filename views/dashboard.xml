@@ -6,14 +6,9 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0">Exam Title : Model Test</h1>
                     </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard v1</li>
-                        </ol>
-                    </div><!-- /.col -->
+                    
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
@@ -21,56 +16,36 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
+                <div class="col-sm-12" >
+                    <ul class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><b>Student Name:</b> Shuvro mahmud bhuiyan</li>
+                        <li class="breadcrumb-item"><b>Student Roll:</b> 148077</li>
+                        <li class="breadcrumb-item"><b>Class:</b> Seven</li>
+                    </ul>
+                </div>
                 <table class="table table-bordered">
                   <thead>
                     <tr>
-                      <th>#</th>
-                      <th>Task</th>
-                      <th>Progress</th>
-                      <th>Label</th>
+                      <th>Subject</th>
+                      <th>Written Mark</th>
+                      <th>MCQ Mark</th>
+                      <th>Practical Mark</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>1.</td>
-                      <td>Update software</td>
-                      <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-danger">55%</span></td>
+                      <td>Bangla First Paper</td>
+                      <td><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Written Mark"/></td>
+                      <td><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter MCQ Mark"/></td>
+                      <td><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Practical Mark"/></td>
                     </tr>
                     <tr>
-                      <td>2.</td>
-                      <td>Clean database</td>
-                      <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar bg-warning" style="width: 70%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-warning">70%</span></td>
+                      <td>Bangla Second Paper</td>
+                      <td><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Written Mark"/></td>
+                      <td><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter MCQ Mark"/></td>
+                      <td><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Practical Mark"/></td>
                     </tr>
-                    <tr>
-                      <td>3.</td>
-                      <td>Cron job running</td>
-                      <td>
-                        <div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar bg-primary" style="width: 30%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-primary">30%</span></td>
-                    </tr>
-                    <tr>
-                      <td>4.</td>
-                      <td>Fix and squish bugs</td>
-                      <td>
-                        <div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar bg-success" style="width: 90%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-success">90%</span></td>
-                    </tr>
+                    
                   </tbody>
                 </table>
                 <!-- /.row -->
