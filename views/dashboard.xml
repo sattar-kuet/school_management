@@ -21,20 +21,13 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <!-- Small boxes (Stat box) -->
-                <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Bordered Table</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
                 <table class="table table-bordered">
                   <thead>
                     <tr>
-                      <th style="width: 10px">#</th>
+                      <th>#</th>
                       <th>Task</th>
                       <th>Progress</th>
-                      <th style="width: 40px">Label</th>
+                      <th>Label</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -80,10 +73,6 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>
-              <!-- /.card-body -->
-              
-            </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
         </section>
