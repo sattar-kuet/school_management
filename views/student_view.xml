@@ -27,7 +27,7 @@
                         <field name="code" placeholder="Code" />
                         <field name="roll" placeholder="Student Roll" />
                         <field name="blood_group" widget="radio" options="{'horizontal': True}" />
-                        <field name="guardian" placeholder="Example: 2023" />
+                        <field name="guardian" />
                         <field name="class_config" />
                     </group>
                 </sheet>

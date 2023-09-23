@@ -15,6 +15,11 @@
                     parent="menu_sm_root"
                     action=""
                     sequence="2" />
+          <menuitem id="menu_Result"
+                    name="Result"
+                    parent="menu_sm_root"
+                    action=""
+                    sequence="3" />
           
 
 

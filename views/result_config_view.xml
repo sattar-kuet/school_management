@@ -60,8 +60,8 @@
     <menuitem
             name="Result config"
             id="menu_result_config_list"
-            sequence="2"
+            sequence="0"
             action="action_result_config"
-            parent="menu_data"/>
+            parent="menu_Result"/>
 
 </odoo>

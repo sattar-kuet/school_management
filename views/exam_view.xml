@@ -19,7 +19,7 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="name" placeholder="Student Name" />
+                        <field name="name" placeholder="Exam Name" />
                         <field name="classes" />
                         <field name="status" />
                     </group>

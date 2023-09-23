@@ -6,3 +6,5 @@ from . import result_config
 from . import subject_config
 from . import result
 from . import combined_subject
+from . import grade_config
+from . import proccessed_result
