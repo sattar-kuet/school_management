@@ -13,4 +13,4 @@ class Result(models.Model):
     written_mark = fields.Char(string='Written Mark')
     mcq_mark = fields.Char(string='MCQ Mark')
     practical_mark = fields.Char(string='Practical Mark')
-    status = fields.Selection([('pending', 'Pending'), ('done', 'Done')])
+    status = fields.Selection([('pending', 'Pending'), ('done', 'Done')], default='pending')
