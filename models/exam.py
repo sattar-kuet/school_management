@@ -28,11 +28,15 @@ class Exam(models.Model):
         print(self.classes)
         for class_record in self.classes:
             students = self.env['school_management.student'].search([('class_config', '=', class_record.id)])
-            print(students)
-            for student in students:
-                self.env['school_management.result'].create({
-                    'exam': self.id,
-                    'student': student.id
-                })
+            subject_config = self.env['school_management.subject_config'].search(
+                [('class_config', '=', class_record.id)])
+
+            for subject in subject_config.subject:
+                for student in students:
+                    self.env['school_management.result'].create({
+                        'subject': subject.id,
+                        'exam': self.id,
+                        'student': student.id
+                    })
 
         self.status = 'processing'
