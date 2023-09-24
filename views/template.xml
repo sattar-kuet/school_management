@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="portal_layout" inherit_id="web.layout">
+    <template id="web_layout" inherit_id="web.layout">
         <xpath expr="//body" position="replace">
             <body class="hold-transition sidebar-mini layout-fixed  layout-navbar-fixed">
                 <t t-out="0"/>
@@ -8,7 +8,7 @@
         </xpath>
     </template>
 
-    <template id="school_management_portal_layout" inherit_id="portal.portal_layout" >
+    <template id="portal_layout" inherit_id="portal.portal_layout" >
         <xpath expr="//div[@class='o_portal_wrap']" position="replace">
             <div class="o_portal_wrap">
                 <div class="wrapper">
@@ -16,7 +16,7 @@
                     <t t-call="school_management.left-sidebar" />
                     <!-- Content Wrapper. Contains page content -->
                     <div class="content-wrapper">
-                        <t t-call="school_management.dashboard-home" />
+                         <t t-call="school_management.dashboard-home" />
                     </div>
 
                 </div>

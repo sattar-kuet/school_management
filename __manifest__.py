@@ -5,7 +5,6 @@
     'license': 'LGPL-3',
     'author': 'Your Name',
     'website': 'https://www.itscholarbd.com',
-    'depends': ['portal'],
     'data': [
         'views/menu.xml',
         'views/dashboard.xml',

@@ -3,9 +3,9 @@
 from odoo import fields, models, api
 
 
-class ProccessedResult(models.Model):
-    _name = 'school_management.proccessed_result'
-    _description = 'Proccessed Result'
+class ProcessedResult(models.Model):
+    _name = 'school_management.processed_result'
+    _description = 'Processed Result'
 
     exam = fields.Many2one('school_management.exam', string='Exam', required=True,)
     student = fields.Many2one('school_management.student', string='Student')

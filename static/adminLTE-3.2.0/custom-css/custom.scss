@@ -9,3 +9,14 @@
 .content-wrapper{
 margin-top: 0px !important;
 }
+header#top {
+    display: none;
+}
+.dropdown-menu.js_usermenu.dropdown-menu-right.show a:first-child {
+    display: none;
+
+}
+
+div#o_logout_divider {
+    display: none;
+}

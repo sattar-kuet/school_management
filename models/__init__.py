@@ -7,4 +7,4 @@ from . import subject_config
 from . import result
 from . import combined_subject
 from . import grade_config
-from . import proccessed_result
+from . import processed_result

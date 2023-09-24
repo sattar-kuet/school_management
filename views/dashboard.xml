@@ -2,53 +2,85 @@
 <odoo>
     <template id="dashboard-home">
         <!-- Content Header (Page header) -->
-        <div class="content-header">
+        <div class="content-header" t-if="no_active_exam == false">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Exam Title : Model Test</h1>
+                        <h1 class="m-0">Exam Title : <t t-esc="data['exam'].name"/></h1>
                     </div><!-- /.col -->
-                    
+
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
         <!-- Main content -->
         <section class="content">
-            <div class="container-fluid">
-                <div class="col-sm-12" >
-                    <ul class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><b>Student Name:</b> Shuvro mahmud bhuiyan</li>
-                        <li class="breadcrumb-item"><b>Student Roll:</b> 148077</li>
-                        <li class="breadcrumb-item"><b>Class:</b> Seven</li>
-                    </ul>
+            <div class="container-fluid" t-if="no_active_exam == true">
+                <div class="alert alert-warning">
+                    <strong>No Active Exam!</strong>
                 </div>
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>Subject</th>
-                      <th>Written Mark</th>
-                      <th>MCQ Mark</th>
-                      <th>Practical Mark</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Bangla First Paper</td>
-                      <td><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Written Mark"/></td>
-                      <td><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter MCQ Mark"/></td>
-                      <td><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Practical Mark"/></td>
-                    </tr>
-                    <tr>
-                      <td>Bangla Second Paper</td>
-                      <td><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Written Mark"/></td>
-                      <td><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter MCQ Mark"/></td>
-                      <td><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Practical Mark"/></td>
-                    </tr>
-                    
-                  </tbody>
-                </table>
-                <!-- /.row -->
+            </div>
+            <div class="container-fluid" t-if="no_active_exam == false">
+                <form action="/submit-result">
+                    <input type="hidden" name="exam_id" t-att-value="data['exam'].id"/>
+                    <t t-foreach="data['data_list']" t-as="data">
+
+                        <input type="hidden" name="student_id[]" t-att-value="data['student'].id"/>
+                        <div class="col-sm-12" >
+                            <ul class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><b>Student Name:</b> <t t-esc="data['student'].name"/></li>
+                                <li class="breadcrumb-item"><b>Student Roll:</b> <t t-esc="data['student'].roll"/></li>
+                                <li class="breadcrumb-item"><b>Class:</b> <t t-esc="data['student'].class_config.name"/></li>
+                            </ul>
+                        </div>
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Written Mark</th>
+                                    <th>MCQ Mark</th>
+                                    <th>Practical Mark</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="data['subjects']" t-as="subject">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="subject.name"/>
+                                            <input type="hidden" name="subject_id[][]"/>
+                                        </td>
+                                        <td>
+                                            <t t-if="subject.has_written">
+                                                <input type="number" class="form-control"  placeholder="Enter Written Mark"/>
+                                            </t>
+                                            <t t-else="">
+                                                N/A
+                                            </t>
+                                        </td>
+                                        <td>
+                                            <t t-if="subject.has_mcq">
+                                                <input type="number" class="form-control"  placeholder="Enter MCQ Mark"/>
+                                            </t>
+                                            <t t-else="">
+                                                N/A
+                                            </t>
+                                        </td>
+                                        <td>
+                                            <t t-if="subject.has_practical">
+                                                <input type="number" class="form-control"  placeholder="Enter Practical Mark"/>
+                                            </t>
+                                            <t t-else="">
+                                                N/A
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </t>
+
+                            </tbody>
+                        </table>
+                    </t>
+                </form>
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->
