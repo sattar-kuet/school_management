@@ -8,7 +8,7 @@ class Result(models.Model):
     _description = 'Result Management'
 
     exam = fields.Many2one('school_management.exam', string='Exam', required=True)
-    student = fields.Many2one('res.user', string="Student", required=True)
+    student = fields.Many2one('res.users', string="Student", required=True)
     subject = fields.Many2one('school_management.subject', string='Subject')
     written_mark = fields.Char(string='Written Mark')
     mcq_mark = fields.Char(string='MCQ Mark')

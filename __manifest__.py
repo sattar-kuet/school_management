@@ -18,8 +18,9 @@
         'views/class_config_view.xml',
         'views/subject_config_view.xml',
         'views/grade_config_view.xml',
-        'views/result_view.xml',
+        
         'views/proccessed_result_view.xml',
+        'views/result_view.xml',
         'security/ir.model.access.csv',
         
     ],
