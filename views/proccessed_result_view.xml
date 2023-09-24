@@ -15,7 +15,7 @@
             </tree>
         </field>
      </record>
-     <record id="view_class_form" model="ir.ui.view">
+     <record id="view_processed_result_form" model="ir.ui.view">
         <field name="name">school_management.processed.result.form</field>
         <field name="model">school_management.processed_result</field>
         <field name="arch" type="xml">
@@ -35,7 +35,7 @@
     </record>
 
     <record id="action_processed_result" model="ir.actions.act_window">
-            <field name="name">processed Result List</field>
+            <field name="name">Processed Result List</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">school_management.processed_result</field>
             <field name="view_mode">tree,form</field>

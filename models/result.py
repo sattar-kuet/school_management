@@ -8,9 +8,9 @@ class Result(models.Model):
     _description = 'Result Management'
 
     exam = fields.Many2one('school_management.exam', string='Exam', required=True)
-    student = fields.Many2one('res.user')
+    student = fields.Many2one('res.user', string="Student", required=True)
     subject = fields.Many2one('school_management.subject', string='Subject')
-    written_mark = fields.Char(string='Written Mark', required=True)
-    mcq_mark = fields.Char(string='MCQ Mark', required=True)
-    practical_mark = fields.Char(string='Practical Mark', required=True)
+    written_mark = fields.Char(string='Written Mark')
+    mcq_mark = fields.Char(string='MCQ Mark')
+    practical_mark = fields.Char(string='Practical Mark')
     status = fields.Selection([('pending', 'Pending'), ('done', 'Done')])
