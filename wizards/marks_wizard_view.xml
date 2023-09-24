@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <record id="marks_form_wizard" model="ir.ui.view">
+            <field name="name">marks.form.wizard</field>
+            <field name="model">school_management.marks.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="written_mark" />
+                        <field name="mcq_mark" />
+                        <field name="practical_mark" />
+                    </group>
+                    <footer>
+                        <button string="Confirm" type="object" name="marks" class="btn btn-primary"/>
+                        <button string="Cancel" special="cancel" class="btn btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_marks_wizard" model="ir.actions.act_window">
+            <field name="name">Marks</field>
+            <field name="res_model">school_management.marks.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="school_management.marks_form_wizard" />
+            <field name="target">new</field>
+            <field name="binding_view_types">form</field>
+        </record>
+    </data>
+</odoo>

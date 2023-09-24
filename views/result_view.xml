@@ -5,7 +5,7 @@
         <field name="name">Result List Tree</field>
         <field name="model">school_management.result</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree create='false'>
                 <field name="exam" />
                 <field name="student" />
                 <field name="subject" />
@@ -13,6 +13,8 @@
                 <field name="mcq_mark" />
                 <field name="practical_mark" />
                 <field name="status" />
+                <button name="%(action_marks_wizard)d" string="Add Mark" type="action" 
+                    class="btn btn-primary" ></button>
             </tree>
         </field>
      </record>
