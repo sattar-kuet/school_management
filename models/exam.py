@@ -27,7 +27,7 @@ class Exam(models.Model):
     def processing(self):
         print(self.classes)
         for class_record in self.classes:
-            students = self.env['school_management.student'].search([('class_config', '=', class_record.id)])
+            students = self.env['res.users'].search([('class_config', '=', class_record.id)])
             subject_config = self.env['school_management.subject_config'].search(
                 [('class_config', '=', class_record.id)])
 

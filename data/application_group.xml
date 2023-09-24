@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="application_owner" model="res.groups">
+        <field name="name">Application Owner</field>
+    </record>
+
+    <record id="student" model="res.groups">
+        <field name="name">Student</field>
+    </record>
+    <record id="teacher" model="res.groups">
+        <field name="name">Teacher</field>
+    </record>
+     <record id="guardian" model="res.groups">
+        <field name="name">Guardian</field>
+    </record>
+
+    <record id="base.default_user" model="res.users">
+    <field name="groups_id" eval="[(4, ref('school_management.student'))]"/>
+    </record>
+
+</odoo>

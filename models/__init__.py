@@ -1,4 +1,4 @@
-from . import student
+from . import user
 from . import subject
 from . import exam
 from . import class_config

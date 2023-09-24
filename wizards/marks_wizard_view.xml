@@ -6,6 +6,9 @@
             <field name="arch" type="xml">
                 <form>
                     <group>
+                        <field name="info" widget="html" readonly="1" style="display:inline;"/>
+                    </group>
+                    <group>
                         <field name="written_mark" />
                         <field name="mcq_mark" />
                         <field name="practical_mark" />
@@ -25,6 +28,7 @@
             <field name="view_id" ref="school_management.marks_form_wizard" />
             <field name="target">new</field>
             <field name="binding_view_types">form</field>
+             <field name="context">{'active_id': active_id }</field>
         </record>
     </data>
 </odoo>

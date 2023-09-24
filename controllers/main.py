@@ -11,7 +11,7 @@ class SchoolManagement(http.Controller):
         data = []
         processed_students = request.env['school_management.processed_result'].se
         for class_record in exam.classes:
-            student = request.env['school_management.student'].search([
+            student = request.env['res.users'].search([
                 ('class_config', '=', class_record.id),
                 ('id', 'not in', processed_students)
             ])
