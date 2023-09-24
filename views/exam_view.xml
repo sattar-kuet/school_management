@@ -9,7 +9,7 @@
                 <field name="name" />
                 <field name="classes" widget="many2many_tags" />
                 <field name="status" />
-                <button name="%(processing)d" string="Processing" type="action" 
+                <button name="processing" string="Processing" type="object"
                     class="btn btn-primary"></button>
             </tree>
         </field>

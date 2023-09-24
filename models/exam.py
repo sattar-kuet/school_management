@@ -19,3 +19,20 @@ class Exam(models.Model):
         string='Status',
         default='pending'
     )
+
+    @api.model
+    def create(self, vals):
+        return super(Exam, self).create(vals)
+
+    def processing(self):
+        print(self.classes)
+        for class_record in self.classes:
+            students = self.env['school_management.student'].search([('class_config', '=', class_record.id)])
+            print(students)
+            for student in students:
+                self.env['school_management.result'].create({
+                    'exam': self.id,
+                    'student': student.id
+                })
+
+        self.status = 'processing'

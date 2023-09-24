@@ -8,11 +8,6 @@
             <tree>
                 <field name="exam" />
                 <field name="student" />
-                <field name="subject" />
-                <field name="written_mark" />
-                <field name="mcq_mark" />
-                <field name="practical_mark" />
-                <field name="status" />
             </tree>
         </field>
      </record>
@@ -25,11 +20,6 @@
                     <group>
                         <field name="exam" />
                         <field name="student" />
-                        <field name="subject" />
-                        <field name="written_mark" />
-                        <field name="mcq_mark" />
-                        <field name="practical_mark" />
-                        <field name="status" />
                     </group>
                 </sheet>
             </form>
