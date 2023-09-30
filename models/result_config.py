@@ -9,7 +9,7 @@ class ResultConfig(models.Model):
 
     subject = fields.Many2one('school_management.combined_subject', string='Subject', required=True, relation='subject_combined_subject')
     exam = fields.Many2many('school_management.exam', string='Exam')
-    exam_computed = fields.Char(compute='_exam_computed')
+
     written_pass_mark = fields.Float(string='Written Pass Mark')
     written_max_mark = fields.Float(string='Written Max Mark')
     mcq_pass_mark = fields.Float(string='MCQ Pass Mark')
@@ -21,13 +21,6 @@ class ResultConfig(models.Model):
     has_mcq = fields.Boolean(compute="_has_mcq")
     has_written = fields.Boolean(compute="_has_written")
     status = fields.Selection([('generated', 'System Generated'), ('configured', 'Configured')], defualt='generated')
-
-    def _exam_computed(self):
-        for record in self:
-            if record.exam:
-                record.exam_computed = record.exam.name
-            else:
-                record.exam_computed = 'ALL'
 
     @api.depends('subject.has_practical')
     def _has_practical(self):

@@ -50,13 +50,6 @@ class Exam(models.Model):
         }
         return action
 
-
-
-    @api.model
-    def create(self, vals):
-        exam_obj = super(Exam, self).create(vals)
-        return exam_obj
-
     def processing(self):
         students = self.env['res.users'].search([('class_config', '=', self.class_config.id)])
         subject_config = self.env['school_management.subject_config'].search(
