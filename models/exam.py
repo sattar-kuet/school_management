@@ -37,6 +37,7 @@ class Exam(models.Model):
                 'mcq_max_mark': 0,
                 'practical_pass_mark': 0,
                 'practical_max_mark': 0,
+                'status': 'generated',
             }
             self.env['school_management.result_config'].create(result_config_vals)
         self.status = 'setup_done'

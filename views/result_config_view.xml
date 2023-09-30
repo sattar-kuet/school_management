@@ -6,7 +6,7 @@
         <field name="model">school_management.result_config</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="exam_computed"/>
+                <field name="exam"/>
                 <field name="subject"/>
                 <field name="written_pass_mark" placeholder="Example: 33" />
                 <field name="written_max_mark" placeholder="Example: 33" />
@@ -14,6 +14,9 @@
                 <field name="mcq_max_mark" placeholder="Example: 33" />
                 <field name="practical_pass_mark" placeholder="Example: 33" />
                 <field name="practical_max_mark" placeholder="Example: 33" />
+                <field name="status"/>
+                <button name="config" string="Config" type="action" action="action_config_wizard"
+                    class="btn btn-primary"></button>
 
             </tree>
         </field>

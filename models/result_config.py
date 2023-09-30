@@ -9,7 +9,6 @@ class ResultConfig(models.Model):
 
     subject = fields.Many2one('school_management.combined_subject', string='Subject', required=True, relation='subject_combined_subject')
     exam = fields.Many2many('school_management.exam', string='Exam')
-
     written_pass_mark = fields.Float(string='Written Pass Mark')
     written_max_mark = fields.Float(string='Written Max Mark')
     mcq_pass_mark = fields.Float(string='MCQ Pass Mark')
@@ -36,5 +35,8 @@ class ResultConfig(models.Model):
     def _has_written(self):
         for record in self:
             record.has_written = record.subject.has_written
+
+    def config(self):
+        pass
 
 
