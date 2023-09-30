@@ -20,35 +20,7 @@
             </tree>
         </field>
     </record>
-    <record id="view_result_config_form" model="ir.ui.view">
-        <field name="name">Result config form</field>
-        <field name="model">school_management.result_config</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="exam" />
-                        <field name="subject">
-                            <tree>
-                                <field name="title"/>
-                                <field name="subject" widget="many2many_tags"/>
-                            </tree>
-                        </field>
-                        <field name="has_written"  />
-                        <field name="has_mcq"  />
-                        <field name="has_practical"  />
-                        <field name="written_pass_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
-                        <field name="written_max_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
-                        <field name="mcq_pass_mark" attrs="{'invisible': [('has_mcq', '=', False)]}" />
-                        <field name="mcq_max_mark" attrs="{'invisible': [('has_mcq', '=', False)]}" />
-                        <field name="practical_pass_mark" attrs="{'invisible': [('has_practical', '=', False)]}" />
-                        <field name="practical_max_mark" attrs="{'invisible': [('has_practical', '=', False)]}" />
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
+    
     <record id="action_result_config" model="ir.actions.act_window">
         <field name="name">Regult Config List</field>
         <field name="type">ir.actions.act_window</field>

@@ -10,3 +10,4 @@ school_management.access_subject_wizard,access_subject_wizard,school_management.
 school_management.access_grade_config,access_grade_config,school_management.model_school_management_grade_config,,1,1,1,1
 school_management.access_processed_result,access_processed_result,school_management.model_school_management_processed_result,,1,1,1,1
 school_management.access_marks_wizard,access_marks_wizard,school_management.model_school_management_marks_wizard,,1,1,1,1
+school_management.access_config_wizard,access_config_wizard,school_management.model_school_management_config_wizard,,1,1,1,1
