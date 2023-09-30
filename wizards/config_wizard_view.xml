@@ -7,6 +7,11 @@
                 <form>
                    
                     <group>
+                        <field name="exam" invisible="1"/>
+                        <field name="subject" invisible="1"/>
+                        <field name="has_practical" invisible="1"/>
+                        <field name="has_mcq" invisible="1"/>
+                        <field name="has_written" invisible="1"/>
                         <field name="written_pass_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
                         <field name="written_max_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
                         <field name="mcq_pass_mark" attrs="{'invisible': [('has_mcq', '=', False)]}" />
