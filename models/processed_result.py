@@ -9,7 +9,8 @@ class ProcessedResult(models.Model):
 
     exam = fields.Many2one('school_management.exam', string='Exam', required=True,)
     student = fields.Many2one('res.users', string='Student')
-    subject = fields.Many2one('school_management.subject', string='Subject')
+    subject = fields.Many2one('school_management.combined_subject', string='Subject')
     grade_point = fields.Float(string='Grade Point')
-    total_mark = fields.Float(string='Total Mark')
+    total_marks = fields.Float(string='Total Mark')
+    marks_in_percentage = fields.Float(string='Mark (%)')
     grade_title = fields.Char(string='Grade Title')

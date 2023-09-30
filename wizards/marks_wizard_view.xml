@@ -6,15 +6,24 @@
             <field name="arch" type="xml">
                 <form>
                     <group>
-                        <field name="info" widget="html" readonly="1" style="display:inline;"/>
+                        <group>
+                            <field name="info_left" widget="html" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="info_right" widget="html" readonly="1"/>
+                        </group>
+
                     </group>
                     <group>
-                        <field name="written_mark" />
-                        <field name="mcq_mark" />
-                        <field name="practical_mark" />
+                        <field name="has_written" invisible="1"/>
+                        <field name="has_mcq" invisible="1"/>
+                        <field name="has_practical" invisible="1"/>
+                        <field name="written_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
+                        <field name="mcq_mark" attrs="{'invisible': [('has_mcq', '=', False)]}" />
+                        <field name="practical_mark" attrs="{'invisible': [('has_practical', '=', False)]}" />
                     </group>
                     <footer>
-                        <button string="Confirm" type="object" name="marks" class="btn btn-primary"/>
+                        <button string="Confirm" type="object" name="marks" class="btn btn-primary" />
                         <button string="Cancel" special="cancel" class="btn btn-secondary"/>
                     </footer>
                 </form>

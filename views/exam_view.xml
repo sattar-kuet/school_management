@@ -7,9 +7,11 @@
         <field name="arch" type="xml">
             <tree create="true" edit="true">
                 <field name="name" />
-                <field name="classes" widget="many2many_tags" />
+                <field name="class_config"  />
                 <field name="status" />
                 <button name="processing" string="Processing" type="object"
+                    class="btn btn-primary"></button>
+                <button name="result_publishing" string="Publish Result" type="object"
                     class="btn btn-primary"></button>
             </tree>
         </field>
@@ -22,7 +24,7 @@
                 <sheet>
                     <group>
                         <field name="name" placeholder="Exam Name" />
-                        <field name="classes" />
+                        <field name="class_config" />
                         <field name="status" />
                     </group>
                 </sheet>

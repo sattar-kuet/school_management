@@ -10,29 +10,12 @@
                 <field name="student" />
                 <field name="subject" />
                 <field name="grade_point" />
-                <field name="total_mark" />
+                <field name="total_marks" />
+                <field name="marks_in_percentage" />
                 <field name="grade_title" />
             </tree>
         </field>
      </record>
-     <record id="view_processed_result_form" model="ir.ui.view">
-        <field name="name">school_management.processed.result.form</field>
-        <field name="model">school_management.processed_result</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="exam" />
-                        <field name="student" />
-                        <field name="subject" />
-                        <field name="grade_point" />
-                        <field name="total_mark" />
-                        <field name="grade_title" />
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
 
     <record id="action_processed_result" model="ir.actions.act_window">
             <field name="name">Processed Result List</field>
