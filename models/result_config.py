@@ -36,7 +36,5 @@ class ResultConfig(models.Model):
         for record in self:
             record.has_written = record.subject.has_written
 
-    def config(self):
-        pass
-
+    
 
