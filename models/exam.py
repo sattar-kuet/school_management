@@ -22,6 +22,16 @@ class Exam(models.Model):
     )
 
     def setup_exam_config(self):
+        action = {
+            'name': 'Result Config',
+            'view_mode': 'tree',
+            'res_model': 'school_management.result_config',
+            'view_id': self.env.ref('school_management.view_result_config_tree').id,
+            'type': 'ir.actions.act_window',
+            'target': 'current'
+        }
+        if self.env['school_management.result_config'].search_count([('exam','=', self.id)]) !=0:
+            return action
         subject_config = self.env['school_management.subject_config'].search(
             [('class_config', '=', self.class_config.id)])
         combined_subject_list = self.env['school_management.combined_subject'].search(
@@ -40,15 +50,7 @@ class Exam(models.Model):
                 'status': 'generated',
             }
             self.env['school_management.result_config'].create(result_config_vals)
-        self.status = 'setup_done'
-        action = {
-            'name': 'Result Config',
-            'view_mode': 'tree',
-            'res_model': 'school_management.result_config',
-            'view_id': self.env.ref('school_management.view_result_config_tree').id,
-            'type': 'ir.actions.act_window',
-            'target': 'current'
-        }
+
         return action
 
     def processing(self):

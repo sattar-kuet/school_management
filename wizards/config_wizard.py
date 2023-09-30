@@ -53,3 +53,9 @@ class ConfigWizard(models.TransientModel):
         result_config.mcq_max_mark = self.mcq_max_mark
         result_config.practical_pass_mark = self.practical_pass_mark
         result_config.practical_max_mark = self.practical_max_mark
+        result_config.status = 'configured'
+
+        if self.env['school_management.result_config'].search_count([('exam', '=', result_config.exam.id), ('status', '=', 'generated')]) == 0:
+            self.env['school_management.exam'].browse(result_config.exam.id).write({
+                'status': 'setup_done'
+            })
