@@ -17,7 +17,7 @@ class SubjectWizard(models.TransientModel):
     def _compute_parts(self):
         for record in self:
             if record.has_two_part and record.name:
-                record.part1 = record.name + ' Part Paper'
+                record.part1 = record.name + ' First Paper'
                 record.part2 = record.name + ' Second Paper'
             else:
                 record.part1 = False
