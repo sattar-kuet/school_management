@@ -15,6 +15,7 @@
         'views/subject_view.xml',
         'views/exam_view.xml',
         
+        'wizards/config_wizard_view.xml',
         'views/result_config_view.xml',
         'views/class_config_view.xml',
         'views/subject_config_view.xml',
@@ -23,7 +24,7 @@
         'views/proccessed_result_view.xml',
         'wizards/marks_wizard_view.xml',
         'views/result_view.xml',
-        'wizards/config_wizard_view.xml',
+        
         
         'security/ir.model.access.csv',
         
