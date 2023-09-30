@@ -8,9 +8,10 @@
                    
                     <group>
                         
-                        <field name="has_practical" />
-                        <field name="has_mcq"/>
+                        <field name="subject_name" />
                         <field name="has_written" />
+                        <field name="has_mcq"/>
+                        <field name="has_practical" />
                         <field name="written_pass_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
                         <field name="written_max_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
                         <field name="mcq_pass_mark" attrs="{'invisible': [('has_mcq', '=', False)]}" />
