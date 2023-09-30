@@ -13,6 +13,7 @@ class Exam(models.Model):
     status = fields.Selection(
         selection=[
             ('pending', 'Pending'),
+            ('setup_done', 'Setup Done'),
             ('processing', 'Processing'),
             ('result_published', 'Result Published')
         ],
@@ -20,9 +21,41 @@ class Exam(models.Model):
         default='pending'
     )
 
+    def setup_exam_config(self):
+        subject_config = self.env['school_management.subject_config'].search(
+            [('class_config', '=', self.class_config.id)])
+        combined_subject_list = self.env['school_management.combined_subject'].search(
+            [('subject', 'in', subject_config.subject.ids)])
+
+        for combined_subject in combined_subject_list:
+            result_config_vals = {
+                'subject': combined_subject.id,
+                'exam': [self.id],
+                'written_pass_mark': 0,
+                'written_max_mark': 0,
+                'mcq_pass_mark': 0,
+                'mcq_max_mark': 0,
+                'practical_pass_mark': 0,
+                'practical_max_mark': 0,
+            }
+            self.env['school_management.result_config'].create(result_config_vals)
+        self.status = 'setup_done'
+        action = {
+            'name': 'Result Config',
+            'view_mode': 'tree',
+            'res_model': 'school_management.result_config',
+            'view_id': self.env.ref('school_management.view_result_config_tree').id,
+            'type': 'ir.actions.act_window',
+            'target': 'current'
+        }
+        return action
+
+
+
     @api.model
     def create(self, vals):
-        return super(Exam, self).create(vals)
+        exam_obj = super(Exam, self).create(vals)
+        return exam_obj
 
     def processing(self):
         students = self.env['res.users'].search([('class_config', '=', self.class_config.id)])

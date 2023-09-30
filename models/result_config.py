@@ -20,6 +20,7 @@ class ResultConfig(models.Model):
     has_practical = fields.Boolean(compute="_has_practical")
     has_mcq = fields.Boolean(compute="_has_mcq")
     has_written = fields.Boolean(compute="_has_written")
+    status = fields.Selection([('generated', 'System Generated'), ('configured', 'Configured')], defualt='generated')
 
     def _exam_computed(self):
         for record in self:

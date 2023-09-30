@@ -9,6 +9,8 @@
                 <field name="name" />
                 <field name="class_config"  />
                 <field name="status" />
+                 <button name="setup_exam_config" string="Setup" type="object"
+                    class="btn btn-primary"></button>
                 <button name="processing" string="Processing" type="object"
                     class="btn btn-primary"></button>
                 <button name="result_publishing" string="Publish Result" type="object"
