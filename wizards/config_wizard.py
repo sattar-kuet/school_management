@@ -21,9 +21,9 @@ class ConfigWizard(models.TransientModel):
     practical_max_mark = fields.Float(string='Practical Max Mark')
 
     subject_name = fields.Char(string='Subject Name')
-    has_practical = fields.Boolean(compute="_has_practical")
-    has_mcq = fields.Boolean(compute="_has_mcq")
-    has_written = fields.Boolean(compute="_has_written")
+    has_practical = fields.Boolean()
+    has_mcq = fields.Boolean()
+    has_written = fields.Boolean()
     status = fields.Selection([('generated', 'System Generated'), ('configured', 'Configured')], defualt='generated')
 
     @api.model
@@ -33,9 +33,23 @@ class ConfigWizard(models.TransientModel):
         this_wizard_fields['has_mcq'] = result_config.subject.has_mcq
         this_wizard_fields['has_written'] = result_config.subject.has_written
         this_wizard_fields['has_practical'] = result_config.subject.has_practical
+
+        this_wizard_fields['written_pass_mark'] = result_config.written_pass_mark
+        this_wizard_fields['written_max_mark'] = result_config.written_max_mark
+        this_wizard_fields['mcq_pass_mark'] = result_config.mcq_pass_mark
+        this_wizard_fields['mcq_max_mark'] = result_config.mcq_max_mark
+        this_wizard_fields['practical_pass_mark'] = result_config.practical_pass_mark
+        this_wizard_fields['practical_max_mark'] = result_config.practical_max_mark
+
         this_wizard_fields['subject_name'] = result_config.subject.title
 
         return this_wizard_fields
 
     def result_config_button(self):
-        pass
+        result_config = self.env['school_management.result_config'].browse(self.env.context.get('active_id'))
+        result_config.written_pass_mark = self.written_pass_mark
+        result_config.written_max_mark = self.written_max_mark
+        result_config.mcq_pass_mark = self.mcq_pass_mark
+        result_config.mcq_max_mark = self.mcq_max_mark
+        result_config.practical_pass_mark = self.practical_pass_mark
+        result_config.practical_max_mark = self.practical_max_mark
