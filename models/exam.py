@@ -30,7 +30,7 @@ class Exam(models.Model):
             'type': 'ir.actions.act_window',
             'target': 'current'
         }
-        if self.env['school_management.result_config'].search_count([('exam','=', self.id)]) !=0:
+        if self.env['school_management.result_config'].search_count([('exam', '=', self.id)]) != 0:
             return action
         subject_config = self.env['school_management.subject_config'].search(
             [('class_config', '=', self.class_config.id)])
@@ -124,3 +124,12 @@ class Exam(models.Model):
                 print(result_data)
 
                 self.env['school_management.processed_result'].create(result_data)
+
+    def remove_setup(self):
+        if self.env['school_management.result_config'].search_count([('exam', '=', self.id)]) == 1:
+
+        result_configs = self.env['school_management.result_config'].search([('exam', '=', self.id)])
+        for result_config in result_configs:
+            result_config.exam.ids = [x for x in result_config.exam.ids if x != self.id]
+
+

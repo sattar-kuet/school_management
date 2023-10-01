@@ -13,6 +13,8 @@
                     class="btn btn-primary"></button>
                 <button attrs="{'invisible': ['|', '|', ('status', '=', 'pending'), ('status', '=', 'processing'), ('status', '=', 'result_published')]}" name="processing" string="Processing" type="object"
                     class="btn btn-primary"></button>
+                 <button attrs="{'invisible': ['|', '|', ('status', '=', 'pending'), ('status', '=', 'processing'), ('status', '=', 'result_published')]}" name="remove_setup" string="Remove Setup" type="object"
+                    class="btn btn-primary"></button>
                 <button attrs="{'invisible': ['|', '|', ('status', '=', 'pending'), ('status', '=', 'setup_done'),('status', '=', 'result_published')]}" name="result_publishing" string="Publish Result" type="object"
                     class="btn btn-primary"></button>
             </tree>
