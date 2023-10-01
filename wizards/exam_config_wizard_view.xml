@@ -7,8 +7,8 @@
                 <form>
                     
                     <group>
-                        <field name="type"/>
-                        <field name="existing_config"/>
+                        <field name="type" widget="radio" options="{'horizontal': True}"/>
+                        <field name="existing_config" attrs="{'invisible': [('type', '=', 'new')]}"/>
                         
                     </group>
                     <footer>
