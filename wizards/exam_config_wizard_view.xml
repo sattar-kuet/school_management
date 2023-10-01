@@ -9,7 +9,6 @@
                     <group>
                         <field name="type" widget="radio" options="{'horizontal': True}"/>
                         <field name="existing_config" attrs="{'invisible': [('type', '=', 'new')]}"/>
-                        
                     </group>
                     <footer>
                         <button string="Confirm" type="object" name="exam_config" class="btn btn-primary" />

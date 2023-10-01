@@ -15,7 +15,7 @@ class ExamConfigWizard(models.TransientModel):
 
     
     type = fields.Selection([('new', 'New'), ('existing', 'Existing Config')] , default="new")
-    existing_config = fields.Many2one('school_management.exam',string='Existing Config')
+    existing_config = fields.Many2one('school_management.exam', string='Existing Config', domain="[('status', '!=', 'pending')]")
 
 
     def exam_config(self):
