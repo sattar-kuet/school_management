@@ -8,7 +8,7 @@
                    
                     <group>
                         
-                        <field name="subject_name" />
+                        <field name="subject_name" readonly="1"/>
                         <field name="has_written" />
                         <field name="has_mcq"/>
                         <field name="has_practical" />

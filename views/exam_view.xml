@@ -9,11 +9,11 @@
                 <field name="name" />
                 <field name="class_config"  />
                 <field name="status" />
-                 <button name="setup_exam_config" string="Setup" type="object"
+                 <button attrs="{'invisible': ['|', '|', ('status', '=', 'setup_done'), ('status', '=', 'processing'), ('status', '=', 'result_published')]}"  name="setup_exam_config" string="Setup" type="object"
                     class="btn btn-primary"></button>
-                <button name="processing" string="Processing" type="object"
+                <button attrs="{'invisible': ['|', '|', ('status', '=', 'pending'), ('status', '=', 'processing'), ('status', '=', 'result_published')]}" name="processing" string="Processing" type="object"
                     class="btn btn-primary"></button>
-                <button name="result_publishing" string="Publish Result" type="object"
+                <button attrs="{'invisible': ['|', '|', ('status', '=', 'pending'), ('status', '=', 'setup_done'),('status', '=', 'result_published')]}" name="result_publishing" string="Publish Result" type="object"
                     class="btn btn-primary"></button>
             </tree>
         </field>
