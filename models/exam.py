@@ -4,6 +4,7 @@ from odoo import fields, models
 from odoo import api
 from odoo.exceptions import ValidationError
 
+
 class Exam(models.Model):
     _name = 'school_management.exam'
     _description = 'Exam'
@@ -126,11 +127,13 @@ class Exam(models.Model):
                 self.env['school_management.processed_result'].create(result_data)
 
     def remove_setup(self):
-        if self.env['school_management.result_config'].search_count([('exam', '=', self.id)]) == 1:
-            raise ValidationError('This exam setup is not coupled with any others settings. So you just need to modify it.')
+        print('here..')
+        print(self.id)
+        result_config = self.env['school_management.result_config'].search([('exam', '=', self.id)], limit=1)
+        if len(result_config.ids) == 1:
+            raise ValidationError(
+                'This exam setup is not coupled with any others settings. So you just need to modify it.')
         else:
             result_configs = self.env['school_management.result_config'].search([('exam', '=', self.id)])
             for result_config in result_configs:
                 result_config.exam.ids = [x for x in result_config.exam.ids if x != self.id]
-
-

@@ -13,12 +13,8 @@ class ExamConfigWizard(models.TransientModel):
     _name = 'school_management.exam_config.wizard'
     _description = 'Exam Config wizard'
 
-    
-    type = fields.Selection([('new', 'New'), ('existing', 'Existing Config')] , default="new")
-    existing_config = fields.Many2one('school_management.exam',string='Existing Config')
-
+    type = fields.Selection([('new', 'New'), ('existing', 'Existing Config')], default="new")
+    existing_config = fields.Many2one('school_management.exam', string='Existing Config')
 
     def exam_config(self):
         pass
-
-    
