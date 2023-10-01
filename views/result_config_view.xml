@@ -6,7 +6,7 @@
         <field name="model">school_management.result_config</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="exam"/>
+                <field name="exam" widget="many2many_tags" />
                 <field name="subject"/>
                 <field name="written_pass_mark" placeholder="Example: 33" />
                 <field name="written_max_mark" placeholder="Example: 33" />
