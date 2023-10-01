@@ -2,7 +2,7 @@
 
 from odoo import fields, models
 from odoo import api
-
+from odoo.exceptions import ValidationError
 
 class Exam(models.Model):
     _name = 'school_management.exam'
@@ -127,9 +127,10 @@ class Exam(models.Model):
 
     def remove_setup(self):
         if self.env['school_management.result_config'].search_count([('exam', '=', self.id)]) == 1:
-
-        result_configs = self.env['school_management.result_config'].search([('exam', '=', self.id)])
-        for result_config in result_configs:
-            result_config.exam.ids = [x for x in result_config.exam.ids if x != self.id]
+            raise ValidationError('This exam setup is not coupled with any others settings. So you just need to modify it.')
+        else:
+            result_configs = self.env['school_management.result_config'].search([('exam', '=', self.id)])
+            for result_config in result_configs:
+                result_config.exam.ids = [x for x in result_config.exam.ids if x != self.id]
 
 
