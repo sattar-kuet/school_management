@@ -22,38 +22,6 @@ class Exam(models.Model):
         default='pending'
     )
 
-    def setup_exam_config(self):
-        action = {
-            'name': 'Result Config',
-            'view_mode': 'tree',
-            'res_model': 'school_management.result_config',
-            'view_id': self.env.ref('school_management.view_result_config_tree').id,
-            'type': 'ir.actions.act_window',
-            'target': 'current'
-        }
-        if self.env['school_management.result_config'].search_count([('exam', '=', self.id)]) != 0:
-            return action
-        subject_config = self.env['school_management.subject_config'].search(
-            [('class_config', '=', self.class_config.id)])
-        combined_subject_list = self.env['school_management.combined_subject'].search(
-            [('subject', 'in', subject_config.subject.ids)])
-
-        for combined_subject in combined_subject_list:
-            result_config_vals = {
-                'subject': combined_subject.id,
-                'exam': [self.id],
-                'written_pass_mark': 0,
-                'written_max_mark': 0,
-                'mcq_pass_mark': 0,
-                'mcq_max_mark': 0,
-                'practical_pass_mark': 0,
-                'practical_max_mark': 0,
-                'status': 'generated',
-            }
-            self.env['school_management.result_config'].create(result_config_vals)
-
-        return action
-
     def processing(self):
         students = self.env['res.users'].search([('class_config', '=', self.class_config.id)])
         subject_config = self.env['school_management.subject_config'].search(
@@ -130,10 +98,14 @@ class Exam(models.Model):
         print('here..')
         print(self.id)
         result_config = self.env['school_management.result_config'].search([('exam', '=', self.id)], limit=1)
-        if len(result_config.ids) == 1:
+        if len(result_config.exam.ids) == 1:
             raise ValidationError(
                 'This exam setup is not coupled with any others settings. So you just need to modify it.')
         else:
             result_configs = self.env['school_management.result_config'].search([('exam', '=', self.id)])
             for result_config in result_configs:
-                result_config.exam.ids = [x for x in result_config.exam.ids if x != self.id]
+                new_exam_ids = [x for x in result_config.exam.ids if x != self.id]
+                result_config.write({
+                    'exam': new_exam_ids
+                })
+        self.status = 'pending'
