@@ -5,10 +5,11 @@
             <field name="model">school_management.exam_config.wizard</field>
             <field name="arch" type="xml">
                 <form>
-                    
+
                     <group>
                         <field name="type" widget="radio" options="{'horizontal': True}"/>
-                        <field name="existing_config" attrs="{'invisible': [('type', '=', 'new')]}"/>
+                        <field name="existing_config" attrs="{'invisible': [('type', '=', 'new')]}" options="{'no_open': True, 'no_create': True}">
+                        </field>
                     </group>
                     <footer>
                         <button string="Confirm" type="object" name="exam_config" class="btn btn-primary" />
@@ -25,7 +26,7 @@
             <field name="view_id" ref="school_management.exam_config_form_wizard" />
             <field name="target">new</field>
             <field name="binding_view_types">form</field>
-             <field name="context">{'active_id': active_id }</field>
+            <field name="context">{'active_id': active_id }</field>
         </record>
     </data>
 </odoo>
