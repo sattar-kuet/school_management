@@ -20,5 +20,3 @@ class ExamConfigWizard(models.TransientModel):
 
     def exam_config(self):
         pass
-
-    
