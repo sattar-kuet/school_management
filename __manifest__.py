@@ -16,7 +16,7 @@
         'wizards/exam_config_wizard_view.xml',
         'views/exam_view.xml',
         
-        'wizards/config_wizard_view.xml',
+        'wizards/result_config_wizard_view.xml',
         'views/result_config_view.xml',
         'views/class_config_view.xml',
         'views/subject_config_view.xml',
