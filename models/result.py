@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models,api
+from odoo import fields, models, api
 
 
 class Result(models.Model):
@@ -15,7 +15,7 @@ class Result(models.Model):
     written_mark = fields.Float(string='Written Mark')
     mcq_mark = fields.Float(string='MCQ Mark')
     practical_mark = fields.Float(string='Practical Mark')
-    status = fields.Selection([('pending', 'Pending'), ('done', 'Done')], default='pending')
+    status = fields.Selection([('pending', 'Pending'), ('done', 'Done'), ('archive', 'archive')], default='pending')
 
     @api.model
     def _compute_class_name(self):

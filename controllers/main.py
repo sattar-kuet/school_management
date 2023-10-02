@@ -3,6 +3,10 @@ from odoo.http import request
 
 
 class SchoolManagement(http.Controller):
+    @http.route('/get_result/<string:student_code>', type="http", auth="public", website=True, methods=['GET', 'POST'])
+    def get_result(self,student_code, **kw):
+        pass
+
     @http.route('/dashboard', type="http", auth="user", website=True, methods=['GET', 'POST'])
     def portal_home(self, **kw):
         exam = request.env['school_management.exam'].search([('status', '=', 'processing')], limit=1)

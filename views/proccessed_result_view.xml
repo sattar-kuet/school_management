@@ -13,6 +13,7 @@
                 <field name="total_marks" />
                 <field name="marks_in_percentage" />
                 <field name="grade_title" />
+                <field name="status" />
             </tree>
         </field>
      </record>

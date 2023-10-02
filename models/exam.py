@@ -26,20 +26,23 @@ class Exam(models.Model):
 
     def _compute_ready_to_publish(self):
         for record in self:
-            if record.status == 'processing' and self.env['school_management.result'].search_count([('exam', '=', record.id), ('status', '=', 'pending')]):
+            if record.status == 'processing' and self.env['school_management.result'].search_count(
+                    [('exam', '=', record.id), ('status', '=', 'pending')]):
                 record.ready_to_publish = False
             else:
                 record.ready_to_publish = True
 
     @api.model
     def create(self, vals):
-        print(vals)
-        old_exams = self.env['school_management.exam'].search([('class_config', '=', vals['class_config'])])
-        for old_exam in old_exams:
-            old_exam.status = 'archive'
+        self.archive_old(vals['class_config'])
         return super(Exam, self).create(vals)
 
     def processing(self):
+        if self.env['school_management.exam'].search_count([('class_config', '=', self.class_config.id),
+                                                            ('status', '=', 'processing')]) > 0:
+            raise ValidationError('There is another Exam of this class is being processed')
+            return
+        self.archive_old(self.class_config.id)
         students = self.env['res.users'].search([('class_config', '=', self.class_config.id)])
         subject_config = self.env['school_management.subject_config'].search(
             [('class_config', '=', self.class_config.id)])
@@ -54,7 +57,21 @@ class Exam(models.Model):
 
         self.status = 'processing'
 
+    def archive_old(self, class_config_id):
+
+        old_exams = self.env['school_management.exam'].search([('class_config', '=', class_config_id)])
+        for old_exam in old_exams:
+            old_exam.status = 'archive'
+
+        old_processed_results = self.env['school_management.processed_result'].search(
+            [('class_config', '=', class_config_id)])
+        for old_processed_result in old_processed_results:
+            old_processed_result.status = 'archive'
+
     def result_publishing(self):
+        self.env['school_management.result'].search([('exam', '=', self.id)]).write({
+            'status': 'archive'
+        })
         self.status = 'result_published'
         result_configs = self.env['school_management.result_config'].search([('exam', '=', self.id)])
         # process this result_configs.subject for all student
@@ -99,6 +116,7 @@ class Exam(models.Model):
 
                 result_data = {
                     'exam': self.id,
+                    'class_config': self.class_config.id,
                     'student': student_id,
                     'subject': result_config.subject.id,
                     'grade_point': grade_point,

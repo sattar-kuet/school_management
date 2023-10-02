@@ -15,9 +15,9 @@
                 <field name="practical_mark" />
                 <field name="status" />
                 <button name="%(action_marks_wizard)d" string="Add Mark" type="action"
-                    class="btn btn-primary" attrs="{'invisible': [('status', '=', 'done')]}" ></button>
+                    class="btn btn-primary" attrs="{'invisible': ['|',('status', '=', 'done'),('status', '=', 'archive')]}" ></button>
                 <button name="%(action_marks_wizard)d" string="Update Mark" type="action"
-                    class="btn btn-primary" attrs="{'invisible': [('status', '=', 'pending')]}" ></button>
+                    class="btn btn-primary" attrs="{'invisible': ['|',('status', '=', 'pending'),('status', '=', 'archive')]}" ></button>
             </tree>
         </field>
      </record>
