@@ -16,11 +16,28 @@ class Exam(models.Model):
             ('pending', 'Pending'),
             ('setup_done', 'Setup Done'),
             ('processing', 'Processing'),
-            ('result_published', 'Result Published')
+            ('result_published', 'Result Published'),
+            ('archive', 'Archive')
         ],
         string='Status',
         default='pending'
     )
+    ready_to_publish = fields.Boolean(compute='_compute_ready_to_publish', default=False)
+
+    def _compute_ready_to_publish(self):
+        for record in self:
+            if record.status == 'processing' and self.env['school_management.result'].search_count([('exam', '=', record.id), ('status', '=', 'pending')]):
+                record.ready_to_publish = False
+            else:
+                record.ready_to_publish = True
+
+    @api.model
+    def create(self, vals):
+        print(vals)
+        old_exams = self.env['school_management.exam'].search([('class_config', '=', vals['class_config'])])
+        for old_exam in old_exams:
+            old_exam.status = 'archive'
+        return super(Exam, self).create(vals)
 
     def processing(self):
         students = self.env['res.users'].search([('class_config', '=', self.class_config.id)])
