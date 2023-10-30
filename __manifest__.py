@@ -35,6 +35,9 @@
         
     ],
     'assets': {
+        'web.assets_backend': [
+            'school_management/static/src/css/custom.scss'
+        ],
         'web.assets_frontend': [
             'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback',
             'school_management/static/adminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css',

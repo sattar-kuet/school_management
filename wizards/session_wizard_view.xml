@@ -9,12 +9,16 @@
             <form>
                 <sheet>
                     <group>
-                        <div class="alert alert-info">
-                            <ol style="padding: 10px;margin-top:0px;margin-bottom:-20px">
-                                <li style="display: inline-block; margin-right: 10px;"><field name="step1_info" widget="html" readonly="1"/></li>
-                                <li style="display: inline-block;"><field name="step2_info" widget="html" readonly="1"/></li>
-                            </ol>
-                        </div>
+                        <div id="itscholar-progressbar-container">
+                    <!-- progressbar -->
+                    <ul id="progressbar">
+                        <li class="active" id="account"><strong>Account</strong></li>
+                        <li id="personal"><strong>Personal</strong></li>
+                        <li id="payment"><strong>Image</strong></li>
+                        <li id="confirm"><strong>Finish</strong></li>
+                    </ul>
+
+                </div>
 
                     </group>
                     <group>
