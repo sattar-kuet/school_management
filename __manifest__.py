@@ -6,6 +6,7 @@
     'author': 'Your Name',
     'website': 'https://www.itscholarbd.com',
     'data': [
+        'data/demo.xml',
         'data/application_group.xml',
         'views/menu.xml',
         'views/dashboard.xml',

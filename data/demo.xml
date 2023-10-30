@@ -8,5 +8,25 @@
             <field name="name">Tuesday</field>
             <field name="value">1</field>
         </record>
+        <record model="school_management.week.day" id="wednesday">
+            <field name="name">Wednesday</field>
+            <field name="value">2</field>
+        </record>
+        <record model="school_management.week.day" id="thursday">
+            <field name="name">Thursday</field>
+            <field name="value">3</field>
+        </record>
+        <record model="school_management.week.day" id="friday">
+            <field name="name">Friday</field>
+            <field name="value">4</field>
+        </record>
+        <record model="school_management.week.day" id="saturday">
+            <field name="name">Saturday</field>
+            <field name="value">5</field>
+        </record>
+        <record model="school_management.week.day" id="sunday">
+            <field name="name">Sunday</field>
+            <field name="value">6</field>
+        </record>
     </data>
 </odoo>
