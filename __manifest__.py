@@ -11,6 +11,7 @@
         'views/menu.xml',
         'views/dashboard.xml',
         'views/session_view.xml',
+        'views/weekly_holiday_view.xml',
         # 'views/template.xml',
         'views/student_view.xml',
         'wizards/subject_wizard_view.xml',
