@@ -8,3 +8,4 @@ from . import result
 from . import combined_subject
 from . import grade_config
 from . import processed_result
+from . import processed_final_result
