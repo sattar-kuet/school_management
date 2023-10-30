@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models
+from odoo import fields, models, api
 
 
 class SessionConfig(models.Model):
@@ -14,3 +14,9 @@ class SessionConfig(models.Model):
         selection=[('active', 'Active'),
                    ('archive', 'Archive')], string='Status', default='active')
 
+    @api.model
+    def default_get(self, fields):
+        record = super(SessionConfig, self).default_get(fields)
+        record['title'] = 'test'
+
+        return record
