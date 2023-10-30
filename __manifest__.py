@@ -14,6 +14,7 @@
         'views/weekly_holiday_view.xml',
         # 'views/template.xml',
         'views/student_view.xml',
+        'wizards/session_wizard_view.xml',
         'wizards/subject_wizard_view.xml',
         'views/subject_view.xml',
         'wizards/exam_config_wizard_view.xml',

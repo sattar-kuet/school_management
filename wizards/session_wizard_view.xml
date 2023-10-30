@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <odoo>
-     <record id="view_session_tree" model="ir.ui.view">
+     <record id="view_session_wizard_tree" model="ir.ui.view">
         <field name="name">Session List Tree</field>
-        <field name="model">school_management.session</field>
+        <field name="model">school_management.session.wizard</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="title" />
@@ -12,9 +12,9 @@
             </tree>
         </field>
      </record>
-     <record id="view_session_form" model="ir.ui.view">
+     <record id="view_session_wizard_form" model="ir.ui.view">
         <field name="name">school_management.session.form</field>
-        <field name="model">school_management.session</field>
+        <field name="model">school_management.session.wizard</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
@@ -28,16 +28,21 @@
         </field>
     </record>
 
-    <record id="action_session" model="ir.actions.act_window">
+    <record id="action_session_wizard" model="ir.actions.act_window">
             <field name="name">Session List</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">school_management.session</field>
+            <field name="res_model">school_management.session.wizard</field>
             <field name="view_mode">form</field>
-            <field name="target">current</field>
+            <field name="target">new</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_school_managementiling_face"> Create your first Session</p>
             </field>
     </record>
-
+    <menuitem 
+            name="Config"
+            id="menu_session_list"
+            sequence="4"
+            action="action_session_wizard"
+            parent="menu_sm_root"/>
 
 </odoo>
