@@ -8,3 +8,8 @@ from . import result
 from . import combined_subject
 from . import grade_config
 from . import processed_result
+from . import holiday
+from . import session
+from . import week_day
+from . import weekly_holiday
+
