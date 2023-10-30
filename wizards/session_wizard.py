@@ -15,6 +15,8 @@ class SessionConfig(models.Model):
     status = fields.Selection(
         selection=[('active', 'Active'),
                    ('archive', 'Archive')], string='Status', default='active')
+    step1_info = fields.Char(string='STEP1')
+    step2_info = fields.Char(string='STEP2')
 
     @api.model
     def default_get(self, fields):
@@ -27,6 +29,8 @@ class SessionConfig(models.Model):
         record['title'] = f'Session: {current_year} - {next_year}'
         record['start_year'] = current_year
         record['end_year'] = next_year
+        record['step1_info'] = 'Session Configuration <span style="color:green" class="fa fa-check-circle"></span>'
+        record['step2_info'] = 'Weekly Holiday Configuration <span class="fa fa-circle-o-notch"></span>'
 
         return record
 

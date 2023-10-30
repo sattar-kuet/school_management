@@ -31,6 +31,7 @@ class SessionConfig(models.Model):
 
         return record
 
+    @api.model
     def create(self, vals):
         action = {
             'name': f'Weekly Holiday',
@@ -40,8 +41,8 @@ class SessionConfig(models.Model):
             'type': 'ir.actions.act_window',
             'target': 'current',
         }
-        result = super(SessionConfig, self).create(vals)
-        action['res_id'] = result.id  # Set the ID of the newly created record in the action
-
+        super(SessionConfig, self).create(vals)
+        # # action['res_id'] = result.id
+        #
         return action
 

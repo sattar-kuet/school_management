@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <odoo>
-     <record id="view_session_wizard_tree" model="ir.ui.view">
-        <field name="name">Session List Tree</field>
-        <field name="model">school_management.session.wizard</field>
-        <field name="arch" type="xml">
-            <tree>
-                <field name="title" />
-                <field name="start_year"  />
-                <field name="end_year" />
-            </tree>
-        </field>
-     </record>
-     <record id="view_session_wizard_form" model="ir.ui.view">
+
+    <record id="view_session_wizard_form" model="ir.ui.view">
         <field name="name">school_management.session.form</field>
         <field name="model">school_management.session.wizard</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
                     <group>
-                        <field name="title" />
-                        <field name="start_year"  />
-                        <field name="end_year" />
+                        <div class="alert alert-info">
+                            <ol>
+                                <li><field name="step1_info" widget="html" readonly="1"/></li>
+                                <li><field name="step2_info" widget="html" readonly="1"/></li>
+                            </ol>
+                        </div>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="title" />
+                        </group>
+                        <group>
+                            <field name="start_year"  />
+                        </group>
+                        <group>
+                            <field name="end_year" />
+                        </group>
                     </group>
                 </sheet>
             </form>
@@ -29,16 +33,16 @@
     </record>
 
     <record id="action_session_wizard" model="ir.actions.act_window">
-            <field name="name">Session List</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">school_management.session.wizard</field>
-            <field name="view_mode">form</field>
-            <field name="target">new</field>
-            <field name="help" type="html">
-                <p class="o_view_nocontent_school_managementiling_face"> Create your first Session</p>
-            </field>
+        <field name="name">Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school_management.session.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_school_managementiling_face"> Create your first Session</p>
+        </field>
     </record>
-    <menuitem 
+    <menuitem
             name="Config"
             id="menu_session_list"
             sequence="4"
