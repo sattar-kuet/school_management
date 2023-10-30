@@ -16,3 +16,5 @@ school_management.access_holiday,access_holiday,school_management.model_school_m
 school_management.access_session,access_session,school_management.model_school_management_session,,1,1,1,1
 school_management.access_week_day,access_week_day,school_management.model_school_management_week_day,,1,1,1,1
 school_management.access_weekly_holiday,access_weekly_holiday,school_management.model_school_management_weekly_holiday,,1,1,1,1
+school_management.access_processed_final_result,access_processed_final_result,school_management.model_school_management_processed_final_result,,1,1,1,1
+

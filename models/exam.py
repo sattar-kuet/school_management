@@ -128,6 +128,47 @@ class Exam(models.Model):
                 print(result_data)
 
                 self.env['school_management.processed_result'].create(result_data)
+        self.process_final_result()
+
+    def process_final_result(self):
+        subject_ids = self.env['school_management.subject_config'].search([('class_config', '=',
+                                                                          self.class_config.id)]).subject.ids
+        total_subject = self.env['school_management.combined_subject'].search_count([('subject', 'in', subject_ids)])
+        processed_results = self.env['school_management.processed_result'].search(
+            [('exam', '=', self.id), ('status', '=', 'published')])
+        processed_students = []
+        total_grade_point = {}
+        total_marks = {}
+        failed_students = []
+        for processed_result in processed_results:
+            if processed_result.student.id in failed_students:
+                continue
+
+            if processed_result.grade_point == 0:
+                total_grade_point[processed_result.student.id] = 0
+                failed_students.append(processed_result.student.id)
+                processed_students.append(processed_result.student.id)
+                continue
+
+            if processed_result.student.id in processed_students:
+                total_grade_point[processed_result.student.id] += processed_result.grade_point
+                total_marks[processed_result.student.id] += processed_result.total_marks
+            else:
+                total_grade_point[processed_result.student.id] = processed_result.grade_point
+                total_marks[processed_result.student.id] = processed_result.total_marks
+                processed_students.append(processed_result.student.id)
+
+        for processed_student_id in processed_students:
+            grade_point = total_grade_point[processed_student_id] / total_subject
+            grade_config = self.env['school_management.grade_config'].search(
+                [('point', '<=', grade_point), ('point', '>=', grade_point)], limit=1)
+            self.env['school_management.processed_final_result'].create({
+                'exam': self.id,
+                'class_config': self.class_config.id,
+                'student': processed_student_id,
+                'grade_point': grade_point,
+                'grade_title': grade_config.name
+            })
 
     def remove_setup(self):
         print('here..')

@@ -1,11 +1,18 @@
 from odoo import http
 from odoo.http import request
+import json
 
 
 class SchoolManagement(http.Controller):
-    @http.route('/get_result/<string:student_code>', type="http", auth="public", website=True, methods=['GET', 'POST'])
-    def get_result(self,student_code, **kw):
-        pass
+
+    @http.route('/search_result/<string:student_code>', type="http", auth="public", website=True,
+                methods=['GET', 'POST'])
+    def search_result(self, student_code, **kw):
+        student = request.env['res.users'].search([('code', '=', student_code)])
+        result = request.env['school_management.processed_final_result'].search(
+            [('student', '=', student_code), ('status', '=', 'published')])
+        response = {'name': student.name, 'grade_point': result.grade_point, 'grade_title': result.grade_title}
+        return json.dumps(response)
 
     @http.route('/dashboard', type="http", auth="user", website=True, methods=['GET', 'POST'])
     def portal_home(self, **kw):
@@ -19,7 +26,8 @@ class SchoolManagement(http.Controller):
                 ('class_config', '=', class_record.id),
                 ('id', 'not in', processed_students)
             ])
-            subject_config = request.env['school_management.subject_config'].search([('class_config', '=', class_record.id)])
+            subject_config = request.env['school_management.subject_config'].search(
+                [('class_config', '=', class_record.id)])
 
             for student in students:
                 data.append({
