@@ -20,6 +20,11 @@
                     parent="menu_sm_root"
                     action=""
                     sequence="3" />
+          <menuitem id="menu_Config"
+                    name="Config"
+                    parent="menu_sm_root"
+                    action=""
+                    sequence="4" />
           
 
 
