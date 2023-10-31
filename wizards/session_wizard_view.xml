@@ -51,11 +51,6 @@
             <p class="o_view_nocontent_school_managementiling_face"> Create your first Session</p>
         </field>
     </record>
-    <menuitem
-            name="Config"
-            id="menu_session_list"
-            sequence="4"
-            action="action_session_wizard"
-            parent="menu_sm_root"/>
+
 
 </odoo>
