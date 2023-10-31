@@ -6,7 +6,7 @@
         <field name="model">school_management.weekly.holiday</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="week_days" />
+                <field name="weekly_off_days" />
             </tree>
         </field>
      </record>
@@ -17,7 +17,7 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="week_days" />
+                        <field name="weekly_off_days" />
                     </group>
                 </sheet>
             </form>

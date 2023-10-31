@@ -8,8 +8,23 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="week_days" widget="many2many_tags"/>
+                        <div id="itscholar-progressbar-container">
+                            <!-- progressbar -->
+                            <ul id="progressbar">
+                                <li class="active config-icon" ><strong>Session</strong></li>
+                                <li class="active config-icon"><strong>Weekly Holiday</strong></li>
+                                <li class="config-icon"><strong>Yearly Holiday</strong></li>
+                                <li class="config-icon"><strong>Group</strong></li>
+                            </ul>
+                        </div>
                     </group>
+                    <group>
+                        <field name="weekly_off_days" widget="many2many_tags"/>
+                    </group>
+                    <footer>
+                        <button string="Back" type="object" name="back"  class="btn btn-secondary"/>
+                        <button string="Next" type="object" name="next"  class="btn btn-primary"/>
+                    </footer>
                 </sheet>
             </form>
         </field>
