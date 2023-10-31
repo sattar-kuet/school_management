@@ -9,19 +9,7 @@
                 </calendar>
             </field>
         </record>
-    <record id="yearly_holiday_wizard_form" model="ir.ui.view">
-        <field name="name">config.form.wizard</field>
-        <field name="model">school_management.yearly.holiday.wizard</field>
-        <field name="arch" type="xml">
-            <form>
-                <field name="title"/>
-                <footer>
-                    <button string="Back" type="object" name="back" class="btn btn-secondary"/>
-                    <button string="Next" type="object" name="next" class="btn btn-primary" />
-                </footer>
-            </form>
-        </field>
-    </record>
+
 
     <record id="action_yearly_holiday_wizard" model="ir.actions.act_window">
         <field name="name">Configuration</field>
