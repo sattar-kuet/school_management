@@ -10,5 +10,6 @@ class Subject(models.Model):
     has_practical = fields.Boolean(string='Has Practical')
     has_mcq = fields.Boolean(string='Has MCQ')
     has_written = fields.Boolean(string='Has Written')
+    groups = fields.Many2many('school_management.group')
 
 

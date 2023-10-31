@@ -3,9 +3,8 @@
             <field name="name">yearly.holiday.calendar</field>
             <field name="model">school_management.yearly.holiday.wizard</field>
             <field name="arch" type="xml">
-                <calendar string="Calendar" date_start="start_date" color="title">
+                <calendar  string="Holiday"  date_start="start_date" date_stop="end_date" color="title" mode="month">
                     <field name="title"/>
-                    <field name="start_date"/>
                 </calendar>
             </field>
         </record>

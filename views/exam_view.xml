@@ -30,7 +30,6 @@
                     <group>
                         <field name="name" placeholder="Exam Name" />
                         <field name="class_config" />
-                        <field name="status" />
                     </group>
                 </sheet>
             </form>

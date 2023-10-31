@@ -8,8 +8,8 @@ class YearlyHolidayConfig(models.Model):
     _description = 'Holiday Config'
 
     title = fields.Char(string='Title')
-    start_date = fields.Char(string='Start Date')
-    end_date = fields.Char(string='End Date')
+    start_date = fields.Date(string='Start Date')
+    end_date = fields.Date(string='End Date')
 
     def next(self):
         pass

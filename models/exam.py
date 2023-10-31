@@ -34,6 +34,11 @@ class Exam(models.Model):
 
     @api.model
     def create(self, vals):
+        students = self.env['res.users'].search_count([('class_config', '=', vals['class_config'])])
+        print('*'*100,students)
+        if students == 0:
+            raise ValidationError('There is no student for this Class')
+            return
         self.archive_old(vals['class_config'])
         return super(Exam, self).create(vals)
 
@@ -44,6 +49,7 @@ class Exam(models.Model):
             return
         self.archive_old(self.class_config.id)
         students = self.env['res.users'].search([('class_config', '=', self.class_config.id)])
+
         subject_config = self.env['school_management.subject_config'].search(
             [('class_config', '=', self.class_config.id)])
 
