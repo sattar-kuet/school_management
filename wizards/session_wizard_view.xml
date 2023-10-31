@@ -10,28 +10,32 @@
                 <sheet>
                     <group>
                         <div id="itscholar-progressbar-container">
-                    <!-- progressbar -->
-                    <ul id="progressbar">
-                        <li class="active" id="account"><strong>Account</strong></li>
-                        <li id="personal"><strong>Personal</strong></li>
-                        <li id="payment"><strong>Image</strong></li>
-                        <li id="confirm"><strong>Finish</strong></li>
-                    </ul>
-
-                </div>
-
+                            <!-- progressbar -->
+                            <ul id="progressbar">
+                                <li class="active config-icon" ><strong>Session</strong></li>
+                                <li class="config-icon"><strong>Weekly Holiday</strong></li>
+                                <li class="config-icon"><strong>Yearly Holiday</strong></li>
+                                <li class="config-icon"><strong>Group</strong></li>
+                            </ul>
+                        </div>
                     </group>
                     <group>
                         <group>
                             <field name="title" />
                         </group>
                         <group>
-                            <field name="start_year"  />
-                        </group>
-                        <group>
-                            <field name="end_year" />
+                            <div class="row">
+                                <div class="col-md-3" style="text-align:right; border-right: 1px solid #ddd;">Start Year</div>
+                                <div class="col-md-3"><field name="start_year"  /> </div>
+                                <div class="col-md-3" style="text-align:right; border-right: 1px solid #ddd;">End Year</div>
+                                <div class="col-md-3"><field name="end_year" /></div>
+
+                            </div>
                         </group>
                     </group>
+                    <footer>
+                        <button string="Next" type="object" name="next"  class="btn btn-primary"/>
+                    </footer>
                 </sheet>
             </form>
         </field>

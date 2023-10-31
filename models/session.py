@@ -16,33 +16,4 @@ class SessionConfig(models.Model):
         selection=[('active', 'Active'),
                    ('archive', 'Archive')], string='Status', default='active')
 
-    @api.model
-    def default_get(self, fields):
-        record = super(SessionConfig, self).default_get(fields)
-        current_year = datetime.date.today().year
-        next_year = current_year + 1
-        current_year = str(current_year)
-        next_year = str(next_year)
-
-        record['title'] = f'Session: {current_year} - {next_year}'
-        record['start_year'] = current_year
-        record['end_year'] = next_year
-
-
-        return record
-
-    @api.model
-    def create(self, vals):
-        action = {
-            'name': f'Weekly Holiday',
-            'view_mode': 'form',
-            'res_model': 'school_management.weekly.holiday',
-            'view_id': self.env.ref('school_management.view_weekly_holiday_form').id,
-            'type': 'ir.actions.act_window',
-            'target': 'current',
-        }
-        super(SessionConfig, self).create(vals)
-        # # action['res_id'] = result.id
-        #
-        return action
 

@@ -12,38 +12,54 @@ class SessionConfig(models.Model):
     title = fields.Char(string='Title')
     start_year = fields.Char(string='Start Year')
     end_year = fields.Char(string='End Year')
-    status = fields.Selection(
-        selection=[('active', 'Active'),
-                   ('archive', 'Archive')], string='Status', default='active')
-    step1_info = fields.Char(string='STEP1')
-    step2_info = fields.Char(string='STEP2')
 
+    @api.onchange('start_year', 'end_year')
+    def _compute_title(self):
+        if self.start_year and self.end_year:
+            title = f'Session: {self.start_year} - {self.end_year}'
+            self.title = title
     @api.model
     def default_get(self, fields):
-        record = super(SessionConfig, self).default_get(fields)
-        current_year = datetime.date.today().year
-        next_year = current_year + 1
-        current_year = str(current_year)
-        next_year = str(next_year)
+        session = self.env['school_management.session'].search([
+            ('status', '=', 'active'),
+        ], limit=1)
+        if session:
+            current_year = session.start_year
+            next_year = session.end_year
+            current_year = str(current_year)
+            next_year = str(next_year)
+            title = session.title
+        else:
+            current_year = datetime.date.today().year
+            next_year = current_year + 1
+            current_year = str(current_year)
+            next_year = str(next_year)
+            title = f'Session: {current_year} - {next_year}'
 
-        record['title'] = f'Session: {current_year} - {next_year}'
+        record = super(SessionConfig, self).default_get(fields)
+        record['title'] = title
         record['start_year'] = current_year
         record['end_year'] = next_year
-        record['step1_info'] = 'Session Configuration <span style="color:green" class="fa fa-check-circle"></span>'
-        record['step2_info'] = 'Weekly Holiday Configuration <span class="fa fa-circle-o-notch"></span>'
 
         return record
 
-    def create(self, vals):
-        action = {
-            'name': f'Weekly Holiday',
-            'view_mode': 'form',
-            'res_model': 'school_management.weekly.holiday',
-            'view_id': self.env.ref('school_management.view_weekly_holiday_form').id,
-            'type': 'ir.actions.act_window',
-            'target': 'current',
+    def next(self):
+        session_data = {
+            'title': self.title,
+            'start_year': self.start_year,
+            'end_year': self.end_year
         }
-        result = super(SessionConfig, self).create(vals)
-        action['res_id'] = result.id  # Set the ID of the newly created record in the action
 
-        return action
+        session = self.env['school_management.session'].search([
+            ('start_year', '=', self.start_year),
+            ('end_year', '=', self.end_year)
+        ])
+        if session:
+            session.write(session_data)
+        else:
+            self.env['school_management.session'].search([
+                ('status', '=', 'active'),
+            ]).write({
+                'status': 'archive'
+            })
+            self.env['school_management.session'].create(session_data)

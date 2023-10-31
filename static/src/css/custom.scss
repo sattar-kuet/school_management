@@ -21,28 +21,15 @@
     float: left;
     position: relative;
     font-weight: 400;
+    z-index: 99;
 }
 
 /*Icons in the ProgressBar*/
-#progressbar #account:before {
-    font-family: FontAwesome;
-    content: "\f13e";
-}
-
-#progressbar #personal:before {
-    font-family: FontAwesome;
-    content: "\f007";
-}
-
-#progressbar #payment:before {
-    font-family: FontAwesome;
-    content: "\f030";
-}
-
-#progressbar #confirm:before {
+#progressbar .config-icon:before {
     font-family: FontAwesome;
     content: "\f00c";
 }
+
 
 /*Icon ProgressBar before any progress*/
 #progressbar li:before {
@@ -67,7 +54,7 @@
     position: absolute;
     left: 0;
     top: 25px;
-    z-index: 999;
+    z-index: -1;
 }
 
 /*Color number of the step and the connector before it*/
