@@ -5,6 +5,7 @@
             <field name="arch" type="xml">
                 <calendar string="Calendar" date_start="start_date" color="title">
                     <field name="title"/>
+                    <field name="start_date"/>
                 </calendar>
             </field>
         </record>
