@@ -5,6 +5,7 @@ school_management.access_result_config,access_result_config,school_management.mo
 school_management.access_result,access_result,school_management.model_school_management_result,,1,1,1,1
 school_management.access_subject_config,access_subject_config,school_management.model_school_management_subject_config,,1,1,1,1
 school_management.access_subject,access_subject,school_management.model_school_management_subject,,1,1,1,1
+school_management.access_group,access_group,school_management.model_school_management_group,,1,1,1,1
 school_management.access_combined_subject,access_combined_subject,school_management.model_school_management_combined_subject,,1,1,1,1
 school_management.access_subject_wizard,access_subject_wizard,school_management.model_school_management_subject_wizard,,1,1,1,1
 school_management.access_grade_config,access_grade_config,school_management.model_school_management_grade_config,,1,1,1,1

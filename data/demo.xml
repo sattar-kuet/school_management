@@ -28,5 +28,19 @@
             <field name="name">Sunday</field>
             <field name="value">6</field>
         </record>
+
+<!--        Student group data-->
+        <record model="school_management.group" id="science">
+            <field name="name">Science</field>
+            <field name="name_bn">বিজ্ঞান</field>
+        </record>
+        <record model="school_management.group" id="humanities">
+            <field name="name">Humanities</field>
+            <field name="name_bn">মানবিক</field>
+        </record>
+        <record model="school_management.group" id="commerce">
+            <field name="name">Commerce</field>
+            <field name="name_bn">হিসাব বিজ্ঞান</field>
+        </record>
     </data>
 </odoo>
