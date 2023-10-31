@@ -65,11 +65,11 @@ class SessionConfig(models.Model):
             self.env['school_management.session'].create(session_data)
 
         action = {
-            'name': 'Weekly Holiday Config',
+            'name': 'Configuration',
             'view_mode': 'form',
             'res_model': 'sm.weekly.holiday.wizard',
-            'view_id': self.env.ref('school_management.action_weekly_holiday_wizard').id,
+            'view_id': self.env.ref('school_management.view_weekly_holiday_wizard_form').id,
             'type': 'ir.actions.act_window',
-            'target': 'current',
+            'target': 'new',
         }
         return action

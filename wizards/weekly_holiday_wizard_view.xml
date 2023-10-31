@@ -8,7 +8,7 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="week_days" />
+                        <field name="week_days" widget="many2many_tags"/>
                     </group>
                 </sheet>
             </form>
@@ -16,7 +16,7 @@
     </record>
 
     <record id="action_weekly_holiday_wizard" model="ir.actions.act_window">
-            <field name="name">Weekly Holiday Config</field>
+            <field name="name">Configuration</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">sm.weekly.holiday.wizard</field>
             <field name="view_mode">form</field>
@@ -25,5 +25,4 @@
                 <p class="o_view_nocontent_school_managementiling_face"> Create your first Weekly Holiday</p>
             </field>
     </record>
-
 </odoo>
