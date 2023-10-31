@@ -13,4 +13,5 @@ from . import session
 from . import week_day
 from . import weekly_holiday
 from . import processed_final_result
+from . import group
 

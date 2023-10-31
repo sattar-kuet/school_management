@@ -12,7 +12,8 @@
                 <field name="blood_group"></field>
                 <field name="guardian"></field>
                 <field name="class_config"></field>
-                
+                <field name="student_group"></field>
+
             </tree>
         </field>
      </record>
@@ -29,6 +30,7 @@
                         <field name="blood_group" widget="radio" options="{'horizontal': True}" />
                         <field name="guardian" />
                         <field name="class_config" />
+                        <field name="student_group" />
                     </group>
                 </sheet>
             </form>
