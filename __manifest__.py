@@ -18,6 +18,7 @@
         'views/class_room_config_view.xml',
         'views/shift_view.xml',
         'views/teacher_activity_view.xml',
+        'views/student_subject_config_view.xml',
 
         # 'views/template.xml',
         'views/student_view.xml',

@@ -25,4 +25,5 @@ school_management.access_class_room,access_class_room,school_management.model_sc
 school_management.access_class_room_config,access_class_room_config,school_management.model_school_management_class_room_config,,1,1,1,1
 school_management.access_shift,access_shift,school_management.model_school_management_shift,,1,1,1,1
 school_management.access_teacher_activity,access_teacher_activity,school_management.model_sm_teacher_activity,,1,1,1,1
+school_management.access_student_subject_config,access_student_subject_config,school_management.model_sm_student_subject_config,,1,1,1,1
 

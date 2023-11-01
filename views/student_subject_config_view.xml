@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="view_student_subject_config_tree" model="ir.ui.view">
+        <field name="name">Shift Tree</field>
+        <field name="model">sm.student.subject.config</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student" />
+                <field name="subjects" />
+                <field name="optional_subject" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_student_subject_config_form" model="ir.ui.view">
+        <field name="name">school_management.student.subject.config.form</field>
+        <field name="model">sm.student.subject.config</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="student" />
+                        <field name="subjects" />
+                        <field name="optional_subject" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_student_subject_config" model="ir.actions.act_window">
+        <field name="name">Student Subject Config</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sm.student.subject.config</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_school_managementiling_face"> Create your first Student Subject Config</p>
+        </field>
+    </record>
+    <menuitem
+            name="Student Subject Config"
+            id="menu_student_subject_config_list"
+            sequence="8"
+            action="action_student_subject_config"
+            parent="menu_data"/>
+
+</odoo>
