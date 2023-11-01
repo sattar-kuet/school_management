@@ -9,3 +9,4 @@ class ClassConfig(models.Model):
     _description = 'School Management'
 
     name = fields.Char(string='Name', required=True)
+    has_group = fields.Boolean(string='Has Group', required=True)

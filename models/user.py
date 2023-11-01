@@ -18,9 +18,14 @@ class User(models.Model):
     ], string='Blood Group', required=True)
     guardian = fields.Many2one("res.users", string="Guardian")
     class_config = fields.Many2one("school_management.class_config", string='Class')
+    class_has_group = fields.Boolean(compute='_compute_class_has_group')
     student_group = fields.Many2one("school_management.group", string='Group')
     user_type = fields.Selection([('student', 'Student'), ('teacher', 'Teacher'), ('guardian', 'Guardian')])
 
+    @api.depends('class_config')
+    def _compute_class_has_group(self):
+        for student in self:
+            student.class_has_group = student.class_config.has_group
     @api.model
     def create(self, vals):
         code = random.randint(100000, 999999)
