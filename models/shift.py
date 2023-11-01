@@ -7,6 +7,7 @@ class Shift(models.Model):
     _description = 'Shift'
 
     name = fields.Char(string='Name')
+    start_time_hh = fields.Integer(placeholder="Hour",  required=True)
+    start_time_mm = fields.Integer(placeholder="Minute", required=True)
     end_time = fields.Datetime(string='End Time')
-    start_time = fields.Float(string='Time', digits=(4, 2), widget='float_time')
-
+    meridiem = fields.Selection([('am', 'AM'), ('pm', 'PM')], default='am', required=True)
