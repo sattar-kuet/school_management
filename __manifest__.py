@@ -14,6 +14,11 @@
         'wizards/yearly_holiday_wizard_view.xml',
         'views/session_view.xml',
         'views/weekly_holiday_view.xml',
+        'views/class_room_view.xml',
+        'views/class_room_config_view.xml',
+        'views/shift_view.xml',
+        'views/teacher_activity_view.xml',
+
         # 'views/template.xml',
         'views/student_view.xml',
         'wizards/session_wizard_view.xml',

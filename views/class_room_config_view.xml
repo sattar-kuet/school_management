@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="view_class_room_config_tree" model="ir.ui.view">
+        <field name="name">class Room Tree</field>
+        <field name="model">school_management.class.room.config</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="class_room" />
+                <field name="shift" />
+                <field name="start_time" />
+                <field name="end_time" />
+                <field name="subject" />
+                <field name="week_days" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_class_room_config_form" model="ir.ui.view">
+        <field name="name">school_management.class.room.config.form</field>
+        <field name="model">school_management.class.room.config</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="class_room" />
+                        <field name="shift" />
+                        <field name="start_time" />
+                        <field name="end_time" />
+                        <field name="subject" />
+                        <field name="week_days" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_class_room_config" model="ir.actions.act_window">
+        <field name="name">Class Room Config</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school_management.class.room.config</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_school_managementiling_face"> Create your first Class Room</p>
+        </field>
+    </record>
+    <menuitem
+            name="Class Room Config"
+            id="menu_class_room_config_list"
+            sequence="5"
+            action="action_class_room_config"
+            parent="menu_data"/>
+
+</odoo>

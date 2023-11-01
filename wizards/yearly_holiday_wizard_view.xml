@@ -8,8 +8,6 @@
                 </calendar>
             </field>
         </record>
-
-
     <record id="action_yearly_holiday_wizard" model="ir.actions.act_window">
         <field name="name">Configuration</field>
         <field name="type">ir.actions.act_window</field>

@@ -42,3 +42,5 @@ class SchoolManagement(http.Controller):
         }
         values = {'data': final_data, 'no_active_exam': False, 'page': 'dashboard'}
         return request.render('school_management.portal_layout', values)
+
+

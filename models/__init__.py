@@ -14,4 +14,8 @@ from . import week_day
 from . import weekly_holiday
 from . import processed_final_result
 from . import group
+from . import class_room
+from . import shift
+from . import class_room_config
+from . import teacher_activity
 
