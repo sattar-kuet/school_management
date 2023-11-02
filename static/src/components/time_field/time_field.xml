@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="owl.TimeField" owl="1">
+        <div>
+            <label for="customRange1" class="form-label"></label>
+            <input type="time" class="o_input" id="customTime"  t-att-value="props.value"/>
+        </div>
+    </t>
+</templates>

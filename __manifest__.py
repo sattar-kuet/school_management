@@ -27,24 +27,28 @@
         'views/subject_view.xml',
         'wizards/exam_config_wizard_view.xml',
         'views/exam_view.xml',
-        
+
         'wizards/result_config_wizard_view.xml',
         'views/result_config_view.xml',
         'views/class_config_view.xml',
         'views/subject_config_view.xml',
         'views/grade_config_view.xml',
-        
+
         'views/proccessed_result_view.xml',
         'wizards/marks_wizard_view.xml',
         'views/result_view.xml',
 
-        
+
         'security/ir.model.access.csv',
-        
+
     ],
     'assets': {
         'web.assets_backend': [
-            'school_management/static/src/css/custom.scss'
+            'school_management/static/src/css/custom.scss',
+            'school_management/static/src/js/custom.js',
+            'school_management/static/src/components/*/*.js',
+            'school_management/static/src/components/*/*.xml',
+            'school_management/static/src/components/*/*.scss',
         ],
         'web.assets_frontend': [
             'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback',

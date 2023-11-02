@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
+                <field name="start_time"/>
                 <field name="end_time" />
             </tree>
         </field>
@@ -18,15 +19,8 @@
             <form>
                 <sheet>
                     <group>
-                        <div class="row">
-                            <div class="col-md-3"> Start Time</div>
-                            <div class="col-md-2 time-input"> <field name="start_time_hh"/></div>
-                            <div class="col-md-1 time-seperator">:</div>
-                            <div class="col-md-2 time-input"> <field name="start_time_mm"/></div>
-                            <div class="col-md-2 meridiem"> <field name="meridiem"/></div>
-                        </div>
                         <field name="name" />
-
+                        <field name="start_time"  widget="time" />
                         <field name="end_time" />
                     </group>
                 </sheet>

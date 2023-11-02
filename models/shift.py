@@ -6,8 +6,7 @@ class Shift(models.Model):
     _name = 'school_management.shift'
     _description = 'Shift'
 
-    name = fields.Char(string='Name')
-    start_time_hh = fields.Integer(placeholder="Hour",  required=True)
-    start_time_mm = fields.Integer(placeholder="Minute", required=True)
-    end_time = fields.Datetime(string='End Time')
-    meridiem = fields.Selection([('am', 'AM'), ('pm', 'PM')], default='am', required=True)
+    name = fields.Char(string='Name', required=True)
+    start_time = fields.Char(string='Start Time')
+    end_time = fields.Char(string='End Time')
+
