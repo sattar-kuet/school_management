@@ -7,8 +7,8 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
-                <field name="start_time"/>
-                <field name="end_time" />
+                <field name="start_time_am_pm" />
+                <field name="end_time_am_pm" />
             </tree>
         </field>
     </record>
@@ -20,8 +20,14 @@
                 <sheet>
                     <group>
                         <field name="name" />
-                        <field name="start_time"  widget="time" />
-                        <field name="end_time" />
+                    </group>
+                    <group>
+                        <group>
+                             <field name="start_time"  widget="time" />
+                        </group>
+                       <group>
+                           <field name="end_time" widget="time" />
+                       </group>
                     </group>
                 </sheet>
             </form>
