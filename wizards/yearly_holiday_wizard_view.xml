@@ -1,19 +1,20 @@
 <odoo>
     <record id="yearly_holiday_calendar" model="ir.ui.view" >
-        <field name="name">yearly.holiday.calendar</field>
-        <field name="model">school_management.yearly.holiday.wizard</field>
-        <field name="arch" type="xml">
-            <calendar string="Holiday" date_start="start_date" date_stop="end_date" color="title" mode="month">
-                <field name="title"/>
-            </calendar>
-        </field>
-    </record>
+            <field name="name">yearly.holiday.calendar</field>
+            <field name="model">school_management.yearly.holiday.wizard</field>
+            <field name="arch" type="xml">
+                <calendar  string="Holiday"  date_start="start_date" date_stop="end_date" color="name" mode="month">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
     <record id="action_yearly_holiday_wizard" model="ir.actions.act_window">
         <field name="name">Configuration</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">school_management.yearly.holiday.wizard</field>
-        <field name="view_mode">form,calendar</field> <!-- Add 'form' view mode here -->
-        <field name="target">current</field>
+        <field name="view_mode">calendar</field>
+        <field name="target">new</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_school_managementiling_face">Create your first Weekly Holiday</p>
         </field>

@@ -45,7 +45,7 @@
     'assets': {
         'web.assets_backend': [
             'school_management/static/src/css/custom.scss',
-            'school_management/static/src/js/custom.js',
+            'school_management/static/src/js/calendar_popup.js',
             'school_management/static/src/components/*/*.js',
             'school_management/static/src/components/*/*.xml',
             'school_management/static/src/components/*/*.scss',
