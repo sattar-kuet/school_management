@@ -6,11 +6,6 @@
         <field name="model">school_management.subject</field>
         <field name="arch" type="xml">
             <tree>
-                <header>
-                    <button name="%(action_add_subject_wizard)d" type="action"
-                            string="Add Subject" class="oe_highlight"
-                            attrs="{'always_visible': True}"/>
-                </header>
                 <field name="name" placeholder="Suject Name" />
                 <field name="has_practical" />
                 <field name="has_mcq" />
