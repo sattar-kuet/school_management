@@ -25,7 +25,7 @@
         'wizards/session_wizard_view.xml',
         'wizards/subject_wizard_view.xml',
         'views/subject_view.xml',
-        'views/subject_view_inherit.xml',
+        'views/subject_tree_view_inherit.xml',
         'wizards/exam_config_wizard_view.xml',
         'views/exam_view.xml',
 
