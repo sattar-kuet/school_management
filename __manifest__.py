@@ -48,9 +48,6 @@
             'school_management/static/src/css/custom.scss',
             'school_management/static/src/js/calendar_popup.js',
 
-            'school_management/static/src/js/subject_tree_extend.js',
-            'school_management/static/src/xml/subject_tree_view_inherit.xml',
-
             'school_management/static/src/components/*/*.js',
             'school_management/static/src/components/*/*.xml',
             'school_management/static/src/components/*/*.scss',
