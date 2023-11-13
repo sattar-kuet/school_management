@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <odoo>
+    <record id="subject_tree_inherit_js_class" model="ir.ui.view">
+    <field name="name">subject.tree.inherit</field>
+    <field name="model">school_management.subject.wizard</field>
+    <field name="inherit_id" ref="add_subject_form_wizard"/>
+    <field name="arch" type="xml">
+        <xpath expr="//tree" position="attributes">
+            <attribute name="js_class">button_in_tree</attribute>
+        </xpath>
+    </field>
+</record>
 
     <record id="view_subject_tree" model="ir.ui.view">
         <field name="name">Subject List Tree</field>
@@ -8,10 +18,10 @@
         <field name="arch" type="xml">
             <tree create="false">
                 <header>
-                        <button name="%(action_add_subject_wizard)d" type="action"
+                    <button name="%(action_add_subject_wizard)d" type="action"
                             string="Add Subject" class="oe_highlight"
                             attrs="{'always_visible': True}"/>
-                    </header>
+                </header>
                 <field name="name" placeholder="Suject Name" />
                 <field name="has_practical" />
                 <field name="has_mcq" />

@@ -49,6 +49,8 @@
             'school_management/static/src/components/*/*.js',
             'school_management/static/src/components/*/*.xml',
             'school_management/static/src/components/*/*.scss',
+            'school_management/static/src/xml/subject_button.xml',
+            'school_management/static/src/js/subject_button.js',
         ],
         'web.assets_frontend': [
             'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback',
