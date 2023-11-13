@@ -7,7 +7,7 @@ class YearlyHolidayConfig(models.Model):
     _name = 'school_management.yearly.holiday.wizard'
     _description = 'Holiday Config'
 
-    title = fields.Char(string='Title')
+    name = fields.Char(string='Title')
     start_date = fields.Date(string='Start Date')
     end_date = fields.Date(string='End Date')
 
