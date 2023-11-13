@@ -2,7 +2,7 @@
 import { ListController } from "@web/views/list/list_controller";
 import { registry } from '@web/core/registry';
 import { listView } from '@web/views/list/list_view';
-export class SaleListController extends ListController {
+export class SubjectListController extends ListController {
    setup() {
        super.setup();
    }
@@ -21,6 +21,6 @@ export class SaleListController extends ListController {
 }
 registry.category("views").add("button_in_tree", {
    ...listView,
-   Controller: SaleListController,
+   Controller: SubjectListController,
    buttonTemplate: "button_subject.ListView.Buttons",
 });

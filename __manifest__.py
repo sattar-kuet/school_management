@@ -25,6 +25,7 @@
         'wizards/session_wizard_view.xml',
         'wizards/subject_wizard_view.xml',
         'views/subject_view.xml',
+        'views/subject_view_inherit.xml',
         'wizards/exam_config_wizard_view.xml',
         'views/exam_view.xml',
 
@@ -46,6 +47,10 @@
         'web.assets_backend': [
             'school_management/static/src/css/custom.scss',
             'school_management/static/src/js/calendar_popup.js',
+
+            'school_management/static/src/js/subject_tree_extend.js',
+            'school_management/static/src/xml/subject_tree_view_inherit.xml',
+
             'school_management/static/src/components/*/*.js',
             'school_management/static/src/components/*/*.xml',
             'school_management/static/src/components/*/*.scss',
