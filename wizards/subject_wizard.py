@@ -64,3 +64,12 @@ class SubjectWizard(models.TransientModel):
                 'has_mcq': self.has_mcq,
                 'has_written': self.has_written
             })
+        action = {
+            'name': 'Subject',
+            'view_mode': 'tree',
+            'res_model': 'school_management.subject',
+            'view_id': self.env.ref('school_management.view_subject_tree').id,
+            'type': 'ir.actions.act_window',
+            'target': 'current',
+        }
+        return action
