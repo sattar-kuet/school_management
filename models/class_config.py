@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-
 from odoo import fields, models
-from odoo import api
+from datetime import datetime
 
 
 class ClassConfig(models.Model):
@@ -23,12 +22,12 @@ class ClassConfig(models.Model):
                 for off_day in setup_info.off_days:
                     off_days += off_day.name + '  '
                 html_output += '<li>'
-                html_output += self.formatted_html('Subject',setup_info.subject.name)
-                html_output += self.formatted_html('Teacher',setup_info.teacher.name)
-                html_output += self.formatted_html('Class Room',setup_info.class_room.name)
-                html_output += self.formatted_html('Class Start Time',setup_info.start_at)
-                html_output += self.formatted_html('Class End Time',setup_info.end_at)
-                html_output += self.formatted_html('Off Days',off_days)
+                html_output += self.formatted_html('Subject', setup_info.subject.name)
+                html_output += self.formatted_html('Teacher', setup_info.teacher.name)
+                html_output += self.formatted_html('Class Room', setup_info.class_room.name)
+                html_output += self.formatted_html('Class Start Time', setup_info.start_at_am_pm)
+                html_output += self.formatted_html('Class End Time', setup_info.end_at_am_pm)
+                html_output += self.formatted_html('Off Days', off_days)
                 html_output += '</li>'
             html_output += '</ul>'
             record.computed_setup_info = html_output
@@ -48,8 +47,20 @@ class ClassSetupLine(models.Model):
     teacher = fields.Many2one('res.users', string="Teacher")
     class_room = fields.Many2one('school_management.class.room', string="Class Room")
     start_at = fields.Char(string="Start at")
+    start_at_am_pm = fields.Char(string="Start at", compute="_compute_start_at_am_pm")
     end_at = fields.Char(string="End at")
+    end_at_am_pm = fields.Char(string="End at", compute="_compute_end_at_am_pm")
     off_days = fields.Many2many('school_management.week.day', string="Off Days")
+
+    def _compute_start_at_am_pm(self):
+        for record in self:
+            time_obj = datetime.strptime(record.start_at, "%H:%M")
+            record.start_at_am_pm = time_obj.strftime("%I:%M %p")
+
+    def _compute_end_at_am_pm(self):
+        for record in self:
+            time_obj = datetime.strptime(record.end_at, "%H:%M")
+            record.end_at_am_pm = time_obj.strftime("%I:%M %p")
 
 
 class Section(models.Model):

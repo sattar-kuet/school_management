@@ -59,8 +59,8 @@
                                 <field name="subject"/>
                                 <field name="teacher"/>
                                 <field name="class_room"/>
-                                <field name="start_at"/>
-                                <field name="end_at"/>
+                                <field name="start_at_am_pm"/>
+                                <field name="end_at_am_pm"/>
                                 <field name="off_days" widget="many2many_tags"/>
                             </tree>
                         </field>
