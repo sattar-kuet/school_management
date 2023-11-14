@@ -29,15 +29,15 @@ class WeeklyHolidayConfig(models.Model):
         else:
             self.env['school_management.weekly.holiday'].create(holiday_data)
 
-        action = {
-            'name': 'Configuration',
-            'view_mode': 'calendar',
-            'res_model': 'school_management.yearly.holiday.wizard',
-            'view_id': self.env.ref('school_management.yearly_holiday_calendar').id,
-            'type': 'ir.actions.act_window',
-            'target': 'new',
-        }
-        return action
+        # action = {
+        #     'name': 'Configuration',
+        #     'view_mode': 'calendar',
+        #     'res_model': 'school_management.yearly.holiday.wizard',
+        #     'view_id': self.env.ref('school_management.yearly_holiday_calendar').id,
+        #     'type': 'ir.actions.act_window',
+        #     'target': 'new',
+        # }
+        # return action
 
     def back(self):
         action = {

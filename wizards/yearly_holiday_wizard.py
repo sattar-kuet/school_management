@@ -10,9 +10,3 @@ class YearlyHolidayConfig(models.Model):
     name = fields.Char(string='Title')
     start_date = fields.Date(string='Start Date')
     end_date = fields.Date(string='End Date')
-
-    def next(self):
-        pass
-
-    def back(self):
-        pass
