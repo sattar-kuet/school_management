@@ -4,7 +4,7 @@ from odoo import fields, models, api
 
 
 class YearlyHolidayConfig(models.Model):
-    _name = 'school_management.yearly.holiday.wizard'
+    _name = 'school_management.yearly.holiday'
     _description = 'Holiday Config'
 
     name = fields.Char(string='Title')

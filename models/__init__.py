@@ -3,7 +3,6 @@ from . import subject
 from . import exam
 from . import class_config
 from . import result_config
-from . import subject_config
 from . import result
 from . import combined_subject
 from . import grade_config
@@ -19,4 +18,5 @@ from . import shift
 from . import class_room_config
 from . import teacher_activity
 from . import student_subject_config
+from . import yearly_holiday
 

@@ -11,7 +11,7 @@
         'views/menu.xml',
         'views/dashboard.xml',
         'wizards/weekly_holiday_wizard_view.xml',
-        'wizards/yearly_holiday_wizard_view.xml',
+        'views/yearly_holiday_view.xml',
         'views/session_view.xml',
         'views/weekly_holiday_view.xml',
         'views/class_room_view.xml',
@@ -32,7 +32,6 @@
         'wizards/result_config_wizard_view.xml',
         'views/result_config_view.xml',
         'views/class_config_view.xml',
-        'views/subject_config_view.xml',
         'views/grade_config_view.xml',
 
         'views/proccessed_result_view.xml',
