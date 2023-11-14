@@ -10,7 +10,7 @@ export class SubjectListController extends ListController {
        this.actionService.doAction({
           type: 'ir.actions.act_window',
           res_model: 'school_management.subject.wizard',
-          name:'Open Wizard',
+          name:'Add Subject',
           view_mode: 'form',
           view_type: 'form',
           views: [[false, 'form']],
