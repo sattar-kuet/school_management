@@ -10,7 +10,7 @@ class Exam(models.Model):
     _description = 'Exam'
 
     name = fields.Char(string='Name', required=True)
-    class_config = fields.Many2one('school_management.class_config')
+    class_config = fields.Many2one('sm.class_config')
     status = fields.Selection(
         selection=[
             ('pending', 'Pending'),

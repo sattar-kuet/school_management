@@ -17,7 +17,7 @@ class User(models.Model):
         ('ab+', 'AB+'),
     ], string='Blood Group', required=True)
     guardian = fields.Many2one("res.users", string="Guardian")
-    class_config = fields.Many2one("school_management.class_config", string='Class')
+    class_config = fields.Many2one("sm.class_config", string='Class')
     class_has_group = fields.Boolean(compute='_compute_class_has_group')
     student_group = fields.Many2one("school_management.group", string='Group')
     user_type = fields.Selection([('student', 'Student'), ('teacher', 'Teacher'), ('guardian', 'Guardian')])

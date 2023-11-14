@@ -8,7 +8,7 @@ class ProcessedResult(models.Model):
     _description = 'Processed Result'
 
     exam = fields.Many2one('school_management.exam', string='Exam', required=True, )
-    class_config = fields.Many2one('school_management.class_config')
+    class_config = fields.Many2one('sm.class_config')
     student = fields.Many2one('res.users', string='Student')
     subject = fields.Many2one('school_management.combined_subject', string='Subject')
     grade_point = fields.Float(string='Grade Point')

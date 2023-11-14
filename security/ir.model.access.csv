@@ -26,6 +26,5 @@ school_management.access_shift,access_shift,school_management.model_school_manag
 school_management.access_subject_teacher,access_subject_teacher,school_management.model_sm_subject_teacher,,1,1,1,1
 school_management.access_student_subject_config,access_student_subject_config,school_management.model_sm_student_subject_config,,1,1,1,1
 school_management.access_sm_class_setup_line,access_sm_class_setup_line,school_management.model_sm_class_setup_line,,1,1,1,1
-school_management.access_,access_sm_class_setup_line,school_management.model_sm_class_setup_line,,1,1,1,1
 school_management.access_sm_section,access_sm_section,school_management.model_sm_section,,1,1,1,1
 
