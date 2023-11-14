@@ -52,5 +52,11 @@
         </field>
     </record>
 
+    <menuitem
+            name="Config"
+            id="menu_session_list"
+            sequence="4"
+            action="action_session_wizard"
+            parent="menu_sm_root"/>
 
 </odoo>
