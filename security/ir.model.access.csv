@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-school_management.access_class_config,access_class_config,school_management.model_school_management_class_config,,1,1,1,1
+school_management.access_class_config,access_class_config,school_management.model_sm_class_config,,1,1,1,1
 school_management.access_exam,access_exam,school_management.model_school_management_exam,,1,1,1,1
 school_management.access_result_config,access_result_config,school_management.model_school_management_result_config,,1,1,1,1
 school_management.access_result,access_result,school_management.model_school_management_result,,1,1,1,1
@@ -25,4 +25,7 @@ school_management.access_class_room_config,access_class_room_config,school_manag
 school_management.access_shift,access_shift,school_management.model_school_management_shift,,1,1,1,1
 school_management.access_subject_teacher,access_subject_teacher,school_management.model_sm_subject_teacher,,1,1,1,1
 school_management.access_student_subject_config,access_student_subject_config,school_management.model_sm_student_subject_config,,1,1,1,1
+school_management.access_sm_class_setup_line,access_sm_class_setup_line,school_management.model_sm_class_setup_line,,1,1,1,1
+school_management.access_,access_sm_class_setup_line,school_management.model_sm_class_setup_line,,1,1,1,1
+school_management.access_sm_section,access_sm_section,school_management.model_sm_section,,1,1,1,1
 
