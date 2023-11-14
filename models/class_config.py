@@ -9,11 +9,12 @@ class ClassConfig(models.Model):
     _description = 'School Management'
 
     name = fields.Char(string='Name', required=True)
-    has_group = fields.Boolean(string='Has Group', required=True)
-    subjects = fields.Many2many('school_management.subject')
+    shift = fields.Many2one('school_management.shift')
+    setup_lines = fields.Many2many('school_management.class.setup.line')
 
-    def _compute_subjects(self):
-        for record in self:
-            class_subject_config = self.env['school_management.subject_config'].search(
-                [('class_config', '=', record.id)], limit=1)
-            record.subjects = class_subject_config.subject.ids
+
+class ClassSetupLine(models.Model):
+    _name = 'school_management.class.setup.line'
+    _description = 'Class Setup line'
+
+
