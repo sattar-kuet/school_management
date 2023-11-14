@@ -134,8 +134,10 @@ class Exam(models.Model):
         self.process_final_result()
 
     def process_final_result(self):
-        subject_ids = self.env['school_management.subject_config'].search([('class_config', '=',
-                                                                          self.class_config.id)]).subject.ids
+        subject_ids = []
+        for setup_line in self.class_config.setup_lines:
+            subject_ids.append(setup_line.subject.id)
+
         total_subject = self.env['school_management.combined_subject'].search_count([('subject', 'in', subject_ids)])
         processed_results = self.env['school_management.processed_result'].search(
             [('exam', '=', self.id), ('status', '=', 'published')])
