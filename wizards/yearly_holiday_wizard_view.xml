@@ -1,13 +1,14 @@
 <odoo>
+
     <record id="yearly_holiday_calendar" model="ir.ui.view" >
-            <field name="name">yearly.holiday.calendar</field>
-            <field name="model">school_management.yearly.holiday.wizard</field>
-            <field name="arch" type="xml">
-                <calendar  string="Holiday"  date_start="start_date" date_stop="end_date" color="name" mode="month">
-                    <field name="name"/>
-                </calendar>
-            </field>
-        </record>
+        <field name="name">yearly.holiday.calendar</field>
+        <field name="model">school_management.yearly.holiday.wizard</field>
+        <field name="arch" type="xml">
+            <calendar  string="Holiday"  date_start="start_date" date_stop="end_date" color="name" mode="month">
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
 
     <record id="action_yearly_holiday_wizard" model="ir.actions.act_window">
         <field name="name">Configuration</field>
