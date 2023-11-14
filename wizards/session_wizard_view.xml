@@ -8,29 +8,27 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
-                        <div id="itscholar-progressbar-container">
-                            <!-- progressbar -->
-                            <ul id="progressbar">
-                                <li class="active config-icon" ><strong>Session</strong></li>
-                                <li class="config-icon"><strong>Weekly Holiday</strong></li>
-                                <li class="config-icon"><strong>Yearly Holiday</strong></li>
-                                <li class="config-icon"><strong>Group</strong></li>
-                            </ul>
-                        </div>
-                    </group>
+                    <div id="itscholar-progressbar-container">
+                        <!-- progressbar -->
+                        <ul id="progressbar">
+                            <li class="active config-icon" ><strong>Session</strong></li>
+                            <li class="config-icon"><strong>Weekly Holiday</strong></li>
+                            <li class="config-icon"><strong>Yearly Holiday</strong></li>
+                            <li class="config-icon"><strong>Group</strong></li>
+                        </ul>
+                    </div>
                     <group>
                         <group>
                             <field name="title" />
                         </group>
-                        <group>
-                            <div class="row">
-                                <div class="col-md-3" style="text-align:right; border-right: 1px solid #ddd;">Start Year</div>
-                                <div class="col-md-3"><field name="start_year"  /> </div>
-                                <div class="col-md-3" style="text-align:right; border-right: 1px solid #ddd;">End Year</div>
-                                <div class="col-md-3"><field name="end_year" /></div>
 
-                            </div>
+                        <group>
+                            <group>
+                                <field name="start_year"  />
+                            </group>
+                            <group>
+                                <field name="end_year"  />
+                            </group>
                         </group>
                     </group>
                     <footer>
