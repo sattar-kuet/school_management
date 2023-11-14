@@ -16,6 +16,30 @@ class Result(models.Model):
     mcq_mark = fields.Float(string='MCQ Mark')
     practical_mark = fields.Float(string='Practical Mark')
     status = fields.Selection([('pending', 'Pending'), ('done', 'Done'), ('archive', 'archive')], default='pending')
+    written_mark_not_applicable = fields.Boolean(compute='_compute_written_mark_not_applicable')
+    mcq_mark_not_applicable = fields.Boolean(compute='_compute_mcq_mark_not_applicable')
+    practical_mark_not_applicable = fields.Boolean(compute='_compute_practical_mark_not_applicable')
+
+    @api.depends('subject')
+    def _compute_written_mark_not_applicable(self):
+        for record in self:
+            record.written_mark_not_applicable = True
+            if record.subject.has_written:
+                record.written_mark_not_applicable = False
+
+    @api.depends('subject')
+    def _compute_mcq_mark_not_applicable(self):
+        for record in self:
+            record.mcq_mark_not_applicable = True
+            if record.subject.has_mcq:
+                record.mcq_mark_not_applicable = False
+
+    @api.depends('subject')
+    def _compute_practical_mark_not_applicable(self):
+        for record in self:
+            record.practical_mark_not_applicable = True
+            if record.subject.has_practical:
+                record.practical_mark_not_applicable = False
 
     @api.model
     def _compute_class_name(self):
@@ -26,3 +50,7 @@ class Result(models.Model):
     def _compute_class_config(self):
         for record in self:
             record.class_config = record.exam.class_config.id
+
+    def write(self, vals):
+        vals['status'] = 'done'
+        return super(Result, self).write(vals)
