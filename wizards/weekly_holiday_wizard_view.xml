@@ -19,7 +19,7 @@
                     </div>
                     <group>
                         <group>
-                            <field name="weekly_off_days" widget="many2many_tags" options="{'no_create_edit':True}"/>
+                            <field name="weekly_off_days" widget="many2many_tags" options="{'no_create':True}"/>
                         </group>
                     </group>
 
