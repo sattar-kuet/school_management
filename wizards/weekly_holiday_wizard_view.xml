@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <odoo>
-     <record id="view_weekly_holiday_wizard_form" model="ir.ui.view">
+    <record id="view_weekly_holiday_wizard_form" model="ir.ui.view">
         <field name="name">sm.weekly.holiday.form</field>
         <field name="model">sm.weekly.holiday.wizard</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
 
-                        <div id="itscholar-progressbar-container">
-                            <!-- progressbar -->
-                            <ul id="progressbar">
-                                <li class="active config-icon" ><strong>Session</strong></li>
-                                <li class="active config-icon"><strong>Weekly Holiday</strong></li>
-                                <li class="config-icon"><strong>Yearly Holiday</strong></li>
-                                <li class="config-icon"><strong>Group</strong></li>
-                            </ul>
-                        </div>
+                    <div id="itscholar-progressbar-container">
+                        <!-- progressbar -->
+                        <ul id="progressbar">
+                            <li class="active config-icon" ><strong>Session</strong></li>
+                            <li class="active config-icon"><strong>Weekly Holiday</strong></li>
+                            <li class="config-icon"><strong>Yearly Holiday</strong></li>
+                            <li class="config-icon"><strong>Group</strong></li>
+                        </ul>
+                    </div>
                     <group>
                         <group>
-                        <field name="weekly_off_days" widget="many2many_tags" options="{'no_create_edit':True}/>
-                    </group>
+                            <field name="weekly_off_days" widget="many2many_tags" options="{'no_create_edit':True}"/>
+                        </group>
                     </group>
 
                     <footer>
@@ -33,13 +33,13 @@
     </record>
 
     <record id="action_weekly_holiday_wizard" model="ir.actions.act_window">
-            <field name="name">Configuration</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">sm.weekly.holiday.wizard</field>
-            <field name="view_mode">form</field>
-            <field name="target">new</field>
-            <field name="help" type="html">
-                <p class="o_view_nocontent_school_managementiling_face"> Create your first Weekly Holiday</p>
-            </field>
+        <field name="name">Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sm.weekly.holiday.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_school_managementiling_face"> Create your first Weekly Holiday</p>
+        </field>
     </record>
 </odoo>
