@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
+
                         <div id="itscholar-progressbar-container">
                             <!-- progressbar -->
                             <ul id="progressbar">
@@ -17,10 +17,12 @@
                                 <li class="config-icon"><strong>Group</strong></li>
                             </ul>
                         </div>
-                    </group>
                     <group>
-                        <field name="weekly_off_days" widget="many2many_tags"/>
+                        <group>
+                        <field name="weekly_off_days" widget="many2many_tags" options="{'no_create_edit':True}/>
                     </group>
+                    </group>
+
                     <footer>
                         <button string="Back" type="object" name="back"  class="btn btn-secondary"/>
                         <button string="Next" type="object" name="next"  class="btn btn-primary"/>
