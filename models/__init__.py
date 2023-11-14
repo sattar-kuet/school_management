@@ -16,7 +16,7 @@ from . import group
 from . import class_room
 from . import shift
 from . import class_room_config
-from . import teacher_activity
+from . import subject_teacher
 from . import student_subject_config
 from . import yearly_holiday
 

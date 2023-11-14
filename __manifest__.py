@@ -17,7 +17,7 @@
         'views/class_room_view.xml',
         'views/class_room_config_view.xml',
         'views/shift_view.xml',
-        'views/teacher_activity_view.xml',
+        'views/subject_teacher_view.xml',
         'views/student_subject_config_view.xml',
 
         # 'views/template.xml',

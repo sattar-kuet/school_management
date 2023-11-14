@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 class TeacherActivity(models.Model):
-    _name = 'sm.teacher.activity'
+    _name = 'sm.subject.teacher'
     _description = 'Teacher Activity'
 
     teacher = fields.Many2one('res.users', string='Teacher')
