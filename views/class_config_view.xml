@@ -8,6 +8,7 @@
             <tree>
                 <field name="name" />
                 <field name="has_group" />
+                <field name="subjects" widget="many2many_tags"/>
             </tree>
         </field>
      </record>
@@ -23,6 +24,9 @@
                         </group>
                         <group>
                             <field name="has_group" />
+                        </group>
+                        <group>
+                            <field name="subjects"/>
                         </group>
                     </group>
                 </sheet>
