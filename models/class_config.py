@@ -22,21 +22,22 @@ class ClassConfig(models.Model):
                 for off_day in setup_info.off_days:
                     off_days += off_day.name + '  '
                 html_output += '<li>'
-                html_output += self.formatted_html('Subject', setup_info.subject.name)
-                html_output += self.formatted_html('Teacher', setup_info.teacher.name)
-                html_output += self.formatted_html('Class Room', setup_info.class_room.name)
-                html_output += self.formatted_html('Class Start Time', setup_info.start_at_am_pm)
-                html_output += self.formatted_html('Class End Time', setup_info.end_at_am_pm)
-                html_output += self.formatted_html('Off Days', off_days)
+                html_output += self.formatted_html('fa-book', setup_info.subject.name)
+                html_output += self.formatted_html('fa-user', setup_info.teacher.name)
+                html_output += self.formatted_html('fa-university', setup_info.class_room.name)
+                class_time = f'{setup_info.start_at_am_pm} to {setup_info.end_at_am_pm}'
+                html_output += self.formatted_html('fa-clock-o', class_time)
+                html_output += self.formatted_html('fa-times', off_days)
                 html_output += '</li>'
             html_output += '</ul>'
             record.computed_setup_info = html_output
 
     @staticmethod
-    def formatted_html(title, value):
+    def formatted_html(fa_icon, value):
         return f'<button style="margin: 2px;" type="button" class="btn btn-info">' \
-               f'{title} <span class="badge" style="background: #3c3737;font-size: 12px;padding: 4px;">' \
-               f'{value}</span></button>'
+               f'<span class="fa {fa_icon}" style="color: #fff;"></span> ' \
+               f'<span class="badge" style="background: #3c3737;font-size: 12px;padding: 4px;">{value}</span>' \
+               f'</button>'
 
 
 class ClassSetupLine(models.Model):
