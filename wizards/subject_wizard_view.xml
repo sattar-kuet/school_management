@@ -25,15 +25,17 @@
                 <form>
                     <group>
                         <group>
-                            <field name="name" />
-                            <field name="has_two_part" />
-                            <field name="part1" attrs="{'invisible': [('has_two_part', '=', False)]}" />
-                            <field name="part2" attrs="{'invisible': [('has_two_part', '=', False)]}" />
+                            <group>
+                                <field name="name" />
+                                <field name="has_two_part" />
+                                <field name="part1" attrs="{'invisible': [('has_two_part', '=', False)]}" />
+                                <field name="part2" attrs="{'invisible': [('has_two_part', '=', False)]}" />
+                                <field name="has_practical" />
+                                <field name="has_mcq" />
+                            </group>
                         </group>
                         <group>
-                            <field name="has_practical" />
-                            <field name="has_mcq" />
-                            <field name="has_written" />
+                            <field name="mandatory" />
                             <field name="groups" />
                         </group>
                     </group>
