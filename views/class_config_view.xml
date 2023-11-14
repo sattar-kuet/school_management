@@ -10,7 +10,7 @@
                 <field name="has_group" />
                 <field name="shift"/>
                 <field name="section"/>
-                <field name="setup_lines"/>
+                <field name="computed_setup_info" widget="html"/>
 
             </tree>
         </field>
@@ -23,25 +23,47 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="name" />
+                            <group>
+                                <field name="name" />
+                            </group>
+                            <group>
+                                <field name="has_group"/>
+                            </group>
                         </group>
                         <group>
-                            <field name="has_group"/>
+                            <group>
+                                <field name="shift"/>
+                            </group>
+                            <group>
+                                <field name="section"/>
+                            </group>
                         </group>
-                         <group>
-                            <field name="shift"/>
-                        </group>
-                        <group>
-                            <field name="section"/>
-                        </group>
-                        <group>
-                            <field name="setup_lines">
-                                <form>
-                                    <field name="subject"/>
-                                    <field name="start_at" widget="time"/>
-                                </form>
-                            </field>
-                        </group>
+                    </group>
+                    <group>
+                        <field name="setup_lines">
+                            <form>
+                                <group>
+                                    <group>
+                                        <field name="subject"/>
+                                        <field name="teacher"/>
+                                        <field name="class_room"/>
+                                    </group>
+                                    <group>
+                                        <field name="start_at" widget="time"/>
+                                        <field name="end_at" widget="time"/>
+                                        <field name="off_days" widget="many2many_tags" options="{'no_create': True}"/>
+                                    </group>
+                                </group>
+                            </form>
+                            <tree>
+                                <field name="subject"/>
+                                <field name="teacher"/>
+                                <field name="class_room"/>
+                                <field name="start_at"/>
+                                <field name="end_at"/>
+                                <field name="off_days" widget="many2many_tags"/>
+                            </tree>
+                        </field>
                     </group>
                 </sheet>
             </form>
