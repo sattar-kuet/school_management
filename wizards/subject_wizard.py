@@ -13,6 +13,7 @@ class SubjectWizard(models.TransientModel):
     part1 = fields.Char(string='Part 1', compute='_compute_parts', store=True)
     part2 = fields.Char(string='Part 2', compute='_compute_parts', store=True)
     groups = fields.Many2many('school_management.group')
+    mandatory = fields.Boolean(default=True)
 
     @api.depends('name', 'has_two_part')
     def _compute_parts(self):
@@ -31,7 +32,8 @@ class SubjectWizard(models.TransientModel):
                 'has_practical': self.has_practical,
                 'has_mcq': self.has_mcq,
                 'has_written': self.has_written,
-                'groups': self.groups.ids
+                'groups': self.groups.ids,
+                'mandatory': self.mandatory,
             })
 
             subject2 = self.env['school_management.subject'].create({
@@ -39,7 +41,8 @@ class SubjectWizard(models.TransientModel):
                 'has_practical': self.has_practical,
                 'has_mcq': self.has_mcq,
                 'has_written': self.has_written,
-                'groups': self.groups.ids
+                'groups': self.groups.ids,
+                'mandatory': self.mandatory,
             })
             self.env['school_management.combined_subject'].create({
                 'title': self.name,
@@ -47,14 +50,16 @@ class SubjectWizard(models.TransientModel):
                 'has_practical': self.has_practical,
                 'has_mcq': self.has_mcq,
                 'has_written': self.has_written,
-                'groups': self.groups.ids
+                'groups': self.groups.ids,
+                'mandatory': self.mandatory,
             })
         else:
             subject = self.env['school_management.subject'].create({
                 'name': self.name,
                 'has_practical': self.has_practical,
                 'has_mcq': self.has_mcq,
-                'has_written': self.has_written
+                'has_written': self.has_written,
+                'mandatory': self.mandatory,
             })
 
             self.env['school_management.combined_subject'].create({
@@ -62,7 +67,8 @@ class SubjectWizard(models.TransientModel):
                 'subject': [subject.id],
                 'has_practical': self.has_practical,
                 'has_mcq': self.has_mcq,
-                'has_written': self.has_written
+                'has_written': self.has_written,
+                'mandatory': self.mandatory,
             })
         action = {
             'name': 'Subject',
