@@ -1,12 +1,4 @@
-import base64
-import io
-
-import requests
-import xlwt
-
-from odoo import fields, models, http, api
-from odoo.http import request
-from odoo.tools import ustr
+from odoo import fields, models
 
 
 class ExamConfigWizard(models.TransientModel):
@@ -40,10 +32,13 @@ class ExamConfigWizard(models.TransientModel):
                         [('exam', '=', exam_id), ('status', '=', 'pending')]) == 0:
                     exam_obj.status = 'setup_done'
                 return action
-            subject_config = self.env['school_management.subject_config'].search(
-                [('class_config', '=', exam_obj.class_config.id)])
+
+            subject_ids = []
+            for setup_line in exam_obj.class_config.setup_lines:
+                subject_ids.append(setup_line.subject.id)
+
             combined_subject_list = self.env['school_management.combined_subject'].search(
-                [('subject', 'in', subject_config.subject.ids)])
+                [('subject', 'in', subject_ids)])
 
             for combined_subject in combined_subject_list:
                 result_config_vals = {

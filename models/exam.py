@@ -50,13 +50,10 @@ class Exam(models.Model):
         self.archive_old(self.class_config.id)
         students = self.env['res.users'].search([('class_config', '=', self.class_config.id)])
 
-        subject_config = self.env['school_management.subject_config'].search(
-            [('class_config', '=', self.class_config.id)])
-
-        for subject in subject_config.subject:
+        for setup_line in self.class_config.setup_lines:
             for student in students:
                 self.env['school_management.result'].create({
-                    'subject': subject.id,
+                    'subject': setup_line.subject.id,
                     'exam': self.id,
                     'student': student.id
                 })
