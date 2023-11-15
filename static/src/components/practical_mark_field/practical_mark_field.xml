@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="owl.PracticalMarkField" owl="1">
+        <div>
+            <label for="PracticalMarkField" class="form-label"></label>
+            <input type="number" min="0" t-att-max="PracticalMaxMark" class="o_input"  id="PracticalMarkField" t-on-change="(ev)=>this.props.update(ev.target.value)" t-att-value="props.value"/>
+            <br/><span class="text-danger" t-if="!isValidMark">সর্বোচ্চ নাম্বারঃ <span t-esc="PracticalMaxMark"/></span>
+        </div>
+    </t>
+</templates>

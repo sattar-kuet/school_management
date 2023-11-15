@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="owl.McqMarkField" owl="1">
+        <div>
+            <label for="McqMarkField" class="form-label"></label>
+            <input type="number" min="0" t-att-max="McqMaxMark" class="o_input"  id="McqMarkField" t-on-change="(ev)=>this.props.update(ev.target.value)" t-att-value="props.value"/>
+            <br/><span class="text-danger" t-if="!isValidMark">সর্বোচ্চ নাম্বারঃ <span t-esc="McqMaxMark"/></span>
+        </div>
+    </t>
+</templates>
