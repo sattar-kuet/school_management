@@ -13,10 +13,11 @@
                 <field name="written_mark_not_applicable" invisible="1" />
                 <field name="mcq_mark_not_applicable" invisible="1" />
                 <field name="practical_mark_not_applicable" invisible="1" />
-                <field name="written_mark"  attrs="{'invisible': [('written_mark_not_applicable', '=', True)]}" />
+                <field name="written_mark" widget="written_mark_tree" attrs="{'invisible': [('written_mark_not_applicable', '=', True)]}" />
                 <field name="mcq_mark" attrs="{'invisible': [('mcq_mark_not_applicable', '=', True)]}" />
                 <field name="practical_mark" attrs="{'invisible': [('practical_mark_not_applicable', '=', True)]}"/>
                 <field name="status" readonly="1" />
+                <field name="error_message" readonly="1" />
 <!--                <button name="%(action_marks_wizard)d" string="Add Mark" type="action"-->
 <!--                    class="btn btn-primary" attrs="{'invisible': ['|',('status', '=', 'done'),('status', '=', 'archive')]}" ></button>-->
 <!--                <button name="%(action_marks_wizard)d" string="Update Mark" type="action"-->

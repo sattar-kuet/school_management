@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import fields, models, api
+from odoo.exceptions import ValidationError
 
 
 class Result(models.Model):
@@ -19,6 +20,7 @@ class Result(models.Model):
     written_mark_not_applicable = fields.Boolean(compute='_compute_written_mark_not_applicable')
     mcq_mark_not_applicable = fields.Boolean(compute='_compute_mcq_mark_not_applicable')
     practical_mark_not_applicable = fields.Boolean(compute='_compute_practical_mark_not_applicable')
+    error_message = fields.Text(default='')
 
     @api.depends('subject')
     def _compute_written_mark_not_applicable(self):
@@ -51,6 +53,26 @@ class Result(models.Model):
         for record in self:
             record.class_config = record.exam.class_config.id
 
-    def write(self, vals):
-        vals['status'] = 'done'
-        return super(Result, self).write(vals)
+    @api.onchange('written_mark')
+    def _onchange_check_max_value(self):
+        result_config = self.env['school_management.result_config'].search([
+            ('exam', '=', self.exam.id),
+            ('subject', '=', self.subject.id)
+        ], limit=1)
+        if self.written_mark > result_config.written_max_mark:
+            warning_message = f'{self.subject.name} এর জন্য সর্বোচ্চ রিটেন মার্ক {result_config.written_max_mark}। আপনি {self.written_mark} দেওয়ার চেষ্টা করছেন। দয়া করে সঠিক নাম্বারটি ইনপুট দিন।'
+            self.error_message += warning_message
+            warning_msg_obj = {
+                'title': 'সতর্কতা!',
+                'message': warning_message
+            }
+            return {'warning': warning_msg_obj}
+        else:
+            self.error_message = ''
+
+    # def write(self, vals):
+    #     vals['status'] = 'done'
+    #     if self.error_message:
+    #         raise ValidationError(self.error_message)
+    #         return False
+    #     return super(Result, self).write(vals)
