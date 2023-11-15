@@ -30,10 +30,29 @@ export class WrittenMarkFieldTree extends WrittenMarkField {
         console.log("Tree View - Float Field Inherited");
         this.orm = useService("orm")
         onWillStart(async ()=>{
+//            this.handleChange = this.handleChange.bind(this);
             this.resultConfig = await this._fetchResultConfig();
          })
-
     }
+    get isValidMark(){
+       return this.props.value<= this.this.WrittenMaxMark
+    }
+//     handleChange(event) {
+//        // Get the entered value from the input
+//        const enteredValue = event.target.value;
+//
+//        // Parse the entered value as a number
+//        const numericValue = parseFloat(enteredValue);
+//
+//        // Check if the value is greater than the maximum
+//        if (numericValue > this.WrittenMaxMark) {
+//            // If greater than the maximum, set the value to the maximum
+//            this.props.update(this.WrittenMaxMark);
+//        } else {
+//            // If within the limit, update the component's value
+//            this.props.update(numericValue);
+//        }
+//     }
 
     async _fetchResultConfig() {
        try{

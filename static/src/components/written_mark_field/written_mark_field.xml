@@ -3,7 +3,12 @@
     <t t-name="owl.WrittenMarkField" owl="1">
         <div>
             <label for="WrittenMarkField" class="form-label"></label>
-            <input type="number" min="0" t-att-max="WrittenMaxMark" class="o_input"  id="WrittenMarkField" t-on-change="(ev)=>this.props.update(ev.target.value)" t-att-value="props.value"/>
+           <input type="number" min="0" t-att-max="WrittenMaxMark"
+                   class="o_input" id="WrittenMarkField"
+                   t-on-change="(ev)=>this.props.update(ev.target.value)"
+                   t-att-value="props.value"/><br/>
+            <span class="text-danger" t-if="!isValidMark">সর্বোচ্চ নাম্বারঃ <span t-esc="WrittenMaxMark"/></span>
+
         </div>
     </t>
 </templates>

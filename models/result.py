@@ -20,7 +20,28 @@ class Result(models.Model):
     written_mark_not_applicable = fields.Boolean(compute='_compute_written_mark_not_applicable')
     mcq_mark_not_applicable = fields.Boolean(compute='_compute_mcq_mark_not_applicable')
     practical_mark_not_applicable = fields.Boolean(compute='_compute_practical_mark_not_applicable')
-    error_message = fields.Text(default='')
+    save_button_not_applicable = fields.Boolean(compute='_compute_save_button_not_applicable')
+
+    @api.depends('written_mark', 'mcq_mark', 'practical_mark', 'status', 'exam', 'subject')
+    def _compute_save_button_not_applicable(self):
+        for record in self:
+            result_config = self.env['school_management.result_config'].search([
+                ('exam', '=', record.exam.id),
+                ('subject', '=', record.subject.id)
+            ], limit=1)
+
+            record.save_button_not_applicable = False
+
+            if record.status == 'done':
+                record.save_button_not_applicable = True
+
+            if result_config:
+                if (
+                        record.written_mark > result_config.written_max_mark or
+                        record.mcq_mark > result_config.mcq_max_mark or
+                        record.practical_mark > result_config.practical_max_mark
+                ):
+                    record.save_button_not_applicable = True
 
     @api.depends('subject')
     def _compute_written_mark_not_applicable(self):
@@ -53,26 +74,23 @@ class Result(models.Model):
         for record in self:
             record.class_config = record.exam.class_config.id
 
-    @api.onchange('written_mark')
-    def _onchange_check_max_value(self):
+    def write(self, vals):
+        print('*' * 100, vals)
         result_config = self.env['school_management.result_config'].search([
             ('exam', '=', self.exam.id),
             ('subject', '=', self.subject.id)
         ], limit=1)
-        if self.written_mark > result_config.written_max_mark:
-            warning_message = f'{self.subject.name} এর জন্য সর্বোচ্চ রিটেন মার্ক {result_config.written_max_mark}। আপনি {self.written_mark} দেওয়ার চেষ্টা করছেন। দয়া করে সঠিক নাম্বারটি ইনপুট দিন।'
-            self.error_message += warning_message
-            warning_msg_obj = {
-                'title': 'সতর্কতা!',
-                'message': warning_message
-            }
-            return {'warning': warning_msg_obj}
-        else:
-            self.error_message = ''
+        vals['status'] = 'done'
+        if 'written_mark' in vals:
+            if float(vals['written_mark']) > result_config.written_max_mark:
+                vals['status'] = 'pending'
+        elif 'mcq_mark' in vals:
+            if float(vals['mcq_mark']) > result_config.mcq_max_mark:
+                vals['status'] = 'pending'
+        elif 'practical_mark' in vals:
+            if float(vals['practical_mark']) > result_config.practical_max_mark:
+                vals['status'] = 'pending'
+        return super(Result, self).write(vals)
 
-    # def write(self, vals):
-    #     vals['status'] = 'done'
-    #     if self.error_message:
-    #         raise ValidationError(self.error_message)
-    #         return False
-    #     return super(Result, self).write(vals)
+    def save(self):
+        self.status = 'done'
