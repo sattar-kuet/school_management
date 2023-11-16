@@ -33,15 +33,15 @@ class Subject(models.Model):
         if 'has_practical' in vals:
             sql_query = f"UPDATE {table_name} SET has_practical = %s WHERE id = %s"
             cr.execute(sql_query, (vals['has_practical'], id))
-        elif 'has_mcq' in vals:
+        if 'has_mcq' in vals:
             sql_query = f"UPDATE {table_name} SET has_mcq = %s WHERE id = %s"
             cr.execute(sql_query, (vals['has_mcq'], id))
-        elif 'has_written' in vals:
+        if 'has_written' in vals:
             sql_query = f"UPDATE {table_name} SET has_written = %s WHERE id = %s"
             cr.execute(sql_query, (vals['has_written'], id))
-        elif 'groups' in vals:
+        if 'groups' in vals:
             sql_query = f"UPDATE {table_name} SET groups = %s WHERE id = %s"
             cr.execute(sql_query, (vals['groups'], id))
-        elif 'mandatory' in vals:
+        if 'mandatory' in vals:
             sql_query = f"UPDATE {table_name} SET mandatory = %s WHERE id = %s"
             cr.execute(sql_query, (vals['mandatory'], id))
