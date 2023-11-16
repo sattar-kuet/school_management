@@ -23,9 +23,8 @@ class Subject(models.Model):
             self.update_subject('school_management_combined_subject', combined_subject.id, vals)
             combined_subject_ids = combined_subject.mapped('subject.id')
             remaining_subject_ids = list(set(combined_subject_ids) - set(self.ids))
-            # if remaining_subject_ids:
-            #     remaining_subject = self.env['school_management.subject'].browse(remaining_subject_ids[0])
-            #     self.update_subject(remaining_subject, vals)
+            if remaining_subject_ids:
+                self.update_subject('school_management_subject', remaining_subject_ids[0], vals)
 
         return super(Subject, self).write(vals)
 
