@@ -21,6 +21,12 @@ class Subject(models.Model):
         print('*'*100,vals)
         if combined_subject:
             self.update_subject(combined_subject, vals)
+            combined_subject_ids = combined_subject.mapped('subject.id')
+            remaining_subject_ids = list(set(combined_subject_ids) - set(self.ids))
+            if remaining_subject_ids:
+                remaining_subject = self.env['school_management.subject'].browse(remaining_subject_ids[0])
+                self.update_subject(remaining_subject, vals)
+
         return super(Subject, self).write(vals)
 
     @staticmethod
