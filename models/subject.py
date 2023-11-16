@@ -17,27 +17,32 @@ class Subject(models.Model):
     def write(self, vals):
         combined_subject = self.env['school_management.combined_subject'].search([('subject', 'in', self.ids)], limit=1)
 
-        print('*'*100,combined_subject)
-        print('*'*100,vals)
+        print('*' * 100, combined_subject)
+        print('*' * 100, vals)
         if combined_subject:
-            self.update_subject(combined_subject, vals)
+            self.update_subject('school_management_combined_subject', combined_subject.id, vals)
             combined_subject_ids = combined_subject.mapped('subject.id')
             remaining_subject_ids = list(set(combined_subject_ids) - set(self.ids))
-            if remaining_subject_ids:
-                remaining_subject = self.env['school_management.subject'].browse(remaining_subject_ids[0])
-                self.update_subject(remaining_subject, vals)
+            # if remaining_subject_ids:
+            #     remaining_subject = self.env['school_management.subject'].browse(remaining_subject_ids[0])
+            #     self.update_subject(remaining_subject, vals)
 
         return super(Subject, self).write(vals)
 
-    @staticmethod
-    def update_subject(subject_obj, vals):
+    def update_subject(self, table_name, id, vals):
+        cr = self._cr
         if 'has_practical' in vals:
-            subject_obj.has_practical = vals['has_practical']
+            sql_query = f"UPDATE {table_name} SET has_practical = %s WHERE id = %s"
+            cr.execute(sql_query, (vals['has_practical'], id))
         elif 'has_mcq' in vals:
-            subject_obj.has_mcq = vals['has_mcq']
+            sql_query = f"UPDATE {table_name} SET has_mcq = %s WHERE id = %s"
+            cr.execute(sql_query, (vals['has_mcq'], id))
         elif 'has_written' in vals:
-            subject_obj.has_written = vals['has_written']
+            sql_query = f"UPDATE {table_name} SET has_written = %s WHERE id = %s"
+            cr.execute(sql_query, (vals['has_written'], id))
         elif 'groups' in vals:
-            subject_obj.groups = vals['groups']
+            sql_query = f"UPDATE {table_name} SET groups = %s WHERE id = %s"
+            cr.execute(sql_query, (vals['groups'], id))
         elif 'mandatory' in vals:
-            subject_obj.mandatory = vals['mandatory']
+            sql_query = f"UPDATE {table_name} SET mandatory = %s WHERE id = %s"
+            cr.execute(sql_query, (vals['mandatory'], id))
