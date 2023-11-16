@@ -16,10 +16,13 @@ class StudentSubjectConfig(models.Model):
     def _compute_available_main_subjects(self):
         for record in self:
             subject_ids = []
-            if record.student.class_has_group:
+            if record.student.class_config.has_group:
+
                 for setup_line in record.student.class_config.setup_lines:
+                    print('*' * 100, setup_line.subject.mandatory)
                     if not setup_line.subject.mandatory:
                         subject_ids.append(setup_line.subject.id)
+
             record.available_main_subjects = subject_ids
 
     @api.onchange('main_subject')
