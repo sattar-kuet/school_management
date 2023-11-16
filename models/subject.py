@@ -16,17 +16,26 @@ class Subject(models.Model):
 
     def write(self, vals):
         combined_subject = self.env['school_management.combined_subject'].search([('subject', 'in', self.ids)], limit=1)
+        combined_subject.subject.ids
         print('*'*100,combined_subject)
         print('*'*100,vals)
         if combined_subject:
+            combined_subject_ids = combined_subject.mapped('subject.id')
+            remaining_subject_ids = list(set(combined_subject_ids) - set(self.ids))
+            remaining_subject = self.env['school_management.subject'].browse(remaining_subject_ids[0])
             if 'has_practical' in vals:
                 combined_subject.has_practical = vals['has_practical']
+                remaining_subject.has_practical = vals['has_practical']
             elif 'has_mcq' in vals:
                 combined_subject.has_mcq = vals['has_mcq']
+                remaining_subject.has_mcq = vals['has_mcq']
             elif 'has_written' in vals:
                 combined_subject.has_written = vals['has_written']
+                remaining_subject.has_written = vals['has_written']
             elif 'groups' in vals:
                 combined_subject.groups = vals['groups']
+                remaining_subject.groups = vals['groups']
             elif 'mandatory' in vals:
                 combined_subject.mandatory = vals['mandatory']
+                remaining_subject.mandatory = vals['mandatory']
         return super(Subject, self).write(vals)
