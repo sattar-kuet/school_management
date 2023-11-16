@@ -10,6 +10,7 @@
                 <field name="has_practical" />
                 <field name="has_mcq" />
                 <field name="has_written" />
+                <field name="mandatory" />
                 <field name="groups" widget="many2many_tags" />
             </tree>
         </field>
