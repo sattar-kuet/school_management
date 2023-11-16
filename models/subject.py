@@ -13,3 +13,20 @@ class Subject(models.Model):
     has_written = fields.Boolean(string='Has Written')
     groups = fields.Many2many('school_management.group')
     mandatory = fields.Boolean(default=True)
+
+    def write(self, vals):
+        combined_subject = self.env['school_management.combined_subject'].search([('subject', 'in', self.ids)], limit=1)
+        print('*'*100,combined_subject)
+        print('*'*100,vals)
+        if combined_subject:
+            if 'has_practical' in vals:
+                combined_subject.has_practical = vals['has_practical']
+            elif 'has_mcq' in vals:
+                combined_subject.has_mcq = vals['has_mcq']
+            elif 'has_written' in vals:
+                combined_subject.has_written = vals['has_written']
+            elif 'groups' in vals:
+                combined_subject.groups = vals['groups']
+            elif 'mandatory' in vals:
+                combined_subject.mandatory = vals['mandatory']
+        return super(Subject, self).write(vals)

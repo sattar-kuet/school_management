@@ -14,3 +14,4 @@ class CombinedSubject(models.Model):
     has_mcq = fields.Boolean(string='Has MCQ')
     has_written = fields.Boolean(string='Has Written')
     groups = fields.Many2many('school_management.group')
+    mandatory = fields.Boolean(default=True)
