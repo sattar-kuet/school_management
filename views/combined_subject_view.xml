@@ -12,6 +12,7 @@
                 <field name="has_mcq" />
                 <field name="has_written" />
                 <field name="groups" widget="many2many_tags" />
+                <field name="mandatory" />
             </tree>
         </field>
     </record>

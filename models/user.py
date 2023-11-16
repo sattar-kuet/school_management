@@ -10,16 +10,16 @@ class User(models.Model):
     _description = 'School Management User'
 
     code = fields.Char(string='Code')
-    roll = fields.Char(string="Roll")
+    roll = fields.Char(string="Roll", required=True)
     blood_group = fields.Selection([
         ('a+', 'A+'),
         ('b+', 'B+'),
         ('ab+', 'AB+'),
     ], string='Blood Group', required=True)
-    guardian = fields.Many2one("res.users", string="Guardian")
+    guardian = fields.Many2one("res.users", string="Guardian", required=True)
     class_config = fields.Many2one("sm.class_config", string='Class')
     class_has_group = fields.Boolean(compute='_compute_class_has_group')
-    student_group = fields.Many2one("school_management.group", string='Group')
+    student_group = fields.Many2one("school_management.group", string='Group', required=True)
     user_type = fields.Selection([('student', 'Student'), ('teacher', 'Teacher'), ('guardian', 'Guardian')])
 
     @api.depends('class_config')
