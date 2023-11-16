@@ -7,7 +7,8 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="student" />
-                <field name="subjects" />
+                <field name="available_main_subjects" />
+                <field name="main_subject" />
                 <field name="optional_subject" />
             </tree>
         </field>
@@ -20,7 +21,8 @@
                 <sheet>
                     <group>
                         <field name="student" />
-                        <field name="subjects" />
+                        <field name="main_subject" />
+                        <field name="available_main_subjects" />
                         <field name="optional_subject" />
                     </group>
                 </sheet>
