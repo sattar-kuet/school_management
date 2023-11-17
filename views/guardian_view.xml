@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="view_guardian_form" model="ir.ui.view">
+        <field name="name">school_management.guardian.form</field>
+        <field name="model">res.users</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" placeholder="Guardian Name"  required="True"/>
+                        <field name="phone" placeholder="Guardian Phone" required="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_guardian_tree" model="ir.ui.view">
+        <field name="name">Guardian List Tree</field>
+        <field name="model">res.users</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="phone"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_guardian" model="ir.actions.act_window">
+        <field name="name">Guardian List</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.users</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('school_management.view_guardian_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('school_management.view_guardian_form')})
+                          ]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_school_managementiling_face"> Create your First Teacher</p>
+        </field>
+        <field name="context">{
+            'search_default_guardian': 1,
+            'default_guardian': 1,
+            'search_default_group_school_guardian': 1
+            }
+        </field>
+    </record>
+    <menuitem
+            name="Guardian"
+            id="menu_guardian_list"
+            sequence="16"
+            action="action_guardian"
+            parent="menu_data"/>
+
+</odoo>

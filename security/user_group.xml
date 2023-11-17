@@ -24,8 +24,8 @@
             <field name="category_id" ref="module_category_school"/>
         </record>
 
-        <record id="group_school_parent" model="res.groups">
-            <field name="name">Student Parent</field>
+        <record id="group_school_guardian" model="res.groups">
+            <field name="name">Student Guardian</field>
             <field name="category_id" ref="module_category_school"/>
         </record>
 

@@ -19,4 +19,5 @@ from . import class_room_config
 from . import subject_teacher
 from . import student_subject_config
 from . import yearly_holiday
+from . import designation
 

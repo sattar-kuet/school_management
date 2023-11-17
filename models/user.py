@@ -20,6 +20,8 @@ class User(models.Model):
     class_config = fields.Many2one("sm.class_config", string='Class')
     class_has_group = fields.Boolean(compute='_compute_class_has_group')
     student_group = fields.Many2one("school_management.group", string='Group')
+    subjects = fields.Many2many("school_management.subject", string='Subjects')
+    designation = fields.Many2one("sm.designation", string="Designation")
 
     @api.depends('class_config')
     def _compute_class_has_group(self):
