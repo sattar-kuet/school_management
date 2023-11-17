@@ -43,6 +43,8 @@
         'views/result_view.xml',
         'views/teacher_view.xml',
         'views/guardian_view.xml',
+        'views/notice_view.xml',
+        'views/student_promotion_config_view.xml',
 
 
         'security/ir.model.access.csv',

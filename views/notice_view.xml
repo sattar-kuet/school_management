@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="view_notice_tree" model="ir.ui.view">
+        <field name="name">Notice List Tree</field>
+        <field name="model">school_management.notice</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="title" />
+                <field name="publishing_date" />
+                <field name="content_type" />
+                <field name="attachment" />
+                <field name="content" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_notice_form" model="ir.ui.view">
+        <field name="name">school_management.notice.form</field>
+        <field name="model">school_management.notice</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="title" />
+                        <field name="publishing_date" />
+                        <field name="content_type" />
+                        <field name="attachment" />
+                        <field name="content" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_notice" model="ir.actions.act_window">
+        <field name="name">Notice List</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school_management.notice</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_school_managementiling_face"> Create your first notice</p>
+        </field>
+    </record>
+    <menuitem
+            name="Notice"
+            id="menu_notice_list"
+            sequence="8"
+            action="action_notice"
+            parent="menu_sm_root"/>
+
+</odoo>
