@@ -6,7 +6,7 @@ export class SubjectListController extends ListController {
    setup() {
        super.setup();
    }
-   OnTestClick() {
+   OnAddSubject() {
        this.actionService.doAction({
           type: 'ir.actions.act_window',
           res_model: 'school_management.subject.wizard',

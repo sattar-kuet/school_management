@@ -2,7 +2,7 @@
 <templates>
    <t t-name="button_subject.ListView.Buttons" t-inherit="web.ListView.Buttons">
        <xpath expr="//*[@class='btn btn-primary o_list_button_add']" position="replace">
-           <button type="button" class="btn btn-primary"  t-on-click="OnTestClick">
+           <button type="button" class="btn btn-primary"  t-on-click="OnAddSubject">
                Add Subject
            </button>
        </xpath>

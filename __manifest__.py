@@ -7,6 +7,7 @@
     'website': 'https://www.itscholarbd.com',
     'data': [
         'data/demo.xml',
+        'security/user_group.xml',
         'data/application_group.xml',
         'views/menu.xml',
         'views/dashboard.xml',
@@ -22,6 +23,7 @@
 
         # 'views/template.xml',
         'views/student_view.xml',
+        'views/student_tree_view_inherit.xml',
         'wizards/session_wizard_view.xml',
         'wizards/subject_wizard_view.xml',
         'views/subject_view.xml',
