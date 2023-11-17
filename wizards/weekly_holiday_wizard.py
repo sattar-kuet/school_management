@@ -29,6 +29,8 @@ class WeeklyHolidayConfig(models.Model):
         else:
             self.env['school_management.weekly.holiday'].create(holiday_data)
 
+        self.env['school_management.yearly.holiday'].generate()
+
         # action = {
         #     'name': 'Configuration',
         #     'view_mode': 'calendar',

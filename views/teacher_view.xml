@@ -25,7 +25,7 @@
                 <field name="name" />
                 <field name="phone"/>
                 <field name="designation" />
-                <field name="subjects" />
+                <field name="subjects" widget="many2many_tags" />
             </tree>
         </field>
     </record>
