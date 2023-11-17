@@ -10,22 +10,23 @@ class User(models.Model):
     _description = 'School Management User'
 
     code = fields.Char(string='Code')
-    roll = fields.Char(string="Roll", required=True)
+    roll = fields.Char(string="Roll")
     blood_group = fields.Selection([
         ('a+', 'A+'),
         ('b+', 'B+'),
         ('ab+', 'AB+'),
-    ], string='Blood Group', required=True)
-    guardian = fields.Many2one("res.users", string="Guardian", required=True)
+    ], string='Blood Group')
+    guardian = fields.Many2one("res.users", string="Guardian")
     class_config = fields.Many2one("sm.class_config", string='Class')
     class_has_group = fields.Boolean(compute='_compute_class_has_group')
-    student_group = fields.Many2one("school_management.group", string='Group', required=True)
-    user_type = fields.Selection([('student', 'Student'), ('teacher', 'Teacher'), ('guardian', 'Guardian')])
+    student_group = fields.Many2one("school_management.group", string='Group')
 
     @api.depends('class_config')
     def _compute_class_has_group(self):
         for student in self:
             student.class_has_group = student.class_config.has_group
+            if not student.class_has_group:
+                student.student_group = False
     @api.model
     def create(self, vals):
         code = random.randint(100000, 999999)

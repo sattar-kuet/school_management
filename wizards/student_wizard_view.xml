@@ -20,14 +20,12 @@
             <field name="arch" type="xml">
                 <form>
                     <group>
-                        <group>
-                            <group>
-                                <field name="name"/>
-                                <field name="roll"/>
-                                <field name="blood_group"/>
-                                <field name="student_group"/>
-                            </group>
-                        </group>
+                        <field name="name" placeholder="Student Name"  required="True"/>
+                        <field name="roll" placeholder="Student Roll" />
+                        <field name="blood_group" widget="radio" options="{'horizontal': True}" />
+                        <field name="class_config" widget="radio" options="{'horizontal': True}"  required="True" />
+                        <field name="class_has_group" invisible="1" />
+                        <field name="student_group" widget="radio" options="{'horizontal': True}" attrs="{'invisible':[('class_has_group','=',False)], 'required':[('class_has_group','=', True)]}" />
                     </group>
                     <footer>
                         <button string="Confirm" type="object" name="add_subject" class="btn btn-primary"/>
