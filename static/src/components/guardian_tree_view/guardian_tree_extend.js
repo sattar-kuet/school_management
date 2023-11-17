@@ -10,7 +10,7 @@ export class GuardianListController extends ListController {
        this.actionService.doAction({
           type: 'ir.actions.act_window',
           res_model: 'school_management.guardian.wizard',
-          name:'Add Teacher',
+          name:'Add Guardian',
           view_mode: 'form',
           view_type: 'form',
           views: [[false, 'form']],
