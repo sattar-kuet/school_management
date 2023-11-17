@@ -5,3 +5,4 @@ from . import exam_config_wizard
 from . import session_wizard
 from . import weekly_holiday_wizard
 from . import student_wizard
+from . import teacher_wizard

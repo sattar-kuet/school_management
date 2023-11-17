@@ -24,6 +24,7 @@
         # 'views/template.xml',
         'views/student_view.xml',
         'views/student_tree_view_inherit.xml',
+        'views/teacher_tree_view_inherit.xml',
         'wizards/session_wizard_view.xml',
         'wizards/subject_wizard_view.xml',
         'views/subject_view.xml',
@@ -31,6 +32,7 @@
         'views/subject_tree_view_inherit.xml',
         'wizards/exam_config_wizard_view.xml',
         'wizards/student_wizard_view.xml',
+        'wizards/teacher_wizard_view.xml',
         'views/exam_view.xml',
 
         'wizards/result_config_wizard_view.xml',
