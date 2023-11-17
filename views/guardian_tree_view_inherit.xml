@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="guardian_tree_inherit_js_class" model="ir.ui.view">
+        <field name="name">guardian.tree.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="school_management.view_guardian_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="js_class">guardian_add_button_in_tree</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

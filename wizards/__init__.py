@@ -6,3 +6,4 @@ from . import session_wizard
 from . import weekly_holiday_wizard
 from . import student_wizard
 from . import teacher_wizard
+from . import guardian_wizard
