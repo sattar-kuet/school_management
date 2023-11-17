@@ -29,4 +29,5 @@ school_management.access_sm_class_setup_line,access_sm_class_setup_line,school_m
 school_management.access_sm_section,access_sm_section,school_management.model_sm_section,,1,1,1,1
 school_management.access_student_wizard,access_student_wizard,school_management.model_school_management_student_wizard,,1,1,1,1
 school_management.access_sm_designation,access_sm_designation,school_management.model_sm_designation,,1,1,1,1
+school_management.access_school_management_notice,access_school_management_notice,school_management.model_school_management_notice,,1,1,1,1
 
