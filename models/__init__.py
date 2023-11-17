@@ -21,4 +21,5 @@ from . import student_subject_config
 from . import yearly_holiday
 from . import designation
 from . import notice
+from . import student_promotion_config
 
