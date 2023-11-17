@@ -38,6 +38,7 @@ class StudentWizard(models.TransientModel):
 
         action = {
             'name': 'Student',
+            'domain': [('groups_id.name', '=', 'School Student')],
             'view_mode': 'tree',
             'res_model': 'res.users',
             'view_id': self.env.ref('school_management.view_student_tree').id,

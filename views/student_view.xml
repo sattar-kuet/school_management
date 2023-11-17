@@ -47,14 +47,12 @@
                           (0, 0, {'view_mode': 'tree', 'view_id': ref('school_management.view_student_tree')}),
                           (0, 0, {'view_mode': 'form', 'view_id': ref('school_management.view_student_form')})
                           ]"/>
+        <field name="domain">[('groups_id.name','=','School Student')]</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_school_managementiling_face"> Create your First Student</p>
         </field>
         <field name="context">{
-            'search_default_students': 1,
-            'default_students': 1,
-            'group_by': 'class_config',
-            'search_default_group_school_student': 1
+            'group_by': 'class_config'
             }
         </field>
     </record>

@@ -14,11 +14,7 @@ class ClassConfig(models.Model):
     setup_lines = fields.Many2many('sm.class.setup.line', string="Setup Line")
     computed_setup_info = fields.Text(string='Configuration', compute='_compute_setup_info')
 
-    # def _compute_already_used_setup_lines(self):
-    #     used_setup_lines = []
-    #     for record in self:
-    #         used_setup_lines.append(record.setup_lines.ids)
-    #     self.already_used_setup_lines = [1,2,3,4,5,6]
+
 
     def _compute_setup_info(self):
         for record in self:
