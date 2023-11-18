@@ -11,7 +11,7 @@
                         <field name="name" placeholder="Teacher Name"  required="True"/>
                         <field name="phone" placeholder="Teacher Phone" required="True"/>
                         <field name="designation" placeholder="Teacher Designation" required="True"/>
-                        <field name="subjects" required="True"/>
+                        <field name="subjects" required="True" options="{'no_create': True}"/>
                     </group>
                 </sheet>
             </form>
