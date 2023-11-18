@@ -47,11 +47,11 @@
         </field>
         <field name="domain">[('groups_id.name','=','School Teacher')]</field>
     </record>
-<!--    <menuitem-->
-<!--            name="Teacher"-->
-<!--            id="menu_teacher_list"-->
-<!--            sequence="15"-->
-<!--            action="action_teacher"-->
-<!--            parent="menu_data"/>-->
+    <menuitem
+            name="Teacher Config"
+            id="menu_teacher_list"
+            sequence="3"
+            action="action_teacher"
+            parent="menu_configuration"/>
 
 </odoo>

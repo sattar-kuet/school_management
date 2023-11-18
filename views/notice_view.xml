@@ -42,11 +42,6 @@
             <p class="o_view_nocontent_school_managementiling_face"> Create your first notice</p>
         </field>
     </record>
-    <menuitem
-            name="Notice"
-            id="menu_notice_list"
-            sequence="8"
-            action="action_notice"
-            parent="menu_sm_root"/>
+
 
 </odoo>
