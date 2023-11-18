@@ -24,8 +24,7 @@
         # 'views/template.xml',
         'views/student_view.xml',
         'views/student_tree_view_inherit.xml',
-        'views/teacher_tree_view_inherit.xml',
-        'views/guardian_tree_view_inherit.xml',
+
         'wizards/session_wizard_view.xml',
         'wizards/subject_wizard_view.xml',
         'views/subject_view.xml',
@@ -45,8 +44,13 @@
         'views/proccessed_result_view.xml',
         'wizards/marks_wizard_view.xml',
         'views/result_view.xml',
+
         'views/teacher_view.xml',
+        'views/teacher_tree_view_inherit.xml',
+
         'views/guardian_view.xml',
+        'views/guardian_tree_view_inherit.xml',
+
         'views/notice_view.xml',
         'views/student_promotion_config_view.xml',
 
