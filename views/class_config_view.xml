@@ -83,8 +83,8 @@
     <menuitem
             name="Class config"
             id="menu_class_config_list"
-            sequence="3"
+            sequence="5"
             action="action_class_config"
-            parent="menu_data"/>
+            parent="menu_configuration"/>
 
 </odoo>

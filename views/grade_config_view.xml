@@ -43,8 +43,8 @@
     <menuitem 
             name="Grade config"
             id="menu_grade_config_list"
-            sequence="3"
+            sequence="6"
             action="action_grade_config"
-            parent="menu_Result"/>
+            parent="menu_configuration"/>
 
 </odoo>

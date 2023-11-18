@@ -38,11 +38,11 @@
             <p class="o_view_nocontent_school_managementiling_face"> Create your first Subject Teacher</p>
         </field>
     </record>
-    <menuitem
-            name="Subject Teacher"
-            id="menu_subject_teacher_list"
-            sequence="7"
-            action="action_subject_teacher"
-            parent="menu_data"/>
+<!--    <menuitem-->
+<!--            name="Subject Teacher"-->
+<!--            id="menu_subject_teacher_list"-->
+<!--            sequence="7"-->
+<!--            action="action_subject_teacher"-->
+<!--            parent="menu_data"/>-->
 
 </odoo>

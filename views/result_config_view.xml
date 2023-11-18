@@ -31,11 +31,11 @@
             <p class="o_view_nocontent_school_managementiling_face"> Create your first Result Config</p>
         </field>
     </record>
-    <menuitem
-            name="Result config"
-            id="menu_result_config_list"
-            sequence="1"
-            action="action_result_config"
-            parent="menu_Result"/>
+<!--    <menuitem-->
+<!--            name="Result config"-->
+<!--            id="menu_result_config_list"-->
+<!--            sequence="1"-->
+<!--            action="action_result_config"-->
+<!--            parent="menu_Result"/>-->
 
 </odoo>

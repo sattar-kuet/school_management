@@ -45,10 +45,10 @@
         </field>
     </record>
     <menuitem
-            name="Shift"
+            name="Shift Config"
             id="menu_shift_list"
-            sequence="6"
+            sequence="1"
             action="action_shift"
-            parent="menu_data"/>
+            parent="menu_configuration"/>
 
 </odoo>

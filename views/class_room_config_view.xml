@@ -47,8 +47,8 @@
     <menuitem
             name="Class Room Config"
             id="menu_class_room_config_list"
-            sequence="5"
+            sequence="4"
             action="action_class_room_config"
-            parent="menu_data"/>
+            parent="menu_configuration"/>
 
 </odoo>

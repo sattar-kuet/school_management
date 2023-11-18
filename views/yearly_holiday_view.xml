@@ -22,10 +22,10 @@
         </field>
     </record>
     <menuitem
-            name="Holiday"
+            name="Holiday Config"
             id="menu_holiday_list"
-            sequence="5"
+            sequence="8"
             action="action_yearly_holiday"
-            parent="menu_sm_root"/>
+            parent="menu_configuration"/>
 
 </odoo>

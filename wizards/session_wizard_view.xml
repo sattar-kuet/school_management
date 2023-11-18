@@ -46,9 +46,9 @@
         </field>
     </record>
     <menuitem
-            name="Config"
+            name="Basic Config"
             id="menu_session_list"
-            sequence="4"
+            sequence="0"
             action="action_session_wizard"
-            parent="menu_sm_root"/>
+            parent="menu_configuration"/>
 </odoo>

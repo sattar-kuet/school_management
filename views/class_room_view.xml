@@ -36,11 +36,11 @@
             <p class="o_view_nocontent_school_managementiling_face"> Create your first Class Room</p>
         </field>
     </record>
-    <menuitem
-            name="Class Room"
-            id="menu_class_room_list"
-            sequence="4"
-            action="action_class_room"
-            parent="menu_data"/>
+<!--    <menuitem-->
+<!--            name="Class Room"-->
+<!--            id="menu_class_room_list"-->
+<!--            sequence="4"-->
+<!--            action="action_class_room"-->
+<!--            parent="menu_data"/>-->
 
 </odoo>

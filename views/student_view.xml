@@ -56,11 +56,11 @@
             }
         </field>
     </record>
-    <menuitem
-            name="Student"
-            id="menu_student_list"
-            sequence="0"
-            action="action_student"
-            parent="menu_data"/>
+<!--    <menuitem-->
+<!--            name="Student"-->
+<!--            id="menu_student_list"-->
+<!--            sequence="0"-->
+<!--            action="action_student"-->
+<!--            parent="menu_data"/>-->
 
 </odoo>

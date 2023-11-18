@@ -28,10 +28,10 @@
         </field>
     </record>
     <menuitem
-            name="Combined Subject"
+            name="4th Subject Config"
             id="menu_combined_subject_view"
-            sequence="11"
+            sequence="7"
             action="action_combined_subject"
-            parent="menu_data"/>
+            parent="menu_configuration"/>
 
 </odoo>
