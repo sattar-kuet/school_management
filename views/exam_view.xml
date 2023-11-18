@@ -46,11 +46,6 @@
                 <p class="o_view_nocontent_school_managementiling_face"> Create your first First Exam</p>
             </field>
     </record>
-    <menuitem
-            name="Exam Configuration"
-            id="menu_exam_list"
-            sequence="1"
-            action="action_exam"
-            parent="menu_sm_root"/>
+
 
 </odoo>

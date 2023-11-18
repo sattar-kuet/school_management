@@ -10,6 +10,11 @@
                   parent="menu_sm_root"
                   action=""
                   sequence="1" />
+        <menuitem name="Exam Configuration"
+                  id="menu_exam_list"
+                  sequence="2"
+                  action="action_exam"
+                  parent="menu_sm_root"/>
         <menuitem id="menu_Result"
                   name="Result"
                   parent="menu_sm_root"
