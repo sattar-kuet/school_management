@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <tree create="false">
                 <field name="title" />
-                <field name="subject" />
+                <field name="subject" widget="many2many_tags" />
                 <field name="has_practical" />
                 <field name="has_mcq" />
                 <field name="has_written" />
@@ -27,11 +27,6 @@
             <p class="o_view_nocontent_school_managementiling_face"> Create your Combined Subject</p>
         </field>
     </record>
-    <menuitem
-            name="4th Subject Config"
-            id="menu_combined_subject_view"
-            sequence="7"
-            action="action_combined_subject"
-            parent="menu_configuration"/>
+
 
 </odoo>

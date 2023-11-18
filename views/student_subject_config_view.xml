@@ -40,11 +40,6 @@
             <p class="o_view_nocontent_school_managementiling_face"> Create your first Student Subject Config</p>
         </field>
     </record>
-<!--    <menuitem-->
-<!--            name="Student Subject Config"-->
-<!--            id="menu_student_subject_config_list"-->
-<!--            sequence="8"-->
-<!--            action="action_student_subject_config"-->
-<!--            parent="menu_data"/>-->
+
 
 </odoo>
