@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <odoo>
-
     <record id="view_session_wizard_form" model="ir.ui.view">
         <field name="name">school_management.session.form</field>
         <field name="model">school_management.session.wizard</field>
@@ -14,14 +13,12 @@
                             <li class="active config-icon" ><strong>Session</strong></li>
                             <li class="config-icon"><strong>Weekly Holiday</strong></li>
                             <li class="config-icon"><strong>Yearly Holiday</strong></li>
-                            <li class="config-icon"><strong>Group</strong></li>
                         </ul>
                     </div>
                     <group>
                         <group>
                             <field name="title" />
                         </group>
-
                         <group>
                             <group>
                                 <field name="start_year"  />
@@ -38,7 +35,6 @@
             </form>
         </field>
     </record>
-
     <record id="action_session_wizard" model="ir.actions.act_window">
         <field name="name">Configuration</field>
         <field name="type">ir.actions.act_window</field>
@@ -49,12 +45,10 @@
             <p class="o_view_nocontent_school_managementiling_face"> Create your first Session</p>
         </field>
     </record>
-
     <menuitem
             name="Config"
             id="menu_session_list"
             sequence="4"
             action="action_session_wizard"
             parent="menu_sm_root"/>
-
 </odoo>

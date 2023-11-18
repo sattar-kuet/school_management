@@ -31,15 +31,15 @@ class WeeklyHolidayConfig(models.Model):
 
         self.env['school_management.yearly.holiday'].generate()
 
-        # action = {
-        #     'name': 'Configuration',
-        #     'view_mode': 'calendar',
-        #     'res_model': 'school_management.yearly.holiday.wizard',
-        #     'view_id': self.env.ref('school_management.yearly_holiday_calendar').id,
-        #     'type': 'ir.actions.act_window',
-        #     'target': 'new',
-        # }
-        # return action
+        action = {
+            'name': 'Configuration',
+            'view_mode': 'form',
+            'res_model': 'sm.student.promotion.config.wizard',
+            'view_id': self.env.ref('school_management.view_student_promotion_config_wizard_form').id,
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+        }
+        return action
 
     def back(self):
         action = {
