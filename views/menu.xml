@@ -51,7 +51,7 @@
                 action="action_guardian"
                 parent="menu_data_list"/>
         <menuitem
-                name="Combined Subject Config"
+                name="Combined Subject"
                 id="menu_combined_subject_view"
                 sequence="2"
                 action="action_combined_subject"
