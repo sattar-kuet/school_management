@@ -34,11 +34,6 @@
             <p class="o_view_nocontent_school_managementiling_face"> Create your first student promotion config</p>
         </field>
     </record>
-    <menuitem
-            name="Student Promotion"
-            id="menu_student_promotion_config_list"
-            sequence="9"
-            action="action_student_promotion_config"
-            parent="menu_sm_root"/>
+
 
 </odoo>
