@@ -23,7 +23,7 @@
                         <field name="name"/>
                         <field name="phone"/>
                         <field name="designation"/>
-                        <field name="subjects"/>
+                        <field name="subjects" widget="many2many_tags" options="{'no_create': True}"/>
                     </group>
                     <footer>
                         <button string="Confirm" type="object" name="add_teacher" class="btn btn-primary"/>
