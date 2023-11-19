@@ -56,11 +56,5 @@
                 <p class="o_view_nocontent_school_managementiling_face"> Create your first Result</p>
             </field>
     </record>
-    <menuitem 
-            name="Result"
-            id="menu_result_view"
-            sequence="0"
-            action="action_result"
-            parent="menu_Result"/>
 
 </odoo>

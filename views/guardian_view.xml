@@ -43,11 +43,6 @@
         </field>
         <field name="domain">[('groups_id.name','=','School Guardian')]</field>
     </record>
-<!--    <menuitem-->
-<!--            name="Guardian"-->
-<!--            id="menu_guardian_list"-->
-<!--            sequence="16"-->
-<!--            action="action_guardian"-->
-<!--            parent="menu_data"/>-->
+
 
 </odoo>

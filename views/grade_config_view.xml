@@ -40,11 +40,6 @@
                 <p class="o_view_nocontent_school_managementiling_face"> Create your first Grade Config</p>
             </field>
     </record>
-    <menuitem 
-            name="Grade config"
-            id="menu_grade_config_list"
-            sequence="6"
-            action="action_grade_config"
-            parent="menu_configuration"/>
+
 
 </odoo>

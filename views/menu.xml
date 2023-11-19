@@ -5,31 +5,81 @@
                   name="School Management"
                   action=""
                   sequence="0" />
+
+        <!-- ##########   Configuration menu  #########-->
         <menuitem id="menu_configuration"
                   name="Configuration"
                   parent="menu_sm_root"
                   action=""
                   sequence="1" />
+        <menuitem name="Shift Config"
+                  id="menu_shift_list"
+                  sequence="1"
+                  action="action_shift"
+                  parent="menu_configuration"/>
+        <menuitem name="Subject Config"
+                  id="menu_subject_view"
+                  sequence="2"
+                  action="action_subject"
+                  parent="menu_configuration"/>
+        <menuitem name="Teacher Config"
+                  id="menu_teacher_list"
+                  sequence="3"
+                  action="action_teacher"
+                  parent="menu_configuration"/>
+        <menuitem name="Class Room Config"
+                  id="menu_class_room_config_list"
+                  sequence="4"
+                  action="action_class_room_config"
+                  parent="menu_configuration"/>
+        <menuitem name="Class config"
+                  id="menu_class_config_list"
+                  sequence="5"
+                  action="action_class_config"
+                  parent="menu_configuration"/>
+        <menuitem name="Grade config"
+                  id="menu_grade_config_list"
+                  sequence="6"
+                  action="action_grade_config"
+                  parent="menu_configuration"/>
         <menuitem name="4th Subject Config"
                   id="menu_student_subject_config_list"
                   sequence="7"
                   action="action_student_subject_config"
                   parent="menu_configuration"/>
+        <menuitem name="Holiday Config"
+                  id="menu_holiday_list"
+                  sequence="8"
+                  action="action_yearly_holiday"
+                  parent="menu_configuration"/>
+
+        <!-- ##########   Exam Configuration menu  #########-->
         <menuitem name="Exam Configuration"
                   id="menu_exam_list"
                   sequence="2"
                   action="action_exam"
                   parent="menu_sm_root"/>
+
+        <!-- ##########   Result menu  #########-->
         <menuitem id="menu_Result"
                   name="Result"
                   parent="menu_sm_root"
                   action=""
                   sequence="3" />
+        <menuitem name="Result"
+                  id="menu_result_view"
+                  sequence="0"
+                  action="action_result"
+                  parent="menu_Result"/>
+
+        <!-- ##########   Notice menu  #########-->
         <menuitem name="Notice"
                   id="menu_notice_list"
                   sequence="4"
                   action="action_notice"
                   parent="menu_sm_root"/>
+
+        <!-- ##########   Data menu  #########-->
         <menuitem name="Data"
                   id="menu_data_list"
                   sequence="5"

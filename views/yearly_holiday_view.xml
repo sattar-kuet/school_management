@@ -21,11 +21,6 @@
             <p class="o_view_nocontent_school_managementiling_face">Create your first Weekly Holiday</p>
         </field>
     </record>
-    <menuitem
-            name="Holiday Config"
-            id="menu_holiday_list"
-            sequence="8"
-            action="action_yearly_holiday"
-            parent="menu_configuration"/>
+
 
 </odoo>

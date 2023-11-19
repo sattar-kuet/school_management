@@ -26,11 +26,6 @@
             <p class="o_view_nocontent_school_managementiling_face"> Create your first First Subject</p>
         </field>
     </record>
-    <menuitem
-            name="Subject Config"
-            id="menu_subject_view"
-            sequence="2"
-            action="action_subject"
-            parent="menu_configuration"/>
+
 
 </odoo>

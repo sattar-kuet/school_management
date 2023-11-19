@@ -80,11 +80,6 @@
             <p class="o_view_nocontent_school_managementiling_face"> Create your first Class Config</p>
         </field>
     </record>
-    <menuitem
-            name="Class config"
-            id="menu_class_config_list"
-            sequence="5"
-            action="action_class_config"
-            parent="menu_configuration"/>
+
 
 </odoo>

@@ -44,11 +44,6 @@
             <p class="o_view_nocontent_school_managementiling_face"> Create your first Class Room</p>
         </field>
     </record>
-    <menuitem
-            name="Class Room Config"
-            id="menu_class_room_config_list"
-            sequence="4"
-            action="action_class_room_config"
-            parent="menu_configuration"/>
+
 
 </odoo>
