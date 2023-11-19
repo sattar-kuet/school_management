@@ -12,6 +12,7 @@ class User(models.Model):
 
     computed_name = fields.Char(compute='_computed_name')
     code = fields.Char(string='Code')
+    attendance_device_user_id = fields.Char()
     roll = fields.Char(string="Roll")
     blood_group = fields.Selection([
         ('a+', 'A+'),
