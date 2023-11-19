@@ -80,7 +80,10 @@ class Exam(models.Model):
         # process this result_configs.subject for all student
         for result_config in result_configs:
             subject_ids = result_config.subject.subject.ids
-            results = self.env['school_management.result'].search([('subject', 'in', subject_ids)])
+            results = self.env['school_management.result'].search([
+                ('exam', '=', self.id),
+                ('subject', 'in', subject_ids),
+            ])
 
             written_marks = {}
             mcq_marks = {}
