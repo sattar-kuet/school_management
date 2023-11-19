@@ -35,7 +35,7 @@ class Exam(models.Model):
     @api.model
     def create(self, vals):
         students = self.env['res.users'].search_count([('class_config', '=', vals['class_config'])])
-        print('*'*100,students)
+        print('*' * 100, students)
         if students == 0:
             raise ValidationError('There is no student for this Class')
             return
@@ -88,17 +88,17 @@ class Exam(models.Model):
             total_marks = {}
             students_processed = []
             for result in results:
-                if result.student.id in students_processed:
-                    written_marks[result.student.id] += result.written_mark
-                    mcq_marks[result.student.id] += result.mcq_mark
-                    practical_marks[result.student.id] += result.practical_mark
-                    total_marks[result.student.id] += result.written_mark + result.mcq_mark + result.practical_mark
-                else:
-                    written_marks[result.student.id] = result.written_mark
-                    mcq_marks[result.student.id] = result.mcq_mark
-                    practical_marks[result.student.id] = result.practical_mark
-                    total_marks[result.student.id] = result.written_mark + result.mcq_mark + result.practical_mark
-                    students_processed.append(result.student.id)
+                # if result.student.id in students_processed:
+                #     written_marks[result.student.id] += result.written_mark
+                #     mcq_marks[result.student.id] += result.mcq_mark
+                #     practical_marks[result.student.id] += result.practical_mark
+                #     total_marks[result.student.id] += result.written_mark + result.mcq_mark + result.practical_mark
+                # else:
+                written_marks[result.student.id] = result.written_mark
+                mcq_marks[result.student.id] = result.mcq_mark
+                practical_marks[result.student.id] = result.practical_mark
+                total_marks[result.student.id] = result.written_mark + result.mcq_mark + result.practical_mark
+                students_processed.append(result.student.id)
             total_max_mark = result_config.written_max_mark + result_config.mcq_max_mark + result_config.practical_max_mark
             for student_id in students_processed:
                 marks_in_percentage = (total_marks[student_id] / total_max_mark) * 100
