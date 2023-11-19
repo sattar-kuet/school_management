@@ -12,10 +12,13 @@ class SmsConfigWizard(models.Model):
 
     @api.model
     def default_get(self, fields):
-        holiday = self.env['school_management.weekly.holiday'].search([], limit=1)
+        sms_config = self.env['sm.sms.config'].search([], limit=1)
         record = super(SmsConfigWizard, self).default_get(fields)
-        if holiday:
-            record['weekly_off_days'] = holiday.weekly_off_days.ids
+        if sms_config:
+            record['sms_for_guardian'] = sms_config.sms_for_guardian
+            record['sms_for_teacher'] = sms_config.sms_for_teacher
+            record['guardian_sms'] = sms_config.guardian_sms
+            record['teacher_sms'] = sms_config.teacher_sms
 
         return record
 
