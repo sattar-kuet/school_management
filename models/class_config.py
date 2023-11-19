@@ -47,7 +47,8 @@ class ClassSetupLine(models.Model):
     _description = 'Class Setup line'
 
     subject = fields.Many2one('school_management.subject', string="Subject")
-    teacher = fields.Many2one('res.users', string="Teacher")
+    teacher = fields.Many2one('res.users', string="Teacher", domain=lambda self: [
+            ("groups_id", "in", [self.env.ref("school_management.group_school_teacher").id])], options={'no_create': True})
     class_room = fields.Many2one('school_management.class.room', string="Class Room")
     start_at = fields.Char(string="Start at")
     start_at_am_pm = fields.Char(string="Start at", compute="_compute_start_at_am_pm")

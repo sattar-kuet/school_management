@@ -29,7 +29,7 @@
                 <sheet>
                     <group>
                         <field name="name" placeholder="Exam Name" />
-                        <field name="class_config" />
+                        <field name="class_config" options="{'no_create': True}"/>
                     </group>
                 </sheet>
             </form>

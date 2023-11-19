@@ -20,7 +20,7 @@
                 <sheet>
                     <group>
                         <field name="teacher" />
-                        <field name="subject" />
+                        <field name="subject" options="{'no_create': True}"/>
                         <field name="class_config" />
                     </group>
                 </sheet>

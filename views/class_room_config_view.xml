@@ -23,11 +23,11 @@
                 <sheet>
                     <group>
                         <field name="class_room" />
-                        <field name="shift" />
+                        <field name="shift" options="{'no_create': True}"/>
                         <field name="start_time" />
                         <field name="end_time" />
-                        <field name="subject" />
-                        <field name="week_days" />
+                        <field name="subject" options="{'no_create': True}"/>
+                        <field name="week_days" options="{'no_create': True}"/>
                     </group>
                 </sheet>
             </form>

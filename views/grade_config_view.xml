@@ -31,7 +31,7 @@
     </record>
 
     <record id="action_grade_config" model="ir.actions.act_window">
-            <field name="name">Result List</field>
+            <field name="name">Grade List</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">school_management.grade_config</field>
             <field name="view_mode">tree,form</field>

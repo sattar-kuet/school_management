@@ -8,7 +8,7 @@
             <tree>
                 <field name="exam" />
                 <field name="student" />
-                <field name="subject" />
+                <field name="subject" options="{'no_create': True}"/>
                 <field name="grade_point" />
                 <field name="total_marks" />
                 <field name="marks_in_percentage" />
