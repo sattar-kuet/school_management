@@ -44,8 +44,8 @@
                             <form>
                                 <group>
                                     <group>
-                                        <field name="subject" options="{'no_create': True}"/>
-                                        <field name="teacher"/>
+                                        <field name="subject" options="{'no_create': True}" />
+                                        <field name="teacher" options="{'no_create': True}" />
                                         <field name="class_room"/>
                                     </group>
                                     <group>

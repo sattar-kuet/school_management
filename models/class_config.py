@@ -14,8 +14,6 @@ class ClassConfig(models.Model):
     setup_lines = fields.Many2many('sm.class.setup.line', string="Setup Line")
     computed_setup_info = fields.Text(string='Configuration', compute='_compute_setup_info')
 
-
-
     def _compute_setup_info(self):
         for record in self:
             html_output = '<ul>'
@@ -48,7 +46,7 @@ class ClassSetupLine(models.Model):
 
     subject = fields.Many2one('school_management.subject', string="Subject")
     teacher = fields.Many2one('res.users', string="Teacher", domain=lambda self: [
-            ("groups_id", "in", [self.env.ref("school_management.group_school_teacher").id])], options={'no_create': True})
+        ("groups_id", "in", [self.env.ref("school_management.group_school_teacher").id])])
     class_room = fields.Many2one('school_management.class.room', string="Class Room")
     start_at = fields.Char(string="Start at")
     start_at_am_pm = fields.Char(string="Start at", compute="_compute_start_at_am_pm")
