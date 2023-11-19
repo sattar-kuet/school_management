@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <odoo>
-    <record id="view_session_wizard_form" model="ir.ui.view">
-        <field name="name">school_management.session.form</field>
-        <field name="model">school_management.session.wizard</field>
+    <record id="view_sms_config_wizard_form" model="ir.ui.view">
+        <field name="name">sm.sms.config.wizard.form</field>
+        <field name="model">sm.sms.config.wizard</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
@@ -11,45 +11,44 @@
                         <!-- progressbar -->
                         <ul id="progressbar">
                             <li class="active config-icon" ><strong>Session</strong></li>
-                            <li class="config-icon"><strong>Weekly Holiday</strong></li>
-                            <li class="config-icon"><strong>Student Promotion</strong></li>
-                            <li class="config-icon"><strong>SMS Config</strong></li>
+                            <li class="active config-icon"><strong>Weekly Holiday</strong></li>
+                            <li class="active config-icon"><strong>Student Promotion</strong></li>
+                            <li class="active config-icon"><strong>SMS Config</strong></li>
                         </ul>
                     </div>
                     <group>
                         <group>
-                            <field name="title" />
+                            <field name="sms_for_guardian" />
                         </group>
                         <group>
                             <group>
-                                <field name="start_year"  />
+                                <field name="guardian_sms"  />
                             </group>
-                            <group>
-                                <field name="end_year"  />
-                            </group>
+                        </group>
+                        <group>
+                            <field name="sms_for_teacher"  />
+                        </group>
+                        <group>
+                            <field name="teacher_sms"  />
                         </group>
                     </group>
                     <footer>
+                        <button string="Back" type="object" name="back"  class="btn btn-secondary"/>
                         <button string="Next" type="object" name="next"  class="btn btn-primary"/>
                     </footer>
                 </sheet>
             </form>
         </field>
     </record>
-    <record id="action_session_wizard" model="ir.actions.act_window">
+    <record id="action_sms_config_wizard" model="ir.actions.act_window">
         <field name="name">Configuration</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">school_management.session.wizard</field>
+        <field name="res_model">sm.sms.config.wizard</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_school_managementiling_face"> Create your first Session</p>
         </field>
     </record>
-    <menuitem
-            name="Basic Config"
-            id="menu_session_list"
-            sequence="0"
-            action="action_session_wizard"
-            parent="menu_configuration"/>
+
 </odoo>

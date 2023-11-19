@@ -13,7 +13,8 @@
                         <ul id="progressbar">
                             <li class="active config-icon" ><strong>Session</strong></li>
                             <li class="active config-icon"><strong>Weekly Holiday</strong></li>
-                            <li class="config-icon"><strong>Yearly Holiday</strong></li>
+                            <li class="config-icon"><strong>Student Promotion</strong></li>
+                            <li class="config-icon"><strong>SMS Config</strong></li>
                         </ul>
                     </div>
                     <group>

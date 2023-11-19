@@ -35,6 +35,7 @@
         'wizards/teacher_wizard_view.xml',
         'wizards/guardian_wizard_view.xml',
         'wizards/student_promotion_config_wizard_view.xml',
+        'wizards/sms_config_wizard_view.xml',
         'views/exam_view.xml',
 
         'wizards/result_config_wizard_view.xml',

@@ -34,6 +34,16 @@ class StudentPromotionConfigWizard(models.Model):
         else:
             self.env['sm.student.promotion.config'].create(type_data)
 
+        action = {
+            'name': 'Configuration',
+            'view_mode': 'form',
+            'res_model': 'sm.sms.config.wizard',
+            'view_id': self.env.ref('school_management.view_sms_config_wizard_form').id,
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+        }
+        return action
+
     def back(self):
         action = {
             'name': 'Configuration',
