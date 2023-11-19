@@ -91,12 +91,6 @@ class Exam(models.Model):
             total_marks = {}
             students_processed = []
             for result in results:
-                # if result.student.id in students_processed:
-                #     written_marks[result.student.id] += result.written_mark
-                #     mcq_marks[result.student.id] += result.mcq_mark
-                #     practical_marks[result.student.id] += result.practical_mark
-                #     total_marks[result.student.id] += result.written_mark + result.mcq_mark + result.practical_mark
-                # else:
                 written_marks[result.student.id] = result.written_mark
                 mcq_marks[result.student.id] = result.mcq_mark
                 practical_marks[result.student.id] = result.practical_mark
