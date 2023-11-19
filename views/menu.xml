@@ -71,6 +71,11 @@
                   sequence="0"
                   action="action_result"
                   parent="menu_Result"/>
+        <menuitem name="Published Result"
+                  id="menu_processed_result_list"
+                  sequence="1"
+                  action="action_processed_result"
+                  parent="menu_Result"/>
 
         <!-- ##########   Notice menu  #########-->
         <menuitem name="Notice"

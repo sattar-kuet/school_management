@@ -28,11 +28,6 @@
                 <p class="o_view_nocontent_school_managementiling_face"> Create your first processed Result</p>
             </field>
     </record>
-<!--    <menuitem -->
-<!--            name="processed Result"-->
-<!--            id="menu_processed_result_list"-->
-<!--            sequence="2"-->
-<!--            action="action_processed_result"-->
-<!--            parent="menu_Result"/>-->
+
 
 </odoo>
