@@ -59,6 +59,7 @@ class SubjectWizard(models.TransientModel):
                 'has_practical': self.has_practical,
                 'has_mcq': self.has_mcq,
                 'has_written': self.has_written,
+                'groups': self.groups.ids,
                 'mandatory': self.mandatory,
             })
 
@@ -68,6 +69,7 @@ class SubjectWizard(models.TransientModel):
                 'has_practical': self.has_practical,
                 'has_mcq': self.has_mcq,
                 'has_written': self.has_written,
+                'groups': self.groups.ids,
                 'mandatory': self.mandatory,
             })
         action = {

@@ -44,22 +44,5 @@ class User(models.Model):
         code = random.randint(100000, 999999)
         vals['login'] = code
         vals['code'] = code
-
-        student_group = self.env['res.groups'].search([
-            ('name', '=', 'Student')
-        ])
-        teacher_group = self.env['res.groups'].search([
-            ('name', '=', 'Teacher')
-        ])
-
-        if vals:
-            if 'is_student' in vals:
-                created_user = super(User, self).create(vals)
-                created_user.write({
-                    'in_group_' + str(student_group.id): True,
-                    'in_group_' + str(teacher_group.id): False
-                })
-            else:
-                created_user = super(User, self).create(vals)
-
-            return created_user
+        created_user = super(User, self).create(vals)
+        return created_user
