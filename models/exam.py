@@ -78,9 +78,10 @@ class Exam(models.Model):
             old_processed_result.status = 'archive'
 
     def result_publishing(self):
-        self.env['school_management.result'].search([('exam', '=', self.id)]).write({
-            'status': 'archive'
-        })
+        old_results = self.env['school_management.result'].search([('exam', '=', self.id)])
+        for old_result in old_results:
+            old_result.status = 'archive'
+
         self.status = 'result_published'
         result_configs = self.env['school_management.result_config'].search([('exam', '=', self.id)])
         # process this result_configs.subject for all student
@@ -112,7 +113,11 @@ class Exam(models.Model):
 
             total_max_mark = result_config.written_max_mark + result_config.mcq_max_mark + result_config.practical_max_mark
             for student_id in students_processed:
-                marks_in_percentage = (total_marks[student_id] / total_max_mark) * 100
+                if total_max_mark == 0:
+                    marks_in_percentage = 0
+                else:
+                    marks_in_percentage = (total_marks[student_id] / total_max_mark) * 100
+
                 if written_marks[student_id] < result_config.written_pass_mark \
                         or mcq_marks[student_id] < result_config.mcq_pass_mark or \
                         practical_marks[student_id] < result_config.practical_pass_mark:
