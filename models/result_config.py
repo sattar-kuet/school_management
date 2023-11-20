@@ -41,6 +41,7 @@ class ResultConfig(models.Model):
         for record in self:
             record.has_written = record.subject.has_written
 
+    @api.depends('subject.has_written')
     def _compute_written_max_mark(self):
         for result_config in self:
             result_config.written_max_mark_computed = self.written_max_max(result_config)
@@ -55,6 +56,7 @@ class ResultConfig(models.Model):
         else:
             return result_config_obj.written_max_mark
 
+    @api.depends('subject.has_mcq')
     def _compute_mcq_max_mark(self):
         for result_config in self:
             result_config.mcq_max_mark_computed = self.mcq_max_max(result_config)
@@ -69,6 +71,7 @@ class ResultConfig(models.Model):
         else:
             return result_config_obj.mcq_max_mark
 
+    @api.depends('subject.has_practical')
     def _compute_practical_max_mark(self):
         for result_config in self:
             result_config.practical_max_mark_computed = self.practical_max_max(result_config)
