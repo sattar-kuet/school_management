@@ -9,11 +9,12 @@
                 <field name="exam" widget="many2many_tags" />
                 <field name="subject"/>
                 <field name="written_pass_mark" placeholder="Example: 33" />
-                <field name="written_max_mark" placeholder="Example: 33" />
+                <field name="written_max_mark_computed" placeholder="Example: 33" />
                 <field name="mcq_pass_mark" placeholder="Example: 33" />
-                <field name="mcq_max_mark" placeholder="Example: 33" />
+                <field name="mcq_max_mark_computed" placeholder="Example: 33" />
                 <field name="practical_pass_mark" placeholder="Example: 33" />
-                <field name="practical_max_mark" placeholder="Example: 33" />
+                <field name="practical_max_mark_computed" placeholder="Example: 33" />
+                <field name="total_pass_mark" placeholder="Example: 33" />
                 <field name="status"/>
                 <button name="%(action_config_wizard)d" string="Config" type="action" class="btn btn-primary "></button>
 

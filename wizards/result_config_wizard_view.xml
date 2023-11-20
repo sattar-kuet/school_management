@@ -14,14 +14,14 @@
                             <field name="has_mcq" readonly="1" />
                             <field name="has_practical" readonly="1" />
                             <field name="written_pass_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
-                            <field name="written_max_mark" attrs="{'invisible': ['|',('has_written', '=', False),('has_two_part', '=', True)]}" />
+                            <field name="written_max_mark" attrs="{'invisible': ['|', ('has_written', '=', False), ('has_two_part', '=', True)]}"/>
                             <field name="mcq_pass_mark" attrs="{'invisible': [('has_mcq', '=', False)]}" />
-                            <field name="mcq_max_mark" attrs="{'invisible': ['|', ('has_mcq', '=', False),('has_two_part', '=', True)]}" />
+                            <field name="mcq_max_mark" attrs="{'invisible': ['|', ('has_mcq', '=', False), ('has_two_part', '=', True)]}"/>
                             <field name="practical_pass_mark" attrs="{'invisible': [('has_practical', '=', False)]}" />
-                            <field name="practical_max_mark" attrs="{'invisible': ['|',('has_practical', '=', False),('has_two_part', '=', True)]}" />
+                            <field name="practical_max_mark" attrs="{'invisible': ['|', ('has_practical', '=', False), ('has_two_part', '=', True)]}" />
                             <field name="total_pass_mark" />
                         </group>
-                        <group>
+                        <group attrs="{'invisible': [('has_two_part', '=', False)]}">
                             <field name="subject_part1" invisible="1"/>
                             <field name="subject_part2" invisible="1"/>
                             <field name="subject_part1_title" readonly="1"/>

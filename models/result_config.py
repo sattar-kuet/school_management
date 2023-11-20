@@ -11,15 +11,19 @@ class ResultConfig(models.Model):
     exam = fields.Many2many('school_management.exam', string='Exam')
     written_pass_mark = fields.Float(string='Written Pass Mark')
     written_max_mark = fields.Float(string='Written Max Mark')
+    written_max_mark_computed = fields.Float(string='Written Max Mark', compute='_compute_written_max_mark')
     mcq_pass_mark = fields.Float(string='MCQ Pass Mark')
     mcq_max_mark = fields.Float(string='MCQ Max Mark')
+    mcq_max_mark_computed = fields.Float(string='MCQ Max Mark', compute='_compute_mcq_max_mark')
     practical_pass_mark = fields.Float(string='Practical Pass Mark')
     practical_max_mark = fields.Float(string='Practical Max Marks')
+    practical_max_mark_computed = fields.Float(string='Practical Max Marks', compute='_compute_practical_max_mark')
     total_pass_mark = fields.Float(string='Total Pass Marks')
 
     has_practical = fields.Boolean(compute="_has_practical")
     has_mcq = fields.Boolean(compute="_has_mcq")
     has_written = fields.Boolean(compute="_has_written")
+    two_part_setup_line = fields.Many2many('sm.two.part.mark.config')
     status = fields.Selection([('generated', 'System Generated'), ('configured', 'Configured')], defualt='generated')
 
     @api.depends('subject.has_practical')
@@ -36,6 +40,48 @@ class ResultConfig(models.Model):
     def _has_written(self):
         for record in self:
             record.has_written = record.subject.has_written
+
+    def _compute_written_max_mark(self):
+        for result_config in self:
+            result_config.written_max_mark_computed = self.written_max_max(result_config)
+
+    @staticmethod
+    def written_max_max(result_config_obj):
+        if result_config_obj.two_part_setup_line:
+            written_max_mark = 0
+            for two_part_setup_line in result_config_obj.two_part_setup_line:
+                written_max_mark += two_part_setup_line.written_max_mark
+            return written_max_mark
+        else:
+            return result_config_obj.written_max_mark
+
+    def _compute_mcq_max_mark(self):
+        for result_config in self:
+            result_config.mcq_max_mark_computed = self.mcq_max_max(result_config)
+
+    @staticmethod
+    def mcq_max_max(result_config_obj):
+        if result_config_obj.two_part_setup_line:
+            mcq_max_mark = 0
+            for two_part_setup_line in result_config_obj.two_part_setup_line:
+                mcq_max_mark += two_part_setup_line.mcq_max_mark
+            return mcq_max_mark
+        else:
+            return result_config_obj.mcq_max_mark
+
+    def _compute_practical_max_mark(self):
+        for result_config in self:
+            result_config.practical_max_mark_computed = self.practical_max_max(result_config)
+
+    @staticmethod
+    def practical_max_max(result_config_obj):
+        if result_config_obj.two_part_setup_line:
+            practical_max_mark = 0
+            for two_part_setup_line in result_config_obj.two_part_setup_line:
+                practical_max_mark += two_part_setup_line.practical_max_mark
+            return practical_max_mark
+        else:
+            return result_config_obj.practical_max_mark
 
     
 
