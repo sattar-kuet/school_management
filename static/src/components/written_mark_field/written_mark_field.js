@@ -30,31 +30,43 @@ export class WrittenMarkFieldTree extends WrittenMarkField {
         console.log("Tree View - Float Field Inherited");
         this.orm = useService("orm")
         onWillStart(async ()=>{
-            this.resultConfig = await this._fetchResultConfig();
+            await this._fetchResultConfig();
          })
 
     }
-
+    get isValidMark(){
+       return this.props.value<= this.this.WrittenMaxMark;
+    }
     async _fetchResultConfig() {
        try{
-       const {exam,subject} = this.props.record.data;
-       let exam_id = exam[0];
-       let subject_id = subject[0];
-       let result_config =  await this.orm.searchRead('school_management.result_config',[
-               ['subject', '=', 3]
-            ],
-           ['written_max_mark','exam','subject'],
-           1 // LIMIT
-        );
-        console.log("sUBJECT id >>>>>>>>>>");
-        console.log(subject_id);
+        const {exam,subject} = this.props.record.data;
+        const exam_id = exam[0];
+        const subject_id = subject[0];
+        const postData = {
+            subject_id: subject_id,
+            exam_id: exam_id,
+        };
+        const response = await fetch('/school_management/result_config', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                // Add any other headers if required
+            },
+            body: JSON.stringify(postData),
+        });
+        if (response.ok) {
+            const response_json = await response.json();
+            this.resultConfig = response_json.result.written_max_mark;
+        } else {
+            throw new Error('API request failed');
+        }
        } catch (error) {
         console.error("Error fetching result configuration:", error);
-        return {}; // Return a default value or handle the error appropriately
+        return {};
     }
     }
     get WrittenMaxMark() {
-        return 100; // default to 100 if not found
+        return this.resultConfig; // default to 100 if not found
     }
 }
 

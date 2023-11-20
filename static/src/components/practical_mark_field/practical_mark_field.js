@@ -30,7 +30,7 @@ export class PracticalMarkFieldTree extends PracticalMarkField {
         console.log("Tree View - Float Field Inherited");
         this.orm = useService("orm")
         onWillStart(async ()=>{
-            this.resultConfig = await this._fetchResultConfig();
+            await this._fetchResultConfig();
          })
 
     }
@@ -41,22 +41,34 @@ export class PracticalMarkFieldTree extends PracticalMarkField {
 
     async _fetchResultConfig() {
        try{
-       const {exam,subject} = this.props.record.data;
-       let exam_id = exam[0];
-       let subject_id = subject[0];
-        return this.orm.searchRead('school_management.result_config',[
-                ['exam', '=', exam_id],
-                ['subject', '=', subject_id],
-            ],
-           ['practical_max_mark']
-        );
+        const {exam,subject} = this.props.record.data;
+        const exam_id = exam[0];
+        const subject_id = subject[0];
+        const postData = {
+            subject_id: subject_id,
+            exam_id: exam_id,
+        };
+        const response = await fetch('/school_management/result_config', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                // Add any other headers if required
+            },
+            body: JSON.stringify(postData),
+        });
+        if (response.ok) {
+            const response_json = await response.json();
+            this.resultConfig = response_json.result.practical_max_mark;
+        } else {
+            throw new Error('API request failed');
+        }
        } catch (error) {
         console.error("Error fetching result configuration:", error);
-        return {}; // Return a default value or handle the error appropriately
+        return {};
     }
     }
     get PracticalMaxMark() {
-        return this.resultConfig[0]?.practical_max_mark || 100; // default to 100 if not found
+        return this.resultConfig;
     }
 }
 
