@@ -41,7 +41,7 @@ class ResultConfig(models.Model):
         for record in self:
             record.has_written = record.subject.has_written
 
-    @api.depends('subject.has_written')
+    @api.depends('written_max_max')
     def _compute_written_max_mark(self):
         for result_config in self:
             result_config.written_max_mark_computed = self.written_max_max(result_config)
