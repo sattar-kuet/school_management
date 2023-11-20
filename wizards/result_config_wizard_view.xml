@@ -5,20 +5,38 @@
             <field name="model">school_management.config.wizard</field>
             <field name="arch" type="xml">
                 <form>
-                   
+
                     <group>
-                        
-                        <field name="subject_name" readonly="1"/>
-                        <field name="has_written" readonly="1" />
-                        <field name="has_mcq" readonly="1" />
-                        <field name="has_practical" readonly="1" />
-                        <field name="written_pass_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
-                        <field name="written_max_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
-                        <field name="mcq_pass_mark" attrs="{'invisible': [('has_mcq', '=', False)]}" />
-                        <field name="mcq_max_mark" attrs="{'invisible': [('has_mcq', '=', False)]}" />
-                        <field name="practical_pass_mark" attrs="{'invisible': [('has_practical', '=', False)]}" />
-                        <field name="practical_max_mark" attrs="{'invisible': [('has_practical', '=', False)]}" />
+                        <group>
+                            <field name="has_two_part" readonly="1"/>
+                            <field name="subject_name" readonly="1"/>
+                            <field name="has_written" readonly="1" />
+                            <field name="has_mcq" readonly="1" />
+                            <field name="has_practical" readonly="1" />
+                            <field name="written_pass_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
+                            <field name="written_max_mark" attrs="{'invisible': ['|',('has_written', '=', False),('has_two_part', '=', True)]}" />
+                            <field name="mcq_pass_mark" attrs="{'invisible': [('has_mcq', '=', False)]}" />
+                            <field name="mcq_max_mark" attrs="{'invisible': ['|', ('has_mcq', '=', False),('has_two_part', '=', True)]}" />
+                            <field name="practical_pass_mark" attrs="{'invisible': [('has_practical', '=', False)]}" />
+                            <field name="practical_max_mark" attrs="{'invisible': ['|',('has_practical', '=', False),('has_two_part', '=', True)]}" />
+                            <field name="total_pass_mark" />
+                        </group>
+                        <group>
+                            <field name="subject_part1" invisible="1"/>
+                            <field name="subject_part2" invisible="1"/>
+                            <field name="subject_part1_title" readonly="1"/>
+                            <field name="subject_part1_written_max_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
+                            <field name="subject_part1_mcq_max_mark" attrs="{'invisible': [('has_mcq', '=', False)]}" />
+                            <field name="subject_part1_practical_max_mark" attrs="{'invisible': [('has_practical', '=', False)]}" />
+
+                            <field name="subject_part2_title" readonly="1"/>
+                            <field name="subject_part2_written_max_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
+                            <field name="subject_part2_mcq_max_mark" attrs="{'invisible': [('has_mcq', '=', False)]}" />
+                            <field name="subject_part2_practical_max_mark" attrs="{'invisible': [('has_practical', '=', False)]}" />
+                        </group>
+
                     </group>
+
                     <footer>
                         <button string="Confirm" type="object" name="result_config_button" class="btn btn-primary" />
                         <button string="Cancel" special="cancel" class="btn btn-secondary"/>
@@ -34,7 +52,7 @@
             <field name="view_id" ref="school_management.config_form_wizard" />
             <field name="target">new</field>
             <field name="binding_view_types">form</field>
-             <field name="context">{'active_id': active_id }</field>
+            <field name="context">{'active_id': active_id }</field>
         </record>
     </data>
 </odoo>

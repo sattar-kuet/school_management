@@ -55,10 +55,21 @@
 
         <!-- ##########   Exam Configuration menu  #########-->
         <menuitem name="Exam Configuration"
-                  id="menu_exam_list"
+                  id="menu_exam_config"
                   sequence="2"
-                  action="action_exam"
+                  action=""
                   parent="menu_sm_root"/>
+        <menuitem name="Exam Setting"
+                  id="menu_exam_list"
+                  sequence="1"
+                  action="action_exam"
+                  parent="menu_exam_config"/>
+
+        <menuitem name="Mark Setting"
+                  id="menu_mark_config"
+                  sequence="2"
+                  action="action_result_config"
+                  parent="menu_exam_config"/>
 
         <!-- ##########   Result menu  #########-->
         <menuitem id="menu_Result"

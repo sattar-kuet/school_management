@@ -30,48 +30,31 @@ export class WrittenMarkFieldTree extends WrittenMarkField {
         console.log("Tree View - Float Field Inherited");
         this.orm = useService("orm")
         onWillStart(async ()=>{
-//            this.handleChange = this.handleChange.bind(this);
             this.resultConfig = await this._fetchResultConfig();
          })
+
     }
-    get isValidMark(){
-       return this.props.value<= this.this.WrittenMaxMark
-    }
-//     handleChange(event) {
-//        // Get the entered value from the input
-//        const enteredValue = event.target.value;
-//
-//        // Parse the entered value as a number
-//        const numericValue = parseFloat(enteredValue);
-//
-//        // Check if the value is greater than the maximum
-//        if (numericValue > this.WrittenMaxMark) {
-//            // If greater than the maximum, set the value to the maximum
-//            this.props.update(this.WrittenMaxMark);
-//        } else {
-//            // If within the limit, update the component's value
-//            this.props.update(numericValue);
-//        }
-//     }
 
     async _fetchResultConfig() {
        try{
        const {exam,subject} = this.props.record.data;
        let exam_id = exam[0];
        let subject_id = subject[0];
-        return this.orm.searchRead('school_management.result_config',[
-                ['exam', '=', exam_id],
-                ['subject', '=', subject_id],
+       let result_config =  await this.orm.searchRead('school_management.result_config',[
+               ['subject', '=', 3]
             ],
-           ['written_max_mark']
+           ['written_max_mark','exam','subject'],
+           1 // LIMIT
         );
+        console.log("sUBJECT id >>>>>>>>>>");
+        console.log(subject_id);
        } catch (error) {
         console.error("Error fetching result configuration:", error);
         return {}; // Return a default value or handle the error appropriately
     }
     }
     get WrittenMaxMark() {
-        return this.resultConfig[0]?.written_max_mark || 100; // default to 100 if not found
+        return 100; // default to 100 if not found
     }
 }
 

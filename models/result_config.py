@@ -14,7 +14,8 @@ class ResultConfig(models.Model):
     mcq_pass_mark = fields.Float(string='MCQ Pass Mark')
     mcq_max_mark = fields.Float(string='MCQ Max Mark')
     practical_pass_mark = fields.Float(string='Practical Pass Mark')
-    practical_max_mark = fields.Float(string='Practical Max Mark')
+    practical_max_mark = fields.Float(string='Practical Max Marks')
+    total_pass_mark = fields.Float(string='Total Pass Marks')
 
     has_practical = fields.Boolean(compute="_has_practical")
     has_mcq = fields.Boolean(compute="_has_mcq")
