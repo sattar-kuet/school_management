@@ -104,14 +104,14 @@ class Exam(models.Model):
                     mcq_marks[result.student.id] += result.mcq_mark
                     practical_marks[result.student.id] += result.practical_mark
                     total_marks[result.student.id] += result.written_mark + result.mcq_mark + result.practical_mark
-                    total_max_mark += result_config.written_max_mark + result_config.mcq_max_mark + result_config.practical_max_mark
                 else:
                     written_marks[result.student.id] = result.written_mark
                     mcq_marks[result.student.id] = result.mcq_mark
                     practical_marks[result.student.id] = result.practical_mark
                     total_marks[result.student.id] = result.written_mark + result.mcq_mark + result.practical_mark
                     students_processed.append(result.student.id)
-                    total_max_mark = result_config.written_max_mark + result_config.mcq_max_mark + result_config.practical_max_mark
+
+            total_max_mark = result_config.written_max_mark_computed + result_config.mcq_max_mark_computed + result_config.practical_max_mark_computed
 
             for student_id in students_processed:
                 if total_max_mark == 0:
