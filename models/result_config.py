@@ -7,7 +7,8 @@ class ResultConfig(models.Model):
     _name = 'school_management.result_config'
     _description = 'Result Config'
 
-    subject = fields.Many2one('school_management.combined_subject', string='Subject', required=True, relation='subject_combined_subject')
+    subject = fields.Many2one('school_management.combined_subject', string='Subject', required=True,
+                              relation='subject_combined_subject')
     exam = fields.Many2many('school_management.exam', string='Exam')
     written_pass_mark = fields.Float(string='Written Pass Mark')
     written_max_mark = fields.Float(string='Written Max Mark')
@@ -41,7 +42,7 @@ class ResultConfig(models.Model):
         for record in self:
             record.has_written = record.subject.has_written
 
-    @api.depends('written_max_max')
+    @api.depends('subject.has_written')
     def _compute_written_max_mark(self):
         for result_config in self:
             result_config.written_max_mark_computed = self.written_max_max(result_config)
@@ -85,6 +86,4 @@ class ResultConfig(models.Model):
             return practical_max_mark
         else:
             return result_config_obj.practical_max_mark
-
-    
 
