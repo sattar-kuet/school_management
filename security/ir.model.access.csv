@@ -37,4 +37,5 @@ school_management.access_school_management_guardian_wizard,access_school_managem
 school_management.access_sm_student_attendance,access_sm_student_attendance,school_management.model_sm_student_attendance,,1,1,1,1
 school_management.access_sm_sms_config,access_sm_sms_config,school_management.model_sm_sms_config,,1,1,1,1
 school_management.access_sm_sms_config_wizard,access_sm_sms_config_wizard,school_management.model_sm_sms_config_wizard,,1,1,1,1
+school_management.access_sm_two_part_mark_config,access_sm_two_part_mark_config,school_management.model_sm_two_part_mark_config,,1,1,1,1
 
