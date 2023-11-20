@@ -45,11 +45,11 @@ class ResultConfig(models.Model):
     @api.depends('subject.has_written')
     def _compute_written_max_mark(self):
         for result_config in self:
-            result_config.written_max_mark_computed = self.written_max_max(result_config)
+            result_config.written_max_mark_computed = self.get_written_max_mark(result_config)
 
     @staticmethod
-    def written_max_max(result_config_obj):
-        if result_config_obj.two_part_setup_line:
+    def get_written_max_mark(result_config_obj):
+        if len(result_config_obj.two_part_setup_line) == 2:
             written_max_mark = 0
             for two_part_setup_line in result_config_obj.two_part_setup_line:
                 written_max_mark += two_part_setup_line.written_max_mark
@@ -60,11 +60,11 @@ class ResultConfig(models.Model):
     @api.depends('subject.has_mcq')
     def _compute_mcq_max_mark(self):
         for result_config in self:
-            result_config.mcq_max_mark_computed = self.mcq_max_max(result_config)
+            result_config.mcq_max_mark_computed = self.get_mcq_max_mark(result_config)
 
     @staticmethod
-    def mcq_max_max(result_config_obj):
-        if result_config_obj.two_part_setup_line:
+    def get_mcq_max_mark(result_config_obj):
+        if len(result_config_obj.two_part_setup_line) == 2:
             mcq_max_mark = 0
             for two_part_setup_line in result_config_obj.two_part_setup_line:
                 mcq_max_mark += two_part_setup_line.mcq_max_mark
@@ -75,11 +75,11 @@ class ResultConfig(models.Model):
     @api.depends('subject.has_practical')
     def _compute_practical_max_mark(self):
         for result_config in self:
-            result_config.practical_max_mark_computed = self.practical_max_max(result_config)
+            result_config.practical_max_mark_computed = self.get_practical_max_mark(result_config)
 
     @staticmethod
-    def practical_max_max(result_config_obj):
-        if result_config_obj.two_part_setup_line:
+    def get_practical_max_mark(result_config_obj):
+        if len(result_config_obj.two_part_setup_line) == 2:
             practical_max_mark = 0
             for two_part_setup_line in result_config_obj.two_part_setup_line:
                 practical_max_mark += two_part_setup_line.practical_max_mark
