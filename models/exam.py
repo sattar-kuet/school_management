@@ -8,7 +8,9 @@ from odoo.exceptions import ValidationError
 class Exam(models.Model):
     _name = 'school_management.exam'
     _description = 'Exam'
+    _rec_name = 'title_with_class'
 
+    title_with_class = fields.Char(string='Name', compute='_compute_title_with_class')
     name = fields.Char(string='Name', required=True)
     class_config = fields.Many2one('sm.class_config')
     status = fields.Selection(
@@ -24,6 +26,9 @@ class Exam(models.Model):
     )
     ready_to_publish = fields.Boolean(compute='_compute_ready_to_publish', default=False)
 
+    def _compute_title_with_class(self):
+        for exam in self:
+            exam.title_with_class = f'{exam.name} - {exam.class_config.name}'
     def _compute_ready_to_publish(self):
         for record in self:
             if record.status == 'processing' and self.env['school_management.result'].search_count(
