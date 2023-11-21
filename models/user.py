@@ -19,7 +19,7 @@ class User(models.Model):
         ('b+', 'B+'),
         ('ab+', 'AB+'),
     ], string='Blood Group')
-    guardian = fields.Many2many("res.users", string="Guardian", domain=lambda self: [
+    guardian = fields.Many2one("res.users", string="Guardian", domain=lambda self: [
             ("groups_id", "in", [self.env.ref("school_management.group_school_guardian").id])])
     class_config = fields.Many2one("sm.class_config", string='Class')
     class_has_group = fields.Boolean(compute='_compute_class_has_group')

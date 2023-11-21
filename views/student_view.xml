@@ -31,7 +31,7 @@
                 <field name="blood_group"></field>
                 <field name="class_config"></field>
                 <field name="student_group"></field>
-                <field name="guardian" widget="many2many_tags"></field>
+                <field name="guardian"></field>
                 <field name="attendance_device_user_id"></field>
                 <field name="groups_id" invisible="1"/>
 
