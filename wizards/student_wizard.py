@@ -15,6 +15,8 @@ class StudentWizard(models.TransientModel):
     class_config = fields.Many2one("sm.class_config", string='Class')
     class_has_group = fields.Boolean(compute='_compute_class_has_group')
     student_group = fields.Many2one("school_management.group", string='Group')
+    guardian = fields.Many2one("res.users", string="Guardian", domain=lambda self: [
+        ("groups_id", "in", [self.env.ref("school_management.group_school_guardian").id])])
     attendance_device_user_id = fields.Char(string='Attendance Device User ID')
 
     @api.depends('class_config')
@@ -29,7 +31,8 @@ class StudentWizard(models.TransientModel):
             'blood_group': self.blood_group,
             'class_config': self.class_config.id,
             'student_group': self.student_group.id,
-            'attendance_device_user_id': self.attendance_device_user_id
+            'attendance_device_user_id': self.attendance_device_user_id,
+            'guardian': self.guardian.id,
         })
 
         student_group = self.env.ref('school_management.group_school_student')

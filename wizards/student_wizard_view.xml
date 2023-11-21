@@ -10,6 +10,7 @@
                     <field name="roll"/>
                     <field name="blood_group"/>
                     <field name="student_group"/>
+                    <field name="guardian"/>
                 </tree>
             </field>
         </record>
@@ -26,6 +27,7 @@
                         <field name="class_config" widget="radio" options="{'horizontal': True}"  required="True" />
                         <field name="class_has_group" invisible="1" />
                         <field name="student_group" widget="radio" options="{'horizontal': True}" attrs="{'invisible':[('class_has_group','=',False)], 'required':[('class_has_group','=', True)]}" />
+                        <field name="guardian" options="{'no_create': True}"/>
                         <field name="attendance_device_user_id"/>
                     </group>
                     <footer>
