@@ -37,8 +37,13 @@ class Helper(models.AbstractModel):
                         'present': True,
                         'access_id': log['access_id']
                     })
-                    response = self.send_normal_sms('01673050495', 'Hello Testing')
-                    print(response.text)
+                    if student.guardian:
+                        sms_config = self.env['sm.sms.config'].search([], limit=1)
+                        if sms_config.guardian_sms:
+                            sms_content = sms_config.sms_for_guardian
+                            message = sms_content.replace("{student_name}", student.name)
+                            response = self.send_normal_sms(student.guardian.phone, message)
+                            print(response.text)
 
     def send_normal_sms(self, phone, message):
         pay_load = {

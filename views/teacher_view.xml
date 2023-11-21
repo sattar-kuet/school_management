@@ -11,7 +11,7 @@
                         <field name="name" placeholder="Teacher Name"  required="True"/>
                         <field name="phone" placeholder="Teacher Phone" required="True"/>
                         <field name="designation" placeholder="Teacher Designation" required="True"/>
-                        <field name="subjects" required="True" options="{'no_create': True}"/>
+                        <field name="attendance_device_user_id"></field>
                     </group>
                 </sheet>
             </form>
@@ -25,7 +25,7 @@
                 <field name="name" />
                 <field name="phone"/>
                 <field name="designation" />
-                <field name="subjects" widget="many2many_tags" />
+                <field name="attendance_device_user_id"></field>
             </tree>
         </field>
     </record>

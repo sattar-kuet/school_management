@@ -1,19 +1,5 @@
 <odoo>
     <data>
-        <record id="teacher_tree_view_wizard" model="ir.ui.view">
-            <field name="name">teacher.tree.view.wizard</field>
-            <field name="model">school_management.teacher.wizard</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <!-- Define your tree fields here -->
-                    <field name="name"/>
-                    <field name="phone"/>
-                    <field name="designation"/>
-                    <field name="subjects"/>
-                </tree>
-            </field>
-        </record>
-
         <record id="add_teacher_form_wizard" model="ir.ui.view">
             <field name="name">add_teacher.form.wizard</field>
             <field name="model">school_management.teacher.wizard</field>
@@ -23,7 +9,7 @@
                         <field name="name"/>
                         <field name="phone"/>
                         <field name="designation"/>
-                        <field name="subjects" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="attendance_device_user_id"></field>
                     </group>
                     <footer>
                         <button string="Confirm" type="object" name="add_teacher" class="btn btn-primary"/>

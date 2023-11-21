@@ -27,6 +27,12 @@ class User(models.Model):
     subjects = fields.Many2many("school_management.subject", string='Subjects')
     designation = fields.Many2one("sm.designation", string="Designation")
 
+    _sql_constraints = [
+        ('attendance_device_user_id_unique',
+         'UNIQUE(attendance_device_user_id)',
+         'Attendance Device User ID must be unique!')
+    ]
+
     def _computed_name(self):
         for record in self:
             if record.class_config:
