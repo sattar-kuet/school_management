@@ -15,19 +15,21 @@ class StudentWizard(models.TransientModel):
     class_config = fields.Many2one("sm.class_config", string='Class')
     class_has_group = fields.Boolean(compute='_compute_class_has_group')
     student_group = fields.Many2one("school_management.group", string='Group')
+    attendance_device_user_id = fields.Char(string='Attendance Device User ID')
 
     @api.depends('class_config')
     def _compute_class_has_group(self):
         for student in self:
             student.class_has_group = student.class_config.has_group
 
-    def add_subject(self):
+    def add_student(self):
         created_student = self.env['res.users'].create({
             'name': self.name,
             'roll': self.roll,
             'blood_group': self.blood_group,
             'class_config': self.class_config.id,
             'student_group': self.student_group.id,
+            'attendance_device_user_id': self.attendance_device_user_id
         })
 
         student_group = self.env.ref('school_management.group_school_student')
