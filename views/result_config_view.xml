@@ -23,7 +23,7 @@
     </record>
     
     <record id="action_result_config" model="ir.actions.act_window">
-        <field name="name">Regult Config List</field>
+        <field name="name">Result Config List</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">school_management.result_config</field>
         <field name="view_mode">tree</field>

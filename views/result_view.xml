@@ -7,7 +7,6 @@
         <field name="arch" type="xml">
             <tree create='false' editable="bottom">
                 <field name="exam" readonly="1" />
-                <field name="class_name" readonly="1" />
                 <field name="student" readonly="1" />
                 <field name="subject" readonly="1" />
                 <field name="written_mark_not_applicable" invisible="1" />
@@ -47,7 +46,7 @@
     </record>
 
     <record id="action_result" model="ir.actions.act_window">
-            <field name="name">Regult List</field>
+            <field name="name">Result List</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">school_management.result</field>
             <field name="view_mode">tree</field>
