@@ -10,7 +10,7 @@
         'security/user_group.xml',
         'data/application_group.xml',
         'views/menu.xml',
-        'views/student_attendance_view.xml',
+        'views/attendance_view.xml',
         'views/dashboard.xml',
         'wizards/weekly_holiday_wizard_view.xml',
         'views/yearly_holiday_view.xml',

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <odoo>
-    <record id="view_student_attendance_tree" model="ir.ui.view">
+    <record id="view_attendance_tree" model="ir.ui.view">
         <field name="name">Attendance Tree</field>
         <field name="model">school_management.attendance</field>
         <field name="arch" type="xml">
@@ -12,7 +12,7 @@
             </tree>
         </field>
     </record>
-    <record id="action_student_attendance" model="ir.actions.act_window">
+    <record id="action_attendance" model="ir.actions.act_window">
         <field name="name">Attendance List</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">school_management.attendance</field>
