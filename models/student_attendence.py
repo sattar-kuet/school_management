@@ -8,5 +8,5 @@ class StudentAttendance(models.Model):
 
     user = fields.Many2one('res.users', string='Name', required=True)
     present = fields.Boolean(string="Present", Default=False)
-    fields.Datetime(string="Date", default=lambda self: datetime.today())
+    effective_date = fields.Datetime(string="Date", default=lambda self: datetime.today())
     access_id = fields.Integer()
