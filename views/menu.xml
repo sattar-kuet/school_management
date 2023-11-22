@@ -12,6 +12,7 @@
                   parent="menu_sm_root"
                   action="action_attendance"
                   sequence="1" />
+
         <!-- ##########   Configuration menu  #########-->
         <menuitem id="menu_configuration"
                   name="Configuration"

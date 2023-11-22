@@ -22,7 +22,7 @@ from . import yearly_holiday
 from . import designation
 from . import notice
 from . import student_promotion_config
-from . import attendance
 from . import sms_config
 from . import two_part_mark_config
 from . import helper
+from . import attendance
