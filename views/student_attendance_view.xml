@@ -6,11 +6,9 @@
         <field name="model">school_management.attendance</field>
         <field name="arch" type="xml">
             <tree create="false">
-                <group>
-                    <field name="user" />
-                    <field name="effective_date"  />
-                    <field name="present"  />
-                </group>
+                    <field name="user"/>
+                    <field name="effective_date"/>
+                    <field name="present"/>
             </tree>
         </field>
     </record>
