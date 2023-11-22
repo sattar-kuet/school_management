@@ -34,11 +34,11 @@
                   sequence="3"
                   action="action_teacher"
                   parent="menu_configuration"/>
-        <menuitem name="Class Room Config"
-                  id="menu_class_room_config_list"
-                  sequence="4"
-                  action="action_class_room_config"
-                  parent="menu_configuration"/>
+<!--        <menuitem name="Class Room Config"-->
+<!--                  id="menu_class_room_config_list"-->
+<!--                  sequence="4"-->
+<!--                  action="action_class_room_config"-->
+<!--                  parent="menu_configuration"/>-->
         <menuitem name="Class config"
                   id="menu_class_config_list"
                   sequence="5"

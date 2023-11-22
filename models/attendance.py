@@ -14,11 +14,12 @@ class StudentAttendance(models.Model):
 
 
     def _compute_user_type(self):
+        pass
         for record in self:
             user_type = ''
             if record.user:
                 if record.user.has_group('school_management.group_school_teacher'):
-                    user_type = 'teacher'
+                    user_type = record.user.name
                 elif record.user.has_group('school_management.group_school_student'):
-                    user_type = 'student'
+                    user_type = record.user.name
             record.user_type = user_type
