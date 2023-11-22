@@ -9,8 +9,11 @@
         'data/demo.xml',
         'security/user_group.xml',
         'data/application_group.xml',
-        'views/menu.xml',
+        'views/batch_view.xml',
+        'wizards/bulk_sms_wizard_view.xml',
         'views/attendance_view.xml',
+
+
         'views/dashboard.xml',
         'wizards/weekly_holiday_wizard_view.xml',
         'views/yearly_holiday_view.xml',
@@ -47,8 +50,8 @@
 
         'views/proccessed_result_view.xml',
         'wizards/marks_wizard_view.xml',
-        'wizards/bulk_sms_wizard_view.xml',
         'views/result_view.xml',
+
 
         'views/teacher_view.xml',
         'views/teacher_tree_view_inherit.xml',
@@ -58,6 +61,7 @@
 
         'views/notice_view.xml',
         'views/student_promotion_config_view.xml',
+        'views/menu.xml',
 
 
         'security/ir.model.access.csv',
