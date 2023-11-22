@@ -18,19 +18,18 @@
                     </div>
                     <group>
                         <group>
-                            <field name="sms_for_guardian" />
+                            <field name="sms_on_present"/>
+                            <field name="sms_on_absent"/>
+                            <field name="sms_on_result_publish"/>
                         </group>
+
                         <group>
-                            <group>
-                                <field name="guardian_sms"  />
-                            </group>
+                            <field name="help_text_on_present"/>
+                            <field name="help_text_on_absent"/>
+                            <field name="max_delay_on_absent"/>
+                            <field name="help_text_on_result_publish"/>
                         </group>
-                        <group>
-                            <field name="sms_for_teacher"  />
-                        </group>
-                        <group>
-                            <field name="teacher_sms"  />
-                        </group>
+
                     </group>
                     <footer>
                         <button string="Back" type="object" name="back"  class="btn btn-secondary"/>

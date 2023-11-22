@@ -5,7 +5,10 @@ class SmsConfig(models.Model):
     _name = 'sm.sms.config'
     _description = 'SMS Config'
 
-    sms_for_guardian = fields.Text(string='SMS for Guardian', required=True)
-    sms_for_teacher = fields.Text(string='SMS for Teacher', required=True)
-    guardian_sms = fields.Boolean(string='Guardian SMS')
-    teacher_sms = fields.Boolean(string="Teacher SMS")
+    sms_on_present = fields.Text(string='SMS On Present')
+    help_text_on_present = fields.Text(string='Help Text on Present')
+    sms_on_absent = fields.Text(string='SMS on Absent')
+    max_delay_on_absent = fields.Text(string='Max Delay on Absent')
+    help_text_on_absent = fields.Text(string="Help Text on Absent")
+    sms_on_result_publish = fields.Text(string="SMS on Result Publish")
+    help_text_on_result_publish = fields.Text(string="Help Text on Result Publish")
