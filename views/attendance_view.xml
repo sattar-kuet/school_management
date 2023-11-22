@@ -5,8 +5,9 @@
         <field name="name">Attendance Tree</field>
         <field name="model">school_management.attendance</field>
         <field name="arch" type="xml">
-            <tree create="false">
+            <tree create="true">
                 <field name="user"/>
+                <field name="user_type"/>
                 <field name="effective_date"/>
                 <field name="present"/>
             </tree>
