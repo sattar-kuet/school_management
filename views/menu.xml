@@ -6,7 +6,7 @@
                   action=""
                   sequence="0" />
 
-        <!-- ##########   Configuration menu  #########-->
+
         <menuitem id="menu_attendance"
                   name="Attendance"
                   parent="menu_sm_root"
