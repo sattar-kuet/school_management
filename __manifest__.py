@@ -47,6 +47,7 @@
 
         'views/proccessed_result_view.xml',
         'wizards/marks_wizard_view.xml',
+        'wizards/bulk_sms_wizard_view.xml',
         'views/result_view.xml',
 
         'views/teacher_view.xml',
