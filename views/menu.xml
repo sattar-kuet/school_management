@@ -7,11 +7,17 @@
                   sequence="0" />
 
         <!-- ##########   Configuration menu  #########-->
+        <menuitem id="menu_attendance"
+                  name="Attendance"
+                  parent="menu_sm_root"
+                  action="action_student_attendance"
+                  sequence="1" />
+        <!-- ##########   Configuration menu  #########-->
         <menuitem id="menu_configuration"
                   name="Configuration"
                   parent="menu_sm_root"
                   action=""
-                  sequence="1" />
+                  sequence="2" />
         <menuitem name="Shift Config"
                   id="menu_shift_list"
                   sequence="1"
@@ -56,7 +62,7 @@
         <!-- ##########   Exam Configuration menu  #########-->
         <menuitem name="Exam Configuration"
                   id="menu_exam_config"
-                  sequence="2"
+                  sequence="3"
                   action=""
                   parent="menu_sm_root"/>
         <menuitem name="Exam Setting"
@@ -76,7 +82,7 @@
                   name="Result"
                   parent="menu_sm_root"
                   action=""
-                  sequence="3" />
+                  sequence="4" />
         <menuitem name="Result"
                   id="menu_result_view"
                   sequence="0"
@@ -91,14 +97,14 @@
         <!-- ##########   Notice menu  #########-->
         <menuitem name="Notice"
                   id="menu_notice_list"
-                  sequence="4"
+                  sequence="5"
                   action="action_notice"
                   parent="menu_sm_root"/>
 
         <!-- ##########   Data menu  #########-->
         <menuitem name="Data"
                   id="menu_data_list"
-                  sequence="5"
+                  sequence="6"
                   action=""
                   parent="menu_sm_root"/>
         <menuitem name="Student"

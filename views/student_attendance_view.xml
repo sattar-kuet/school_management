@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+     <record id="view_student_attendance_tree" model="ir.ui.view">
+        <field name="name">Attendance Tree</field>
+        <field name="model">school_management.attendance</field>
+        <field name="arch" type="xml">
+            <tree create="false">
+                <field name="user" />
+                <field name="effective_date"  />
+                <field name="present"  />
+            </tree>
+        </field>
+     </record>
+    <record id="action_student_attendance" model="ir.actions.act_window">
+            <field name="name">Attendance List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">school_management.attendance</field>
+            <field name="view_mode">tree</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_school_managementiling_face"> Student Attendance</p>
+            </field>
+    </record>
+
+
+</odoo>

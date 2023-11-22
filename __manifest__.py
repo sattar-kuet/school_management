@@ -10,6 +10,7 @@
         'security/user_group.xml',
         'data/application_group.xml',
         'views/menu.xml',
+        'views/student_attendance_view.xml',
         'views/dashboard.xml',
         'wizards/weekly_holiday_wizard_view.xml',
         'views/yearly_holiday_view.xml',
@@ -37,6 +38,7 @@
         'wizards/student_promotion_config_wizard_view.xml',
         'wizards/sms_config_wizard_view.xml',
         'views/exam_view.xml',
+
 
         'wizards/result_config_wizard_view.xml',
         'views/result_config_view.xml',
