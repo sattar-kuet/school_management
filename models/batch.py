@@ -10,7 +10,8 @@ class Batch(models.Model):
     name = fields.Char(string='Name', required=True)
     start_time = fields.Char(string="Start Time")
     end_time = fields.Char(string="End Time")
-    students = fields.Many2many('res.users', string="Students")
+    students = fields.Many2many('res.users', string="Students", domain=lambda self: [
+            ("groups_id", "in", [self.env.ref("school_management.group_school_student").id])])
 
 
 
