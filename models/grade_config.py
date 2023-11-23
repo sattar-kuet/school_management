@@ -10,4 +10,4 @@ class GradeConfig(models.Model):
     name = fields.Char(string='Name', required=True)
     min_mark = fields.Float(string='Min Mark', required=True)
     max_mark = fields.Float(string='Max Mark', required=True)
-    point = fields.Float(string='Point', required=True)
+    point = fields.Float(string='Point', required=True, digits=(3, 2))

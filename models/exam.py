@@ -183,7 +183,7 @@ class Exam(models.Model):
         for processed_student_id in processed_students:
             grade_point = total_grade_point[processed_student_id] / total_subject
             grade_config = self.env['school_management.grade_config'].search(
-                [('point', '>=', grade_point), ('point', '<=', grade_point)], limit=1)
+                [('point', '<=', grade_point)], order='point DESC', limit=1)
             final_result = self.env['school_management.processed_final_result'].create({
                 'exam': self.id,
                 'class_config': self.class_config.id,
