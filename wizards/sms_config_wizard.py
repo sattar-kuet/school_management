@@ -6,12 +6,10 @@ class SmsConfigWizard(models.Model):
     _description = 'SMS Config Wizard'
 
     sms_on_present = fields.Text(string='SMS On Present')
-    help_text_on_present = fields.Text(string='Help Text on Present')
     sms_on_absent = fields.Text(string='SMS on Absent')
-    max_delay_on_absent = fields.Text(string='Max Delay on Absent')
-    help_text_on_absent = fields.Text(string="Help Text on Absent")
+    max_delay_on_absent = fields.Integer(string='Max Delay on Absent(Minutes)')
     sms_on_result_publish = fields.Text(string="SMS on Result Publish")
-    help_text_on_result_publish = fields.Text(string="Help Text on Result Publish")
+    help_text = fields.Text(string="Hints")
 
     @api.model
     def default_get(self, fields):
@@ -19,24 +17,25 @@ class SmsConfigWizard(models.Model):
         record = super(SmsConfigWizard, self).default_get(fields)
         if sms_config:
             record['sms_on_present'] = sms_config.sms_on_present
-            record['help_text_on_present'] = sms_config.help_text_on_present
             record['sms_on_absent'] = sms_config.sms_on_absent
             record['max_delay_on_absent'] = sms_config.max_delay_on_absent
-            record['help_text_on_absent'] = sms_config.help_text_on_absent
             record['sms_on_result_publish'] = sms_config.sms_on_result_publish
-            record['help_text_on_result_publish'] = sms_config.help_text_on_result_publish
+        record['help_text'] = '<div class="alert alert-warning">' \
+                              '<ul><li><strong>{student_name}</strong></li>' \
+                              '<li><strong>{exam_title}</strong></li>' \
+                              '<li><strong>{total_mark}</strong></li>' \
+                              '<li><strong>{grade_title}</strong></li>' \
+                              '<li><strong>{grade_point}</strong></li>' \
+                              '</div>'
 
         return record
 
     def next(self):
         sms_data = {
             'sms_on_present': self.sms_on_present,
-            'help_text_on_present': self.help_text_on_present,
             'sms_on_absent': self.sms_on_absent,
             'max_delay_on_absent': self.max_delay_on_absent,
-            'help_text_on_absent': self.help_text_on_absent,
-            'sms_on_result_publish': self.sms_on_result_publish,
-            'help_text_on_result_publish': self.help_text_on_result_publish,
+            'sms_on_result_publish': self.sms_on_result_publish
         }
 
         sms = self.env['sm.sms.config'].search([], limit=1)

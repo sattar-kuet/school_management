@@ -20,14 +20,12 @@
                         <group>
                             <field name="sms_on_present"/>
                             <field name="sms_on_absent"/>
+                            <field name="max_delay_on_absent"/>
                             <field name="sms_on_result_publish"/>
                         </group>
 
                         <group>
-                            <field name="help_text_on_present"/>
-                            <field name="help_text_on_absent"/>
-                            <field name="max_delay_on_absent"/>
-                            <field name="help_text_on_result_publish"/>
+                            <field name="help_text" readonly="1" widget="html"/>
                         </group>
 
                     </group>

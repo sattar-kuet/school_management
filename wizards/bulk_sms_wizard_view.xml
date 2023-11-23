@@ -8,14 +8,14 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="receiver"/>
-                        <field name="phone_number" attrs="{'invisible': [('receiver', '=', 'student')]}"/>
-                        <field name="students" attrs="{'invisible': [('receiver', '=', 'phone')]}"/>
-                        <field name="message_content"/>
+                        <field name="receiver" widget="radio" options="{'horizontal': True}"/>
+                        <field name="phone_number" attrs="{'invisible': ['|', ('receiver', '=', 'student'), ('receiver', '=', False)]}"/>
+                        <field name="students" attrs="{'invisible': ['|', ('receiver', '=', 'phone'), ('receiver', '=', False)]}"/>
+                        <field name="message_content" attrs="{'invisible':  [('receiver', '=', False)]}"/>
                     </group>
                     <footer>
-                        <button string="Next" type="object" name="confirm"  class="btn btn-primary"/>
-                        <button string="Back" type="object" name="cancel"  class="btn btn-secondary"/>
+                        <button string="Cancel" special="cancel" class="btn btn-secondary"/>
+                        <button string="SEND" type="object" name="send"  class="btn btn-primary" attrs="{'invisible':  [('receiver', '=', False)]}"/>
                     </footer>
                 </sheet>
             </form>

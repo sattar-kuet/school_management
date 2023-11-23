@@ -44,8 +44,8 @@ class CronJob(models.AbstractModel):
                     })
                     if student.guardian:
                         sms_config = self.env['sm.sms.config'].search([], limit=1)
-                        if sms_config.guardian_sms:
-                            sms_content = sms_config.sms_for_guardian
+                        if sms_config.sms_on_present:
+                            sms_content = sms_config.sms_on_present
                             message = sms_content.replace("{student_name}", student.name)
                             response = self.env['school_management.helper'].send_normal_sms(student.guardian.phone,
                                                                                             message)

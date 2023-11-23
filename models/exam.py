@@ -184,13 +184,24 @@ class Exam(models.Model):
             grade_point = total_grade_point[processed_student_id] / total_subject
             grade_config = self.env['school_management.grade_config'].search(
                 [('point', '<=', grade_point), ('point', '>=', grade_point)], limit=1)
-            self.env['school_management.processed_final_result'].create({
+            final_result = self.env['school_management.processed_final_result'].create({
                 'exam': self.id,
                 'class_config': self.class_config.id,
                 'student': processed_student_id,
                 'grade_point': grade_point,
-                'grade_title': grade_config.name
+                'grade_title': grade_config.name,
+                'total_marks': total_marks[processed_student_id]
             })
+            student = self.env['res.users'].browse(processed_student_id)
+            sms_config = self.env['sm.sms.config'].browse(1)
+            if sms_config.sms_on_result_publish:
+                sms_content = sms_config.sms_on_result_publish
+                sms_content = sms_content.replace("{exam_title}", self.name)
+                sms_content = sms_content.replace("{student_name}", student.name)
+                sms_content = sms_content.replace("{total_mark}", final_result.total_marks)
+                sms_content = sms_content.replace("{grade_title}", final_result.grade_title)
+                sms_content = sms_content.replace("{grade_point}", final_result.grade_point)
+                self.env['school_management.helper'].send_normal_sms(student.guardian.phone, sms_content)
 
     def remove_setup(self):
         print('here..')

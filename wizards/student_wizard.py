@@ -17,6 +17,7 @@ class StudentWizard(models.TransientModel):
     student_group = fields.Many2one("school_management.group", string='Group')
     guardian = fields.Many2one("res.users", string="Guardian", domain=lambda self: [
         ("groups_id", "in", [self.env.ref("school_management.group_school_guardian").id])])
+    phone = fields.Char()
     attendance_device_user_id = fields.Char(string='Attendance Device User ID')
 
     @api.depends('class_config')
@@ -32,6 +33,7 @@ class StudentWizard(models.TransientModel):
             'class_config': self.class_config.id,
             'student_group': self.student_group.id,
             'attendance_device_user_id': self.attendance_device_user_id,
+            'phone': self.phone,
             'guardian': self.guardian.id,
         })
 
