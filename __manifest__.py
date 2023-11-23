@@ -49,6 +49,8 @@
         'views/grade_config_view.xml',
 
         'views/proccessed_result_view.xml',
+        'views/proccessed_final_result_view.xml',
+
         'wizards/marks_wizard_view.xml',
         'views/result_view.xml',
 

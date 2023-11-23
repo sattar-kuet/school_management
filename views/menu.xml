@@ -90,9 +90,9 @@
                   action="action_result"
                   parent="menu_Result"/>
         <menuitem name="Published Result"
-                  id="menu_processed_result_list"
+                  id="menu_processed_final_result_list"
                   sequence="1"
-                  action="action_processed_result"
+                  action="action_processed_final_result"
                   parent="menu_Result"/>
 
         <!-- ##########   Notice menu  #########-->
