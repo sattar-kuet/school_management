@@ -8,11 +8,13 @@ class CronJob(models.AbstractModel):
     _name = 'school_management.cron.job'
 
     def pull_attendance_record(self):
-        largest_access_id = self.env['school_management.attendance'].search([], order='access_id desc', limit=1)
+        largest_access_id = self.env['school_management.attendance'].search([('access_id', '!=', False)],
+                                                                            order='access_id desc', limit=1)
         access_id = 27774600
         if largest_access_id:
             access_id = largest_access_id.access_id
-
+        # print("^" * 100)
+        # print(access_id)
         end_point = 'https://rumytechnologies.com/rams/json_api'
         pay_load = {
             "operation": "fetch_log",
@@ -28,6 +30,7 @@ class CronJob(models.AbstractModel):
         if response.status_code == 200:
             # Assuming the response is JSON
             response_data = response.json()
+            print('*' * 100, response_data)
             for log in response_data["log"]:
                 student = self.env['res.users'].search([('attendance_device_user_id', '=', log['registration_id'])],
                                                        limit=1)
@@ -73,16 +76,32 @@ class CronJob(models.AbstractModel):
             start_of_day = time_zone_obj.localize(datetime.combine(current_date, datetime.min.time()))
             end_of_day = time_zone_obj.localize(datetime.combine(current_date, datetime.max.time()))
 
-            domain = [
-                ('create_date', '>=', start_of_day.strftime('%Y-%m-%d %H:%M:%S')),
-                ('create_date', '<=', end_of_day.strftime('%Y-%m-%d %H:%M:%S')),
-            ]
-            present_student_ids = self.env['school_management.attendance'].search(domain).mapped('user.ids')
-            sms_sent_to_student_ids = self.env['school_management.absent'].search(domain).mapped('user.id')
-            for student_id in matching_batch.student.ids:
-                if student_id not in present_student_ids and student_id not in sms_sent_to_student_ids:
-                    # TODO send sms for this student and create school_management.absent table
-                    self.env['school_management.absent'].create({
-                        'user': student_id
-                    })
+            domain = [('effective_date', '>=', start_of_day.strftime('%Y-%m-%d %H:%M:%S')),
+                      ('effective_date', '<=', end_of_day.strftime('%Y-%m-%d %H:%M:%S')),
+                      ('present', '=', True)
+                      ]
+            present_student_ids = self.env['school_management.attendance'].search(domain).mapped('user.id')
 
+            domain = [('effective_date', '>=', start_of_day.strftime('%Y-%m-%d %H:%M:%S')),
+                      ('effective_date', '<=', end_of_day.strftime('%Y-%m-%d %H:%M:%S')),
+                      ('present', '=', False)
+                      ]
+            sms_sent_to_student_ids = self.env['school_management.attendance'].search(domain).mapped('user.id')
+            print('sms_sent_to_student_ids')
+            print(sms_sent_to_student_ids)
+            for student_id in matching_batch.students.ids:
+                if student_id not in present_student_ids and student_id not in sms_sent_to_student_ids:
+                    print('Absent student id')
+                    print(student_id)
+                    sms_config = self.env['sm.sms.config'].search([], limit=1)
+                    if sms_config.sms_on_absent:
+                        sms_content = sms_config.sms_on_absent
+                        student = self.env['res.users'].browse(student_id)
+                        message = sms_content.replace("{student_name}", student.name)
+                        response = self.env['school_management.helper'].send_normal_sms(student.guardian.phone,
+                                                                                        message)
+                        print(response.text)
+                    self.env['school_management.attendance'].create({
+                        'user': student_id,
+                        'present': False
+                    })
