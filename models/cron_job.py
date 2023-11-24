@@ -81,7 +81,7 @@ class CronJob(models.AbstractModel):
             sms_sent_to_student_ids = self.env['school_management.absent'].search(domain).mapped('user.id')
             for student_id in matching_batch.student.ids:
                 if student_id not in present_student_ids and student_id not in sms_sent_to_student_ids:
-                    # TODO send sms for this student
+                    # TODO send sms for this student and create school_management.absent table
                     self.env['school_management.absent'].create({
                         'user': student_id
                     })
