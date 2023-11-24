@@ -10,6 +10,7 @@
                 <field name="start_time" />
                 <field name="end_time" />
                 <field name="students" widget="many2many_tags"/>
+                <field name="off_days" widget="many2many_tags"/>
             </tree>
         </field>
     </record>
@@ -23,7 +24,8 @@
                         <field name="name" />
                         <field name="start_time" widget="time"/>
                         <field name="end_time" widget="time" />
-                        <field name="students" widget="many2many_tags"/>
+                        <field name="students" widget="many2many_tags" options="{'no_create': True}"/>
+                         <field name="off_days" widget="many2many_tags" options="{'no_create': True}"/>
                     </group>
                 </sheet>
             </form>

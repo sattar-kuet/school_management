@@ -1,6 +1,7 @@
 from odoo import models
 import requests
 from datetime import datetime, date
+import pytz
 
 
 class CronJob(models.AbstractModel):
@@ -52,4 +53,36 @@ class CronJob(models.AbstractModel):
                             print(response.text)
 
     def process_absent(self):
-        self.env['school_management.helper'].send_normal_sms("01673050495", "Process Absent")
+        time_zone_obj = pytz.timezone("Asia/Dhaka")
+        current_time = datetime.now(time_zone_obj).time()
+        current_date = datetime.now(time_zone_obj).date()
+        current_day_numeric = current_date.weekday()
+
+        domain = [
+            ('start_time', '<=', current_time.strftime('%H:%M')),
+            ('end_time', '>=', current_time.strftime('%H:%M'))
+        ]
+        matching_batches = self.env['school_management.batch'].search(domain)
+
+        print(current_day_numeric)
+        for matching_batch in matching_batches:
+            off_days_values = matching_batch.mapped('off_days.value')
+            if current_day_numeric in off_days_values:
+                continue
+
+            start_of_day = time_zone_obj.localize(datetime.combine(current_date, datetime.min.time()))
+            end_of_day = time_zone_obj.localize(datetime.combine(current_date, datetime.max.time()))
+
+            domain = [
+                ('create_date', '>=', start_of_day.strftime('%Y-%m-%d %H:%M:%S')),
+                ('create_date', '<=', end_of_day.strftime('%Y-%m-%d %H:%M:%S')),
+            ]
+            present_student_ids = self.env['school_management.attendance'].search(domain).mapped('user.ids')
+            sms_sent_to_student_ids = self.env['school_management.absent'].search(domain).mapped('user.id')
+            for student_id in matching_batch.student.ids:
+                if student_id not in present_student_ids and student_id not in sms_sent_to_student_ids:
+                    # TODO send sms for this student
+                    self.env['school_management.absent'].create({
+                        'user': student_id
+                    })
+

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <odoo>
-     <record id="view_processed_final_result_tree" model="ir.ui.view">
+    <record id="view_processed_final_result_tree" model="ir.ui.view">
         <field name="name">Final Result List Tree</field>
         <field name="model">school_management.processed_final_result</field>
         <field name="arch" type="xml">
@@ -15,19 +15,20 @@
                 <field name="grade_title" />
                 <field name="merit_position" />
                 <field name="status" />
+                <button name="view_detail" string="View Detail" type="object" class="btn btn-primary"></button>
             </tree>
         </field>
-     </record>
+    </record>
 
     <record id="action_processed_final_result" model="ir.actions.act_window">
-            <field name="name">Processed Final Result List</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">school_management.processed_final_result</field>
-            <field name="view_mode">tree</field>
-            <field name="target">current</field>
-            <field name="help" type="html">
-                <p class="o_view_nocontent_school_managementiling_face"> Create your first processed final Result</p>
-            </field>
+        <field name="name">Processed Final Result List</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school_management.processed_final_result</field>
+        <field name="view_mode">tree</field>
+        <field name="target">current</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_school_managementiling_face"> Create your first processed final Result</p>
+        </field>
     </record>
 
 

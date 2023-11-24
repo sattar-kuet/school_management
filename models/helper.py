@@ -1,9 +1,17 @@
 from odoo import models
 import requests
+import pytz
 
 
 class Helper(models.AbstractModel):
     _name = 'school_management.helper'
+
+    @staticmethod
+    def formatted_date(date_obj):
+        bd_tz = pytz.timezone("Asia/Dhaka")
+        bd_time = date_obj.astimezone(bd_tz)
+        date_format = "%d %b %Y"
+        return bd_time.strftime(date_format)
 
     @staticmethod
     def send_normal_sms(phone, message):

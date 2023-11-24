@@ -76,12 +76,11 @@ class Result(models.Model):
             record.class_config = record.exam.class_config.id
 
     def write(self, vals):
-        print('*' * 100, vals)
         result_config = self.env['school_management.result_config'].search([
             ('exam', '=', self.exam.id),
             ('subject', '=', self.subject.id)
         ], limit=1)
-        vals['status'] = 'done'
+
         if 'written_mark' in vals:
             if float(vals['written_mark']) > result_config.written_max_mark:
                 vals['status'] = 'pending'

@@ -12,6 +12,7 @@ class Batch(models.Model):
     end_time = fields.Char(string="End Time")
     students = fields.Many2many('res.users', string="Students", domain=lambda self: [
             ("groups_id", "in", [self.env.ref("school_management.group_school_student").id])])
+    off_days = fields.Many2many('school_management.week.day')
 
 
 

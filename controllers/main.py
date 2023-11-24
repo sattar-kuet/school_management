@@ -14,11 +14,13 @@ class SchoolManagement(http.Controller):
         received_data = http.request.httprequest.data
         received_data_str = received_data.decode('utf-8')
         received_data = json.loads(received_data_str)
-        print('*' * 100, received_data)
+        # print('*' * 100, received_data)
         result_config = request.env['sm.two.part.mark.config'].sudo().search([
             ('exam', '=', received_data['exam_id']),
             ('subject', '=', received_data['subject_id'])
         ])
+
+        # print('#' * 100, result_config)
 
         if result_config:
             return {

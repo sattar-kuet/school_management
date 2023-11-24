@@ -73,7 +73,7 @@ class ConfigWizard(models.TransientModel):
         return this_wizard_fields
 
     def result_config_button(self):
-        print('*'*100, self.written_pass_mark)
+
         result_config = self.env['school_management.result_config'].browse(self.env.context.get('active_id'))
         result_config.written_pass_mark = self.written_pass_mark
         result_config.written_max_mark = self.written_max_mark
