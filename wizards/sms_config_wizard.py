@@ -24,6 +24,7 @@ class SmsConfigWizard(models.Model):
                               '<ul><li><strong>{student_name}</strong></li>' \
                               '<li><strong>{exam_title}</strong></li>' \
                               '<li><strong>{total_mark}</strong></li>' \
+                              '<li><strong>{merit_position}</strong></li>' \
                               '<li><strong>{grade_title}</strong></li>' \
                               '<li><strong>{grade_point}</strong></li>' \
                               '</div>'

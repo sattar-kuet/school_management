@@ -226,16 +226,32 @@ class Exam(models.Model):
                 'grade_title': grade_config.name,
                 'total_marks': total_marks[processed_student_id]
             })
-            student = self.env['res.users'].browse(processed_student_id)
+        self.process_merit_position()
+
+    def process_merit_position(self):
+        results = self.env['school_management.processed_final_result'].search([('exam', '=', self.id)],
+                                                                              order='grade_point desc, total_marks desc')
+
+        merit_position = 1
+        first_student = False
+        previous_student_grade_point = -1
+        previous_student_total_mark = -1
+        for result in results:
+            if not first_student:
+                if previous_student_grade_point != result.grade_point and previous_student_total_mark != result.total_marks:
+                    merit_position += 1
+            result.merit_position = merit_position
+
             sms_config = self.env['sm.sms.config'].browse(1)
             if sms_config.sms_on_result_publish:
                 sms_content = sms_config.sms_on_result_publish
                 sms_content = sms_content.replace("{exam_title}", str(self.name))
-                sms_content = sms_content.replace("{student_name}", str(student.name))
-                sms_content = sms_content.replace("{total_mark}", str(final_result.total_marks))
-                sms_content = sms_content.replace("{grade_title}", str(final_result.grade_title))
-                sms_content = sms_content.replace("{grade_point}", str(final_result.grade_point))
-                self.env['school_management.helper'].send_normal_sms(student.guardian.phone, sms_content)
+                sms_content = sms_content.replace("{student_name}", str(result.student.name))
+                sms_content = sms_content.replace("{total_mark}", str(result.total_marks))
+                sms_content = sms_content.replace("{grade_title}", str(result.grade_title))
+                sms_content = sms_content.replace("{grade_point}", str(result.grade_point))
+                sms_content = sms_content.replace("{merit_position}", str(result.merit_position))
+                self.env['school_management.helper'].send_normal_sms(result.student.guardian.phone, sms_content)
 
     def remove_setup(self):
         result_config = self.env['school_management.result_config'].search([('exam', '=', self.id)], limit=1)
