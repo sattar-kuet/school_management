@@ -241,6 +241,9 @@ class Exam(models.Model):
                 if previous_student_grade_point != result.grade_point and previous_student_total_mark != result.total_marks:
                     merit_position += 1
             result.merit_position = merit_position
+            first_student = False
+            previous_student_grade_point = result.grade_point
+            previous_student_total_mark = result.total_marks
 
             sms_config = self.env['sm.sms.config'].browse(1)
             if sms_config.sms_on_result_publish:
@@ -252,7 +255,7 @@ class Exam(models.Model):
                 sms_content = sms_content.replace("{grade_point}", str(result.grade_point))
                 sms_content = sms_content.replace("{merit_position}", str(result.merit_position))
                 self.env['school_management.helper'].send_normal_sms(result.student.guardian.phone, sms_content)
-            first_student = False
+
 
     def remove_setup(self):
         result_config = self.env['school_management.result_config'].search([('exam', '=', self.id)], limit=1)
