@@ -233,7 +233,7 @@ class Exam(models.Model):
                                                                               order='grade_point desc, total_marks desc')
 
         merit_position = 1
-        first_student = False
+        first_student = True
         previous_student_grade_point = -1
         previous_student_total_mark = -1
         for result in results:
@@ -252,6 +252,7 @@ class Exam(models.Model):
                 sms_content = sms_content.replace("{grade_point}", str(result.grade_point))
                 sms_content = sms_content.replace("{merit_position}", str(result.merit_position))
                 self.env['school_management.helper'].send_normal_sms(result.student.guardian.phone, sms_content)
+            first_student = False
 
     def remove_setup(self):
         result_config = self.env['school_management.result_config'].search([('exam', '=', self.id)], limit=1)
