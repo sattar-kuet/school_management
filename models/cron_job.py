@@ -48,7 +48,7 @@ class CronJob(models.AbstractModel):
                 "end_time": "23:59:59",
                 "access_id": f"{access_id}"
             }
-            # print(pay_load)
+            print(pay_load)
             response = requests.post(end_point, json=pay_load)
             if response.status_code == 200:
                 # Assuming the response is JSON
