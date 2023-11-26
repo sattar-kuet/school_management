@@ -41,8 +41,8 @@ class CronJob(models.AbstractModel):
                 "operation": "fetch_log",
                 "auth_user": "HTRMathematics",
                 "auth_code": "h2q6uzc6s6jkb82pygo4fb5ap4fsqpc",
-                "start_date": "2023-11-18",
-                "end_date": "2023-11-18",
+                "start_date": current_time.strftime("%Y-%m-%d"),
+                "end_date": current_time.strftime("%Y-%m-%d"),
                 "start_time": "00:00:00",
                 "end_time": "23:59:59",
                 "access_id": f"{access_id}"
