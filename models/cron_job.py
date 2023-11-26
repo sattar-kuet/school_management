@@ -17,7 +17,8 @@ class CronJob(models.AbstractModel):
         current_batches = self.env['school_management.batch'].search(domain)
         sms_config = self.env['sm.sms.config'].search([], limit=1)
         max_delay_on_absent = sms_config.max_delay_on_absent
-
+        print('*' * 100)
+        print('attendance processing')
         for current_batch in current_batches:
             batch_start_time_str = current_batch.start_time
             batch_start_time = datetime.strptime(batch_start_time_str, "%H:%M").time()
