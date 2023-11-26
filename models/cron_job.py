@@ -37,16 +37,18 @@ class CronJob(models.AbstractModel):
             # print("^" * 100)
             # print(access_id)
             end_point = 'https://rumytechnologies.com/rams/json_api'
+            current_date = datetime.now(time_zone_obj).now()
             pay_load = {
                 "operation": "fetch_log",
                 "auth_user": "HTRMathematics",
                 "auth_code": "h2q6uzc6s6jkb82pygo4fb5ap4fsqpc",
-                "start_date": "2023-11-25", # current_time.strftime("%Y-%m-%d"),
-                "end_date": "2023-11-25",#current_time.strftime("%Y-%m-%d"),
+                "start_date": current_date.strftime("%Y-%m-%d"),
+                "end_date": current_date.strftime("%Y-%m-%d"),
                 "start_time": "00:00:00",
                 "end_time": "23:59:59",
                 "access_id": f"{access_id}"
             }
+            # print(pay_load)
             response = requests.post(end_point, json=pay_load)
             if response.status_code == 200:
                 # Assuming the response is JSON
