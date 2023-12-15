@@ -14,7 +14,7 @@ class BulkSmsWizard(models.TransientModel):
     def send(self):
         if self.receiver == 'student':
             for student in self.students:
-                self.env['school_management.helper'].send_normal_sms(student.phone, self.message_content)
+                self.env['school_management.helper'].send_sms_via_reve_system(student.phone, self.message_content)
         else:
             phones_per_lines = self.phone_number.split('\n')
             for phones_per_line in phones_per_lines:
@@ -23,5 +23,5 @@ class BulkSmsWizard(models.TransientModel):
                     space_seperated_phones = comma_seperated_phone.split(' ')
                     for space_seperated_phone in space_seperated_phones:
                         phone = space_seperated_phone.strip()
-                        self.env['school_management.helper'].send_normal_sms(phone, self.message_content)
+                        self.env['school_management.helper'].send_sms_via_reve_system(phone, self.message_content)
 

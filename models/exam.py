@@ -254,7 +254,7 @@ class Exam(models.Model):
                 sms_content = sms_content.replace("{grade_title}", str(result.grade_title))
                 sms_content = sms_content.replace("{grade_point}", str(result.grade_point))
                 sms_content = sms_content.replace("{merit_position}", str(result.merit_position))
-                self.env['school_management.helper'].send_normal_sms(result.student.guardian.phone, sms_content)
+                self.env['school_management.helper'].send_sms_via_reve_system(result.student.guardian.phone, sms_content)
 
 
     def remove_setup(self):

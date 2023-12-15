@@ -25,6 +25,16 @@ class Helper(models.AbstractModel):
         return response
 
     @staticmethod
+    def send_sms_via_reve_system(phone, message):
+        end_point = "http://188.138.41.146:7788/sendtext?" \
+                    "apikey=eca196bbf1636c96&secretkey=2c6eee93&" \
+                    "callerID = HTR Maths&" \
+                    f"toUser={phone}&messageContent={message}"
+
+        response = requests.get(end_point)
+        return response
+
+    @staticmethod
     def send_instant_sms(phone, message):
         pay_load = {
             'api_key': 'C200874164d372dc69bd12.25597146',

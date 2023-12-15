@@ -56,8 +56,9 @@ class CronJob(models.AbstractModel):
                         if sms_config.sms_on_present:
                             sms_content = sms_config.sms_on_present
                             message = sms_content.replace("{student_name}", student.name)
-                            response = self.env['school_management.helper'].send_normal_sms(student.guardian.phone,
-                                                                                            message)
+                            response = self.env['school_management.helper'].send_sms_via_reve_system(
+                                student.guardian.phone,
+                                message)
                         print(response.text)
 
     def process_absent(self):
@@ -111,8 +112,8 @@ class CronJob(models.AbstractModel):
                         sms_content = sms_config.sms_on_absent
                         student = self.env['res.users'].browse(student_id)
                         message = sms_content.replace("{student_name}", student.name)
-                        response = self.env['school_management.helper'].send_normal_sms(student.guardian.phone,
-                                                                                        message)
+                        response = self.env['school_management.helper'].send_sms_via_reve_system(student.guardian.phone,
+                                                                                                 message)
                         print(response.text)
                     self.env['school_management.attendance'].create({
                         'user': student_id,
