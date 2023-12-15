@@ -23,5 +23,6 @@ class BulkSmsWizard(models.TransientModel):
                     space_seperated_phones = comma_seperated_phone.split(' ')
                     for space_seperated_phone in space_seperated_phones:
                         phone = space_seperated_phone.strip()
-                        self.env['school_management.helper'].send_sms_via_reve_system(phone, self.message_content)
+                        response = self.env['school_management.helper'].send_sms_via_reve_system(phone, self.message_content)
+                        print('*'*100, response.text)
 

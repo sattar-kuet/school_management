@@ -28,7 +28,7 @@ class Helper(models.AbstractModel):
     def send_sms_via_reve_system(phone, message):
         end_point = "http://188.138.41.146:7788/sendtext?" \
                     "apikey=eca196bbf1636c96&secretkey=2c6eee93&" \
-                    "callerID = HTR Maths&" \
+                    "callerID=HTR Maths&" \
                     f"toUser={phone}&messageContent={message}"
 
         response = requests.get(end_point)
