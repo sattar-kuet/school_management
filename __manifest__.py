@@ -37,6 +37,7 @@
         'wizards/exam_config_wizard_view.xml',
         'wizards/student_wizard_view.xml',
         'wizards/teacher_wizard_view.xml',
+        'wizards/admin_wizard_view.xml',
         'wizards/guardian_wizard_view.xml',
         'wizards/student_promotion_config_wizard_view.xml',
         'wizards/sms_config_wizard_view.xml',
@@ -60,6 +61,9 @@
 
         'views/guardian_view.xml',
         'views/guardian_tree_view_inherit.xml',
+
+        'views/admin_view.xml',
+        'views/admin_tree_view_inherit.xml',
 
         'views/notice_view.xml',
         'views/student_promotion_config_view.xml',

@@ -10,3 +10,4 @@ from . import guardian_wizard
 from . import student_promotion_config_wizard
 from . import sms_config_wizard
 from . import bulk_sms_wizard
+from . import admin_wizard

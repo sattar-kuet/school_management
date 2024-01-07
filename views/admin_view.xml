@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="view_admin_form" model="ir.ui.view">
+        <field name="name">school_management.admin.form</field>
+        <field name="model">res.users</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" placeholder="admin Name"  required="True"/>
+                        <field name="phone" placeholder="admin Phone" required="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_admin_tree" model="ir.ui.view">
+        <field name="name">Admin List Tree</field>
+        <field name="model">res.users</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="phone"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_admin" model="ir.actions.act_window">
+        <field name="name">Admin List</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.users</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('school_management.view_admin_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('school_management.view_admin_form')})
+                          ]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_school_managementiling_face"> Create your First Admin</p>
+        </field>
+        <field name="domain">[('groups_id.name','=','School Admin')]</field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <record id="admin_tree_view_wizard" model="ir.ui.view">
+            <field name="name">admin.tree.view.wizard</field>
+            <field name="model">school_management.admin.wizard</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Define your tree fields here -->
+                    <field name="name"/>
+                    <field name="phone"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="add_admin_form_wizard" model="ir.ui.view">
+            <field name="name">add_admin.form.wizard</field>
+            <field name="model">school_management.admin.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="phone"/>
+                    </group>
+                    <footer>
+                        <button string="Confirm" type="object" name="add_admin" class="btn btn-primary"/>
+                        <button string="Cancel" special="cancel" class="btn btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_add_admin_wizard" model="ir.actions.act_window">
+            <field name="name">Add Admin</field>
+            <field name="res_model">school_management.admin.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="school_management.add_admin_form_wizard" />
+            <field name="target">new</field>
+            <field name="binding_view_types">tree,form</field>
+        </record>
+    </data>
+</odoo>

@@ -26,6 +26,7 @@ class User(models.Model):
     student_group = fields.Many2one("school_management.group", string='Group')
     subjects = fields.Many2many("school_management.subject", string='Subjects')
     designation = fields.Many2one("sm.designation", string="Designation")
+    batch = fields.Many2one('school_management.batch')
 
     _sql_constraints = [
         ('attendance_device_user_id_unique',
@@ -35,10 +36,10 @@ class User(models.Model):
 
     def _computed_name(self):
         for record in self:
-            if record.class_config:
-                record.computed_name = f'{record.name} - {record.class_config.name} - {record.roll}'
+            if record.guardian:
+                record.computed_name = f'{record.name} - {record.guardian.name}'
             else:
-                record.computed_name = f'{record.name} - {record.phone}'
+                record.computed_name = f'{record.name}'
 
     @api.depends('class_config')
     def _compute_class_has_group(self):

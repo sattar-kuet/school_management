@@ -108,6 +108,16 @@
                   sequence="6"
                   action=""
                   parent="menu_sm_root"/>
+        <menuitem name="Admin"
+                  id="menu_admin_list"
+                  sequence="-2"
+                  action="action_admin"
+                  parent="menu_data_list"/>
+        <menuitem name="Teacher"
+                  id="menu_teacher_list"
+                  sequence="-1"
+                  action="action_teacher"
+                  parent="menu_data_list"/>
         <menuitem name="Student"
                   id="menu_student_list"
                   sequence="0"

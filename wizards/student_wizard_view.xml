@@ -24,7 +24,7 @@
                         <field name="name" placeholder="Student Name"  required="True"/>
                         <field name="roll" placeholder="Student Roll" />
                         <field name="blood_group" widget="radio" options="{'horizontal': True}" />
-                        <field name="class_config" widget="radio" options="{'horizontal': True}"  required="True" />
+                        <field name="class_config" required="True" />
                         <field name="class_has_group" invisible="1" />
                         <field name="student_group" widget="radio" options="{'horizontal': True}" attrs="{'invisible':[('class_has_group','=',False)], 'required':[('class_has_group','=', True)]}" />
                         <field name="phone" />
