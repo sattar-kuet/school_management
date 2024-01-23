@@ -8,17 +8,24 @@ class StudentWizard(models.TransientModel):
     name = fields.Char(string='Name', required=True)
     roll = fields.Char(string="Roll", required=True)
     blood_group = fields.Selection([
-        ('a+', 'A+'),
-        ('b+', 'B+'),
-        ('ab+', 'AB+'),
+        ('A+', 'A+'),
+        ('A-', 'A-'),
+        ('B+', 'B+'),
+        ('B-', 'B-'),
+        ('AB+', 'AB+'),
+        ('AB-', 'AB-'),
+        ('O+', 'O+'),
+        ('O-', 'O-')
     ], string='Blood Group', required=True)
     class_config = fields.Many2one("sm.class_config", string='Class')
     class_has_group = fields.Boolean(compute='_compute_class_has_group')
     student_group = fields.Many2one("school_management.group", string='Group')
-    guardian = fields.Many2one("res.users", string="Guardian", domain=lambda self: [
-        ("groups_id", "in", [self.env.ref("school_management.group_school_guardian").id])])
+    guardian_name = fields.Char()
+    guardian_number = fields.Char()
+    sms_number = fields.Char()
     phone = fields.Char()
     attendance_device_user_id = fields.Char(string='Attendance Device User ID')
+    batch = fields.Many2one('school_management.batch')
 
     @api.depends('class_config')
     def _compute_class_has_group(self):
