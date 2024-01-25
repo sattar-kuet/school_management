@@ -11,7 +11,7 @@
                 <field name="class_room" />
                 <field name="start_at" />
                 <field name="end_at" />
-                <field name="off_days" />
+                <field name="off_days" widget="many2many_tags" />
             </tree>
         </field>
      </record>
