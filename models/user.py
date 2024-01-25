@@ -3,7 +3,7 @@
 from odoo import fields, models
 from odoo import api
 import random
-
+from ..constants import BLOOD_GROUP
 
 class User(models.Model):
     _inherit = 'res.users'
@@ -14,11 +14,7 @@ class User(models.Model):
     code = fields.Char(string='Code')
     attendance_device_user_id = fields.Char()
     roll = fields.Char(string="Roll")
-    blood_group = fields.Selection([
-        ('a+', 'A+'),
-        ('b+', 'B+'),
-        ('ab+', 'AB+'),
-    ], string='Blood Group')
+    blood_group = fields.Selection(BLOOD_GROUP, string='Blood Group')
     guardian = fields.Many2one("res.users", string="Guardian", domain=lambda self: [
             ("groups_id", "in", [self.env.ref("school_management.group_school_guardian").id])])
     class_config = fields.Many2one("sm.class_config", string='Class')
@@ -28,6 +24,8 @@ class User(models.Model):
     designation = fields.Many2one("sm.designation", string="Designation")
     batch = fields.Many2one('school_management.batch')
     sms_number = fields.Char(string="SMS Number")
+    sms_number = fields.Char('')
+
 
     _sql_constraints = [
         ('attendance_device_user_id_unique',

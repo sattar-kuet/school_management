@@ -25,7 +25,9 @@ class ClassConfig(models.Model):
                 html_output += self.formatted_html('fa-book', setup_info.subject.name)
                 html_output += self.formatted_html('fa-user', setup_info.teacher.name)
                 html_output += self.formatted_html('fa-university', setup_info.class_room.name)
-                class_time = f'{setup_info.start_at_am_pm} to {setup_info.end_at_am_pm}'
+                class_time = '-'
+                # if setup_info.start_at_am_pm and setup_info.end_at_am_pm:
+                #   class_time = f'{setup_info.start_at_am_pm} to {setup_info.end_at_am_pm}'
                 html_output += self.formatted_html('fa-clock-o', class_time)
                 html_output += self.formatted_html('fa-times', off_days)
                 html_output += '</li>'
@@ -56,13 +58,15 @@ class ClassSetupLine(models.Model):
 
     def _compute_start_at_am_pm(self):
         for record in self:
-            time_obj = datetime.strptime(record.start_at, "%H:%M")
-            record.start_at_am_pm = time_obj.strftime("%I:%M %p")
+            if record.start_at:
+                time_obj = datetime.strptime(record.start_at, "%H:%M")
+                record.start_at_am_pm = time_obj.strftime("%I:%M %p")
 
     def _compute_end_at_am_pm(self):
         for record in self:
-            time_obj = datetime.strptime(record.end_at, "%H:%M")
-            record.end_at_am_pm = time_obj.strftime("%I:%M %p")
+            if record.end_at:
+                time_obj = datetime.strptime(record.end_at, "%H:%M")
+                record.end_at_am_pm = time_obj.strftime("%I:%M %p")
 
 
 class Section(models.Model):
