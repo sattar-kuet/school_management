@@ -44,15 +44,15 @@ class ClassSetupLine(models.Model):
     _name = 'sm.class.setup.line'
     _description = 'Class Setup line'
 
-    subject = fields.Many2one('school_management.subject', string="Subject")
+    subject = fields.Many2one('school_management.subject', string="Subject", required=True)
     teacher = fields.Many2one('res.users', string="Teacher", domain=lambda self: [
-        ("groups_id", "in", [self.env.ref("school_management.group_school_teacher").id])])
-    class_room = fields.Many2one('school_management.class.room', string="Class Room")
-    start_at = fields.Char(string="Start at")
+        ("groups_id", "in", [self.env.ref("school_management.group_school_teacher").id])], required=True)
+    class_room = fields.Many2one('school_management.class.room', string="Class Room", required=True)
+    start_at = fields.Char(string="Start at", required=True)
     start_at_am_pm = fields.Char(string="Start at", compute="_compute_start_at_am_pm")
-    end_at = fields.Char(string="End at")
+    end_at = fields.Char(string="End at", required=True)
     end_at_am_pm = fields.Char(string="End at", compute="_compute_end_at_am_pm")
-    off_days = fields.Many2many('school_management.week.day', string="Off Days")
+    off_days = fields.Many2many('school_management.week.day', string="Off Days", required=True)
 
     def _compute_start_at_am_pm(self):
         for record in self:

@@ -47,6 +47,7 @@
         'wizards/result_config_wizard_view.xml',
         'views/result_config_view.xml',
         'views/class_config_view.xml',
+        'views/setup_line_view.xml',
         'views/grade_config_view.xml',
 
         'views/proccessed_result_view.xml',

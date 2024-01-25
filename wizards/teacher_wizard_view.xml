@@ -8,6 +8,7 @@
                     <group>
                         <field name="name"/>
                         <field name="phone"/>
+                        <field name="sms_number"/>
                         <field name="designation"/>
                         <field name="attendance_device_user_id"></field>
                     </group>

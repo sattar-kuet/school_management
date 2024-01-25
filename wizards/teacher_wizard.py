@@ -10,12 +10,14 @@ class TeacherWizard(models.TransientModel):
     subjects = fields.Many2many("school_management.subject", string='Subjects')
     designation = fields.Many2one("sm.designation", string="Designation")
     attendance_device_user_id = fields.Char()
+    sms_number = fields.Char(string="SMS Number")
 
 
     def add_teacher(self):
         created_teacher = self.env['res.users'].create({
             'name': self.name,
             'phone': self.phone,
+            'sms_number': self.sms_number,
             'attendance_device_user_id': self.attendance_device_user_id,
             'designation': self.designation.id
         })

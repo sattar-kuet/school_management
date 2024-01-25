@@ -27,6 +27,7 @@ class User(models.Model):
     subjects = fields.Many2many("school_management.subject", string='Subjects')
     designation = fields.Many2one("sm.designation", string="Designation")
     batch = fields.Many2one('school_management.batch')
+    sms_number = fields.Char(string="SMS Number")
 
     _sql_constraints = [
         ('attendance_device_user_id_unique',

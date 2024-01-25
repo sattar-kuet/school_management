@@ -26,6 +26,7 @@ class StudentWizard(models.TransientModel):
     phone = fields.Char()
     attendance_device_user_id = fields.Char(string='Attendance Device User ID')
     batch = fields.Many2one('school_management.batch')
+    sms_number = fields.Char(string="SMS Number")
 
     @api.depends('class_config')
     def _compute_class_has_group(self):
