@@ -39,7 +39,7 @@
                             <field name="attendance_device_user_id"/>
                         </group>
                         <group string="Batch Information">
-                            <field name="batch"/>
+                            <field name="batch" options="{'no_create': True}" />
                         </group>
                     </group>
                     <footer>
