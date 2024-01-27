@@ -8,6 +8,7 @@
                     <!-- Define your tree fields here -->
                     <field name="name"/>
                     <field name="phone"/>
+                    <field name="sms_number"/>
                 </tree>
             </field>
         </record>
@@ -20,6 +21,7 @@
                     <group>
                         <field name="name"/>
                         <field name="phone"/>
+                        <field name="sms_number"/>
                     </group>
                     <footer>
                         <button string="Confirm" type="object" name="add_guardian" class="btn btn-primary"/>

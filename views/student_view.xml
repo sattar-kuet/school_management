@@ -7,6 +7,14 @@
             <form>
                 <sheet>
                     <group>
+                        <field name="name" placeholder="Student Name"  required="True"/>
+                        <field name="roll" placeholder="Student Roll" required="True"/>
+                        <field name="blood_group" widget="radio" options="{'horizontal': True}" required="True"/>
+                        <field name="class_config" widget="radio" options="{'horizontal': True}"  required="True" />
+                        <field name="class_has_group" invisible="1" />
+                        <field name="student_group" widget="radio" options="{'horizontal': True}" attrs="{'invisible':[('class_has_group','=',False)], 'required':[('class_has_group','=', True)]}" />
+
+
                         <group>
                             <field name="name" placeholder="Student Name"  required="True"/>
                             <field name="roll" placeholder="Student Roll" required="True"/>
@@ -39,6 +47,7 @@
                 <field name="batch"></field>
                 <field name="student_group"></field>
                 <field name="phone"></field>
+                <field name="sms_number"></field>
                 <field name="guardian"></field>
                 <field name="attendance_device_user_id"></field>
                 <field name="sms_number"></field>

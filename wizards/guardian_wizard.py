@@ -7,11 +7,13 @@ class GuardianWizard(models.TransientModel):
 
     name = fields.Char(string='Name', required=True)
     phone = fields.Char(string="Phone", required=True)
+    sms_number = fields.Char(string="SMS Number")
 
     def add_guardian(self):
         created_guardian = self.env['res.users'].create({
             'name': self.name,
-            'phone': self.phone
+            'phone': self.phone,
+            'sms_number': self.sms_number
         })
 
         guardian_group = self.env.ref('school_management.group_school_guardian')

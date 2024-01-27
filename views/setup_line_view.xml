@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+     <record id="view_class_setup_line" model="ir.ui.view">
+        <field name="name">Setup Line</field>
+        <field name="model">sm.class.setup.line</field>
+        <field name="arch" type="xml">
+            <tree create="true" edit="true">
+                <field name="subject" />
+                <field name="teacher"  />
+                <field name="class_room" />
+                <field name="start_at" />
+                <field name="end_at" />
+                <field name="off_days" widget="many2many_tags" />
+            </tree>
+        </field>
+     </record>
+
+
+    <record id="action_class_setup_line" model="ir.actions.act_window">
+            <field name="name">Setup Line</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sm.class.setup.line</field>
+            <field name="view_mode">tree</field>
+            <field name="target">new</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_school_managementiling_face"> Create your first Setup Line</p>
+            </field>
+    </record>
+
+
+</odoo>
