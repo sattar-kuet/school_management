@@ -47,7 +47,6 @@
                 <field name="batch"></field>
                 <field name="student_group"></field>
                 <field name="phone"></field>
-                <field name="sms_number"></field>
                 <field name="guardian"></field>
                 <field name="attendance_device_user_id"></field>
                 <field name="sms_number"></field>

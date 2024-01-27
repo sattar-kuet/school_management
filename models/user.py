@@ -24,7 +24,6 @@ class User(models.Model):
     designation = fields.Many2one("sm.designation", string="Designation")
     batch = fields.Many2one('school_management.batch')
     sms_number = fields.Char(string="SMS Number")
-    sms_number = fields.Char('')
 
 
     _sql_constraints = [
