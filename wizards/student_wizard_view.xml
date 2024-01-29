@@ -5,10 +5,9 @@
             <field name="model">school_management.student.wizard</field>
             <field name="arch" type="xml">
                 <tree>
-                    <!-- Define your tree fields here -->
                     <field name="name"/>
                     <field name="roll"/>
-                    <field name="blood_group"/>
+                    <!-- <field name="blood_group"/> -->
                     <field name="student_group"/>
                 </tree>
             </field>
@@ -22,7 +21,7 @@
                         <group string="Student Profile">
                             <field name="name" placeholder="Student Name"  required="True"/>
                             <field name="roll" placeholder="Student Roll" />
-                            <field name="blood_group" />
+                            <!-- <field name="blood_group" /> -->
                             <field name="class_config" required="True" />
                         </group>
                         <group string="Guardian Profile">

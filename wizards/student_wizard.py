@@ -7,7 +7,7 @@ class StudentWizard(models.TransientModel):
 
     name = fields.Char(string='Name', required=True)
     roll = fields.Char(string="Roll", required=True)
-    blood_group = fields.Selection(BLOOD_GROUP, string='Blood Group', required=True)
+    # blood_group = fields.Selection(BLOOD_GROUP, string='Blood Group')
     class_config = fields.Many2one("sm.class_config", string='Class')
     class_has_group = fields.Boolean(compute='_compute_class_has_group')
     student_group = fields.Many2one("school_management.group", string='Group')
@@ -29,7 +29,7 @@ class StudentWizard(models.TransientModel):
         created_student = self.env['res.users'].create({
             'name': self.name,
             'roll': self.roll,
-            'blood_group': self.blood_group,
+            # 'blood_group': self.blood_group,
             'class_config': self.class_config.id,
             'student_group': self.student_group.id,
             'attendance_device_user_id': self.attendance_device_user_id,
