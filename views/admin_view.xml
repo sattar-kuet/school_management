@@ -12,6 +12,7 @@
                         <field name="phone" placeholder="admin Phone" required="True"/>
                         <field name="sms_number" placeholder="SMS Number" required="True"/>
                         <field name="designation" placeholder="Designation" required="True"/>
+                        <field name="batch" placeholder="Batch" required="True"/>
                         <field name="attendance_device_user_id" placeholder="Device User ID" required="True"/>
                     </group>
                 </sheet>
@@ -27,6 +28,7 @@
                 <field name="phone"/>
                 <field name="sms_number"/>
                 <field name="designation"/>
+                <field name="batch"/>
                 <field name="attendance_device_user_id"/>
             </tree>
         </field>

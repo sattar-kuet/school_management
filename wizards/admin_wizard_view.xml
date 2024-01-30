@@ -10,6 +10,7 @@
                     <field name="phone" />
                     <field name="sms_number" />
                     <field name="designation" />
+                    <field name="batch" />
                     <field name="attendance_device_user_id"/>
                 </tree>
             </field>
@@ -28,6 +29,7 @@
                         </group>
                         <group>
                             <field name="designation" />
+                            <field name="batch" />
                             <field name="attendance_device_user_id"/>
                         </group>
                     </group>

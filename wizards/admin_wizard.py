@@ -10,6 +10,7 @@ class AdminWizard(models.TransientModel):
     sms_number = fields.Char(string="SMS Number")
     designation = fields.Many2one("sm.designation", string="Designation")
     attendance_device_user_id = fields.Char()
+    batch = fields.Many2one('school_management.batch')
 
     def add_admin(self):
         created_guardian = self.env['res.users'].create({

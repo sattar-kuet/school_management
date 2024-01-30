@@ -11,6 +11,7 @@ class TeacherWizard(models.TransientModel):
     designation = fields.Many2one("sm.designation", string="Designation")
     attendance_device_user_id = fields.Char()
     sms_number = fields.Char(string="SMS Number")
+    batch = fields.Many2one('school_management.batch')
 
 
     def add_teacher(self):

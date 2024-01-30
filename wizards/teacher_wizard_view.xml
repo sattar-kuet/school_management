@@ -6,11 +6,16 @@
             <field name="arch" type="xml">
                 <form>
                     <group>
-                        <field name="name"/>
-                        <field name="phone"/>
-                        <field name="sms_number"/>
-                        <field name="designation"/>
-                        <field name="attendance_device_user_id"></field>
+                        <group>
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="sms_number"/>
+                        </group>
+                        <group>
+                            <field name="designation"/>
+                            <field name="batch"/>
+                            <field name="attendance_device_user_id"></field>
+                        </group>
                     </group>
                     <footer>
                         <button string="Confirm" type="object" name="add_teacher" class="btn btn-primary"/>
