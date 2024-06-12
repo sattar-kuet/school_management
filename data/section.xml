@@ -1,0 +1,19 @@
+<odoo>
+    <data noupdate="0">
+        <record model="sm.section" id="a">
+            <field name="name">Section A</field>
+        </record>
+        <record model="sm.section" id="b">
+            <field name="name">Section B</field>
+        </record>
+        <record model="sm.section" id="c">
+            <field name="name">Section C</field>
+        </record>
+        <record model="sm.section" id="d">
+            <field name="name">Section D</field>
+        </record>
+        <record model="sm.section" id="e">
+            <field name="name">Section E</field>
+        </record>
+    </data>
+</odoo>

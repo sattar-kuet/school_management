@@ -4,7 +4,7 @@ import pytz
 
 
 class Helper(models.AbstractModel):
-    _name = 'school_management.helper'
+    _name = 'sm.helper'
 
     @staticmethod
     def formatted_date(date_obj):
@@ -46,3 +46,52 @@ class Helper(models.AbstractModel):
         end_point = 'https://msg.elitbuzz-bd.com/smsapi';
         response = requests.post(end_point, data=pay_load)
         return response
+
+
+    def get_classes(self):
+        all_classes = []
+        Classs = self.env['sm.class'].search([])
+        for classs in Classs:
+            all_classes.append(
+                {
+                    'id': classs.id,
+                    'name': classs.name
+                }
+                )
+        return all_classes
+    
+    def get_section(self):
+        all_sections = []
+        Sections = self.env['sm.section'].search([])
+        for Section in Sections:
+            all_sections.append({
+                'id': Section.id,
+                'Name':Section.name
+            })
+        return all_sections
+    
+    def get_subject(self):
+        all_subject = []
+        Subjects = self.env['sm.subject'].search([])
+        for Subject in Subjects:
+            all_subject.append({
+                'id': Subject.id,
+                'Name':Subject.name
+            })
+        return all_subject
+    
+    def get_students(self):
+        students_list = []
+        Users = self.env['res.users'].search([])
+        for User in Users:
+            students_list.append({
+                'id': User.id,
+                'image':"",
+                'Name':User.name,
+                'roll':User.roll,
+                'blood_group':User.blood_group,
+                'guardian':User.guardian.name,
+                'class_id':User.class_id.id,
+                'section_id':User.section_id.id,
+            })
+        return students_list

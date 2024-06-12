@@ -6,71 +6,14 @@
     'author': 'Your Name',
     'website': 'https://www.itscholarbd.com',
     'data': [
-        'data/demo.xml',
+        # 'data/demo.xml',
+        'data/class.xml',
+        'data/section.xml',
+        'data/subject.xml',
         'security/user_group.xml',
         'data/application_group.xml',
-        'views/batch_view.xml',
-        'wizards/bulk_sms_wizard_view.xml',
-        'views/attendance_view.xml',
-
-
-        'views/dashboard.xml',
-        'wizards/weekly_holiday_wizard_view.xml',
-        'views/yearly_holiday_view.xml',
-        'views/session_view.xml',
-        'views/weekly_holiday_view.xml',
-        'views/class_room_view.xml',
-        'views/class_room_config_view.xml',
-        'views/shift_view.xml',
-        'views/subject_teacher_view.xml',
-        'views/student_subject_config_view.xml',
-
-        # 'views/template.xml',
         'views/student_view.xml',
-        'views/student_tree_view_inherit.xml',
-
-        'wizards/session_wizard_view.xml',
-        'wizards/subject_wizard_view.xml',
-        'views/subject_view.xml',
-        'views/combined_subject_view.xml',
-        'views/subject_tree_view_inherit.xml',
-        'wizards/exam_config_wizard_view.xml',
-        'wizards/student_wizard_view.xml',
-        'wizards/teacher_wizard_view.xml',
-        'wizards/admin_wizard_view.xml',
-        'wizards/guardian_wizard_view.xml',
-        'wizards/student_promotion_config_wizard_view.xml',
-        'wizards/sms_config_wizard_view.xml',
-        'views/exam_view.xml',
-
-
-        'wizards/result_config_wizard_view.xml',
-        'views/result_config_view.xml',
-        'views/class_config_view.xml',
-        'views/setup_line_view.xml',
-        'views/grade_config_view.xml',
-
-        'views/proccessed_result_view.xml',
-        'views/proccessed_final_result_view.xml',
-
-        'wizards/marks_wizard_view.xml',
-        'views/result_view.xml',
-
-
-        'views/teacher_view.xml',
-        'views/teacher_tree_view_inherit.xml',
-
-        'views/guardian_view.xml',
-        'views/guardian_tree_view_inherit.xml',
-
-        'views/admin_view.xml',
-        'views/admin_tree_view_inherit.xml',
-
-        'views/notice_view.xml',
-        'views/student_promotion_config_view.xml',
         'views/menu.xml',
-
-
         'security/ir.model.access.csv',
 
     ],

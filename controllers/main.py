@@ -8,6 +8,33 @@ class SchoolManagement(http.Controller):
     def test(self):
         request.env['school_management.helper'].pull_attendance_record()
         return 'OK testing.'
+    
+    @http.route('/sm/v1/class', type="json", auth="user", methods=["GET"])
+    def get_classs(self):
+        Helper = request.env['sm.helper']
+        classes = Helper.get_classes()
+        return {'status': True, 'data': classes}
+    
+    @http.route('/sm/v1/section', type="json", auth="user", methods=["GET"])
+    def get_sections(self):
+        Helper = request.env['sm.helper']
+        sections = Helper.get_section()
+
+        return {'status': True, 'data': sections}
+    
+    @http.route('/sm/v1/subject', type="json", auth="user", methods=["GET"])
+    def get_subjects(self):
+        Helper = request.env['sm.helper']
+        subjects = Helper.get_subject()
+
+        return {'status': True, 'data': subjects}
+    
+    @http.route('/sm/v1/student/list', type="json", auth="user", methods=["GET"])
+    def get_students(self):
+        Helper = request.env['sm.helper']
+        students = Helper.get_students()
+
+        return {'status': True, 'data': students}
 
     @http.route('/school_management/result_config', type="json", auth="public", methods=['POST'])
     def result_config(self, **data):

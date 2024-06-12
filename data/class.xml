@@ -1,0 +1,25 @@
+<odoo>
+    <data noupdate="0">
+        <record model="sm.class" id="six">
+            <field name="name">Six</field>
+           
+        </record>
+        <record model="sm.class" id="seven">
+            <field name="name">Seven</field>
+           
+        </record>
+        <record model="sm.class" id="eight">
+            <field name="name">Eight</field>
+           
+        </record>
+        <record model="sm.class" id="nine">
+            <field name="name">Nine</field>
+           
+        </record>
+        <record model="sm.class" id="ten">
+            <field name="name">Ten</field>
+           
+        </record>
+        
+    </data>
+</odoo>
