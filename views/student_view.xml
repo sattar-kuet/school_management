@@ -9,11 +9,7 @@
                     <group>
                         <field name="name" placeholder="Student Name"  required="True"/>
                         <field name="roll" placeholder="Student Roll" required="True"/>
-                        <field name="blood_group"/>
-                        <field name="class_id"  />
-                        <field name="section_id"  />
-                      
-                       
+                        <field name="login" placeholder="User name" required="True"/>
                     </group>
                 </sheet>
             </form>
@@ -23,12 +19,9 @@
         <field name="name">Student List Tree</field>
         <field name="model">res.users</field>
         <field name="arch" type="xml">
-            <tree editable="bottom">
-              <field name="name" placeholder="Student Name"  required="True"/>
-                        <field name="roll" placeholder="Student Roll" required="True"/>
-                        <field name="blood_group"/>
-                        <field name="class_id"  />
-                        <field name="section_id"  />
+            <tree>
+                <field name="name" placeholder="Student Name"  required="True"/>
+                <field name="roll" placeholder="Student Roll" required="True"/>
             </tree>
         </field>
     </record>

@@ -15,21 +15,17 @@ class User(models.Model):
     #        Bellow fileds is for student
     #*****************************************************************************
     roll = fields.Char(string="Roll")
-    blood_group = fields.Selection(BLOOD_GROUP, string='Blood Group')
-    guardian = fields.Many2one("res.users", string="Guardian", domain=lambda self: [
-            ("groups_id", "in", [self.env.ref("school_management.group_school_guardian").id])])
-    class_id = fields.Many2one("sm.class", string='Class')
-    section_id = fields.Many2one("sm.section", string='Class')
+    # blood_group = fields.Selection(BLOOD_GROUP, string='Blood Group')
+    # guardian = fields.Many2one("res.users", string="Guardian", domain=lambda self: [
+    #         ("groups_id", "in", [self.env.ref("school_management.group_school_guardian").id])])
+    # class_id = fields.Many2one("sm.class", string='Class')
+    # section_id = fields.Many2one("sm.section", string='Class')
     #*****************************************************************************
     #        Bellow fileds is for teacher
     #*****************************************************************************
-    designation = fields.Many2one("sm.designation", string="Designation")
+    # designation = fields.Many2one("sm.designation", string="Designation")
 
 
-    _sql_constraints = [
-        ('attendance_device_user_id_unique',
-         'UNIQUE(attendance_device_user_id)',
-         'Attendance Device User ID must be unique!')
-    ]
+   
 
     
