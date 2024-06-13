@@ -4,25 +4,25 @@ import json
 
 
 class SchoolManagement(http.Controller):
-    @http.route('/school_management/test', type="http", auth="public", methods=["GET"])
+    @http.route('/school_management/test', type="json", auth="public")
     def test(self):
-        request.env['school_management.helper'].pull_attendance_record()
+        
         return 'OK testing.'
     
-    @http.route('/sm/v1/class', type="json", auth="user", methods=["POST"])
+    @http.route('/sm/v1/class', type="json", auth="user")
     def get_classs(self):
         Helper = request.env['sm.helper']
         classes = Helper.get_classes()
         return {'status': True, 'data': classes}
     
-    @http.route('/sm/v1/section', type="json", auth="user", methods=["POST"])
+    @http.route('/sm/v1/section', type="json", auth="user")
     def get_sections(self):
         Helper = request.env['sm.helper']
         sections = Helper.get_section()
 
         return {'status': True, 'data': sections}
     
-    @http.route('/sm/v1/subject', type="json", auth="user", methods=["POST"])
+    @http.route('/sm/v1/subject', type="json", auth="user")
     def get_subjects(self):
         Helper = request.env['sm.helper']
         subjects = Helper.get_subject()
