@@ -82,15 +82,15 @@ class Helper(models.AbstractModel):
     
     def get_students(self):
         students_list = []
-        Users = self.env['res.users'].search([])
+        group_school_student = self.env.ref('school_management.group_school_student')
+        Users = self.env['res.users'].search([('groups_id', 'in', [group_school_student.id])])
         for User in Users:
             students_list.append({
                 'id': User.id,
-                'image':"",
+                'image':User.image_1920,
                 'Name':User.name,
                 'roll':User.roll,
                 'blood_group':User.blood_group,
-                'guardian':User.guardian.name,
                 'class_id':User.class_id.id,
                 'section_id':User.section_id.id,
             })

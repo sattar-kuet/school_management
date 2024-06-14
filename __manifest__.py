@@ -11,7 +11,6 @@
         'data/section.xml',
         'data/subject.xml',
         'security/user_group.xml',
-        'data/application_group.xml',
         'views/student_view.xml',
         'views/menu.xml',
         'security/ir.model.access.csv',
