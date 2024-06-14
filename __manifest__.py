@@ -7,13 +7,13 @@
     'website': 'https://www.itscholarbd.com',
     'data': [
         # 'data/demo.xml',
-        # 'data/class.xml',
-        # 'data/section.xml',
-        # 'data/subject.xml',
-        # 'security/user_group.xml',
-        # 'views/student_view.xml',
-        # 'views/menu.xml',
-        # 'security/ir.model.access.csv',
+        'data/class.xml',
+        'data/section.xml',
+        'data/subject.xml',
+        'security/user_group.xml',
+        'views/student_view.xml',
+        'views/menu.xml',
+        'security/ir.model.access.csv',
 
     ],
     'assets': {
