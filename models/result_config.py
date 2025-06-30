@@ -25,7 +25,7 @@ class ResultConfig(models.Model):
     has_mcq = fields.Boolean(compute="_has_mcq")
     has_written = fields.Boolean(compute="_has_written")
     two_part_setup_line = fields.Many2many('sm.two.part.mark.config')
-    status = fields.Selection([('generated', 'System Generated'), ('configured', 'Configured')], defualt='generated')
+    status = fields.Selection([('generated', 'System Generated'), ('configured', 'Configured')], default='generated')
 
     @api.depends('subject.has_practical')
     def _has_practical(self):

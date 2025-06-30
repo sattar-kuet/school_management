@@ -7,7 +7,7 @@ class TeacherWizard(models.TransientModel):
 
     name = fields.Char(string='Name', required=True)
     phone = fields.Char(string="Phone", required=True)
-    subjects = fields.Many2many("school_management.subject", string='Subjects')
+    subjects = fields.Many2many("sm.subject", string='Subjects')
     designation = fields.Many2one("sm.designation", string="Designation")
     attendance_device_user_id = fields.Char()
     sms_number = fields.Char(string="SMS Number")

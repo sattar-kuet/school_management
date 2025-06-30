@@ -10,12 +10,12 @@ class StudentSubjectConfig(models.Model):
                               string='Student', domain=lambda self: [
             ("groups_id", "in", [self.env.ref("school_management.group_school_student").id])])
 
-    available_main_subjects = fields.Many2many('school_management.subject', compute='_compute_available_main_subjects')
-    main_subject = fields.Many2one('school_management.subject', string='Main Subjects',
+    available_main_subjects = fields.Many2many('sm.subject', compute='_compute_available_main_subjects')
+    main_subject = fields.Many2one('sm.subject', string='Main Subjects',
                                    domain="[('id', 'in', available_main_subjects)]")
-    available_optional_subjects = fields.Many2many('school_management.subject',
+    available_optional_subjects = fields.Many2many('sm.subject',
                                                    compute='_compute_available_optional_subjects')
-    optional_subject = fields.Many2one('school_management.subject', string='Optional Subjects',
+    optional_subject = fields.Many2one('sm.subject', string='Optional Subjects',
                                        domain="[('id', 'in', available_optional_subjects)]")
 
 

@@ -12,5 +12,5 @@ class ClassRoomConfig(models.Model):
     shift = fields.Many2one('school_management.shift', string='Shift')
     start_time = fields.Datetime(string='Start Time')
     end_time = fields.Datetime(string='End Time')
-    subject = fields.Many2one('school_management.subject', string='Subject')
+    subject = fields.Many2one('sm.subject', string='Subject')
     week_days = fields.Many2one('school_management.week.day', string='Week Day')

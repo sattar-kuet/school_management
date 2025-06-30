@@ -18,19 +18,19 @@ class ConfigWizard(models.TransientModel):
     has_mcq = fields.Boolean()
     has_written = fields.Boolean()
     has_two_part = fields.Boolean()
-    subject_part1 = fields.Many2one('school_management.subject')
+    subject_part1 = fields.Many2one('sm.subject')
     subject_part1_title = fields.Char(string='One Part')
-    subject_part1_written_max_mark = fields.Float(string='Written Max Marks')
-    subject_part1_mcq_max_mark = fields.Float(string='MCQ Max Marks')
-    subject_part1_practical_max_mark = fields.Float(string='Practical Max Marks')
+    subject_part1_written_max_mark = fields.Float(string='Subject Part1 Written Max Marks')
+    subject_part1_mcq_max_mark = fields.Float(string='Subject Part1 MCQ Max Marks')
+    subject_part1_practical_max_mark = fields.Float(string='Subject Part1 Practical Max Marks')
 
-    subject_part2 = fields.Many2one('school_management.subject')
+    subject_part2 = fields.Many2one('sm.subject')
     subject_part2_title = fields.Char(string='Another Part')
-    subject_part2_written_max_mark = fields.Float(string='Written Max Marks')
-    subject_part2_mcq_max_mark = fields.Float(string='MCQ Max Marks')
-    subject_part2_practical_max_mark = fields.Float(string='Practical Max Marks')
+    subject_part2_written_max_mark = fields.Float(string='Subject Part2 Written Max Marks')
+    subject_part2_mcq_max_mark = fields.Float(string='Subject Part2 MCQ Max Marks')
+    subject_part2_practical_max_mark = fields.Float(string='Subject Part2 Practical Max Marks')
 
-    status = fields.Selection([('generated', 'System Generated'), ('configured', 'Configured')], defualt='generated')
+    status = fields.Selection([('generated', 'System Generated'), ('configured', 'Configured')], default='generated')
 
     @api.model
     def default_get(self, fields):
@@ -54,10 +54,10 @@ class ConfigWizard(models.TransientModel):
 
         if has_two_part:
             this_wizard_fields['subject_part1'] = result_config.subject.subject.ids[0]
-            subject1_record = self.env['school_management.subject'].browse(result_config.subject.subject.ids[0])
+            subject1_record = self.env['sm.subject'].browse(result_config.subject.subject.ids[0])
             this_wizard_fields['subject_part1_title'] = subject1_record.name
             this_wizard_fields['subject_part2'] = result_config.subject.subject.ids[1]
-            subject2_record = self.env['school_management.subject'].browse(result_config.subject.subject.ids[1])
+            subject2_record = self.env['sm.subject'].browse(result_config.subject.subject.ids[1])
             this_wizard_fields['subject_part2_title'] = subject2_record.name
 
             for two_part_setup_line in result_config.two_part_setup_line:

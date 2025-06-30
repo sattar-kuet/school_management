@@ -5,6 +5,7 @@
     'license': 'LGPL-3',
     'author': 'Your Name',
     'website': 'https://www.itscholarbd.com',
+    'depends': ['base', 'web'], 
     'data': [
         # 'data/demo.xml',
         'data/class.xml',
@@ -18,12 +19,12 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'school_management/static/src/css/custom.scss',
-            'school_management/static/src/js/calendar_popup.js',
+            # 'school_management/static/src/css/custom.scss',
+            # 'school_management/static/src/js/calendar_popup.js',
 
-            'school_management/static/src/components/*/*.js',
-            'school_management/static/src/components/*/*.xml',
-            'school_management/static/src/components/*/*.scss',
+            # 'school_management/static/src/components/*/*.js',
+            # 'school_management/static/src/components/*/*.xml',
+            # 'school_management/static/src/components/*/*.scss',
         ],
         'web.assets_frontend': [
             'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback',
@@ -56,5 +57,7 @@
             'school_management/static/adminLTE-3.2.0/custom-js/custom.js',
             'school_management/static/adminLTE-3.2.0/custom-css/custom.scss'
         ]
-    }
+    },
+    'installable': True,
+    'application': True,
 }

@@ -9,5 +9,5 @@ class TeacherActivity(models.Model):
     _description = 'Teacher Activity'
 
     teacher = fields.Many2one('res.users', string='Teacher')
-    subject = fields.Many2one('school_management.subject', string='Subject')
+    subject = fields.Many2one('sm.subject', string='Subject')
     class_config = fields.Many2many('sm.class_config', string='Class Config')

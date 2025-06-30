@@ -27,7 +27,7 @@ class SubjectWizard(models.TransientModel):
 
     def add_subject(self):
         if self.has_two_part:
-            subject1 = self.env['school_management.subject'].create({
+            subject1 = self.env['sm.subject'].create({
                 'name': self.part1,
                 'has_practical': self.has_practical,
                 'has_mcq': self.has_mcq,
@@ -36,7 +36,7 @@ class SubjectWizard(models.TransientModel):
                 'mandatory': self.mandatory,
             })
 
-            subject2 = self.env['school_management.subject'].create({
+            subject2 = self.env['sm.subject'].create({
                 'name': self.part2,
                 'has_practical': self.has_practical,
                 'has_mcq': self.has_mcq,
@@ -54,7 +54,7 @@ class SubjectWizard(models.TransientModel):
                 'mandatory': self.mandatory,
             })
         else:
-            subject = self.env['school_management.subject'].create({
+            subject = self.env['sm.subject'].create({
                 'name': self.name,
                 'has_practical': self.has_practical,
                 'has_mcq': self.has_mcq,
@@ -75,7 +75,7 @@ class SubjectWizard(models.TransientModel):
         action = {
             'name': 'Subject',
             'view_mode': 'tree',
-            'res_model': 'school_management.subject',
+            'res_model': 'sm.subject',
             'view_id': self.env.ref('school_management.view_subject_tree').id,
             'type': 'ir.actions.act_window',
             'target': 'current',

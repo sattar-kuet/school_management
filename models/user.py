@@ -19,7 +19,7 @@ class User(models.Model):
     guardian = fields.Many2one("res.users", string="Guardian", domain=lambda self: [
             ("groups_id", "in", [self.env.ref("school_management.group_school_guardian").id])])
     class_id = fields.Many2one("sm.class", string='Class')
-    section_id = fields.Many2one("sm.section", string='Class')
+    section_id = fields.Many2one("sm.section", string='Section')
     is_student = fields.Boolean()
     is_teacher = fields.Boolean()
     #*****************************************************************************

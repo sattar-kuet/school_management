@@ -13,7 +13,7 @@ class Result(models.Model):
     class_name = fields.Char(compute='_compute_class_name')
     student = fields.Many2one('res.users', string="Student", domain=lambda self: [
             ("groups_id", "in", [self.env.ref("school_management.group_school_student").id])],required=True)
-    subject = fields.Many2one('school_management.subject', string='Subject')
+    subject = fields.Many2one('sm.subject', string='Subject')
     written_mark = fields.Float(string='Written Mark')
     mcq_mark = fields.Float(string='MCQ Mark')
     practical_mark = fields.Float(string='Practical Mark')

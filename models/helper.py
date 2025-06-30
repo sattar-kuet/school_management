@@ -5,6 +5,7 @@ import pytz
 
 class Helper(models.AbstractModel):
     _name = 'sm.helper'
+    _description = "School Management Helper"
 
     @staticmethod
     def formatted_date(date_obj):
