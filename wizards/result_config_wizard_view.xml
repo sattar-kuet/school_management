@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
         <record id="config_form_wizard" model="ir.ui.view">
@@ -5,7 +6,6 @@
             <field name="model">school_management.config.wizard</field>
             <field name="arch" type="xml">
                 <form>
-
                     <group>
                         <group>
                             <field name="has_two_part" readonly="1"/>
@@ -13,46 +13,44 @@
                             <field name="has_written" readonly="1" />
                             <field name="has_mcq" readonly="1" />
                             <field name="has_practical" readonly="1" />
-                            <field name="written_pass_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
-                            <field name="written_max_mark" attrs="{'invisible': ['|', ('has_written', '=', False), ('has_two_part', '=', True)]}"/>
-                            <field name="mcq_pass_mark" attrs="{'invisible': [('has_mcq', '=', False)]}" />
-                            <field name="mcq_max_mark" attrs="{'invisible': ['|', ('has_mcq', '=', False), ('has_two_part', '=', True)]}"/>
-                            <field name="practical_pass_mark" attrs="{'invisible': [('has_practical', '=', False)]}" />
-                            <field name="practical_max_mark" attrs="{'invisible': ['|', ('has_practical', '=', False), ('has_two_part', '=', True)]}" />
+                            <!-- Part 1 Fields -->
+                            <field name="written_pass_mark" invisible="not has_written"/>
+                            <field name="written_max_mark" invisible="not has_written or has_two_part"/>
+                            <field name="mcq_pass_mark" invisible="not has_mcq"/>
+                            <field name="mcq_max_mark" invisible="not has_mcq or has_two_part"/>
+                            <field name="practical_pass_mark" invisible="not has_practical"/>
+                            <field name="practical_max_mark" invisible="not has_practical or has_two_part"/>
                             <field name="total_pass_mark" />
                         </group>
-                        <group attrs="{'invisible': [('has_two_part', '=', False)]}">
+                        <!-- Part 2 Fields (visible only when has_two_part is True) -->
+                        <group invisible="not has_two_part">
                             <field name="subject_part1" invisible="1"/>
                             <field name="subject_part2" invisible="1"/>
                             <field name="subject_part1_title" readonly="1"/>
-                            <field name="subject_part1_written_max_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
-                            <field name="subject_part1_mcq_max_mark" attrs="{'invisible': [('has_mcq', '=', False)]}" />
-                            <field name="subject_part1_practical_max_mark" attrs="{'invisible': [('has_practical', '=', False)]}" />
-
+                            <field name="subject_part1_written_max_mark" invisible="not has_written"/>
+                            <field name="subject_part1_mcq_max_mark" invisible="not has_mcq"/>
+                            <field name="subject_part1_practical_max_mark" invisible="not has_practical"/>
                             <field name="subject_part2_title" readonly="1"/>
-                            <field name="subject_part2_written_max_mark" attrs="{'invisible': [('has_written', '=', False)]}" />
-                            <field name="subject_part2_mcq_max_mark" attrs="{'invisible': [('has_mcq', '=', False)]}" />
-                            <field name="subject_part2_practical_max_mark" attrs="{'invisible': [('has_practical', '=', False)]}" />
+                            <field name="subject_part2_written_max_mark" invisible="not has_written"/>
+                            <field name="subject_part2_mcq_max_mark" invisible="not has_mcq"/>
+                            <field name="subject_part2_practical_max_mark" invisible="not has_practical"/>
                         </group>
-
                     </group>
-
                     <footer>
-                        <button string="Confirm" type="object" name="result_config_button" class="btn btn-primary" />
-                        <button string="Cancel" special="cancel" class="btn btn-secondary"/>
+                        <button string="Confirm" type="object" name="result_config_button" class="btn-primary"/>
+                        <button string="Cancel" special="cancel" class="btn-secondary"/>
                     </footer>
                 </form>
             </field>
         </record>
-
         <record id="action_config_wizard" model="ir.actions.act_window">
             <field name="name">Config</field>
             <field name="res_model">school_management.config.wizard</field>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="school_management.config_form_wizard" />
+            <field name="view_id" ref="school_management.config_form_wizard"/>
             <field name="target">new</field>
             <field name="binding_view_types">form</field>
-            <field name="context">{'active_id': active_id }</field>
+            <field name="context">{'active_id': active_id}</field>
         </record>
     </data>
 </odoo>

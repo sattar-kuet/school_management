@@ -1,18 +1,18 @@
 <odoo>
     <data noupdate="0">
-        <record model="sm.section" id="a">
+        <record model="sm.section" id="section_a">
             <field name="name">Section A</field>
         </record>
-        <record model="sm.section" id="b">
+        <record model="sm.section" id="section_b">
             <field name="name">Section B</field>
         </record>
-        <record model="sm.section" id="c">
+        <record model="sm.section" id="section_c">
             <field name="name">Section C</field>
         </record>
-        <record model="sm.section" id="d">
+        <record model="sm.section" id="section_d">
             <field name="name">Section D</field>
         </record>
-        <record model="sm.section" id="e">
+        <record model="sm.section" id="section_e">
             <field name="name">Section E</field>
         </record>
     </data>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
 <odoo>
     <record id="view_guardian_form" model="ir.ui.view">
         <field name="name">school_management.guardian.form</field>
@@ -10,7 +9,6 @@
                     <group>
                         <field name="name" placeholder="Guardian Name"  required="True"/>
                         <field name="phone" placeholder="Guardian Phone" required="True"/>
-                        <field name="sms_number" placeholder="Guardian SMS Phone" required="True"/>
                     </group>
                 </sheet>
             </form>
@@ -23,12 +21,9 @@
             <tree>
                 <field name="name" />
                 <field name="phone"/>
-                <field name="sms_number"/>
             </tree>
         </field>
     </record>
-
-
     <record id="action_guardian" model="ir.actions.act_window">
         <field name="name">Guardian List</field>
         <field name="type">ir.actions.act_window</field>
@@ -45,6 +40,4 @@
         </field>
         <field name="domain">[('groups_id.name','=','School Guardian')]</field>
     </record>
-
-
 </odoo>

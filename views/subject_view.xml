@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
 <odoo>
     <record id="view_subject_tree" model="ir.ui.view">
         <field name="name">Subject List Tree</field>
@@ -11,11 +10,9 @@
                 <field name="has_mcq" />
                 <field name="has_written" />
                 <field name="mandatory" />
-                <field name="groups" widget="many2many_tags" />
             </tree>
         </field>
     </record>
-
     <record id="action_subject" model="ir.actions.act_window">
         <field name="name">Subject List</field>
         <field name="type">ir.actions.act_window</field>
@@ -26,6 +23,4 @@
             <p class="o_view_nocontent_school_managementiling_face"> Create your first First Subject</p>
         </field>
     </record>
-
-
 </odoo>

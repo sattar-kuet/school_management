@@ -1,13 +1,13 @@
-# from . import subject_wizard
-# from . import marks_wizard
-# from . import result_config_wizard
-# from . import exam_config_wizard
-# from . import session_wizard
-# from . import weekly_holiday_wizard
-# from . import student_wizard
-# from . import teacher_wizard
-# from . import guardian_wizard
-# from . import student_promotion_config_wizard
-# from . import sms_config_wizard
-# from . import bulk_sms_wizard
-# from . import admin_wizard
+from . import subject_wizard
+from . import marks_wizard
+from . import result_config_wizard
+from . import exam_config_wizard
+from . import session_wizard
+from . import weekly_holiday_wizard
+from . import student_wizard
+from . import teacher_wizard
+from . import guardian_wizard
+from . import student_promotion_config_wizard
+from . import sms_config_wizard
+from . import bulk_sms_wizard
+from . import admin_wizard

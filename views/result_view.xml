@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
-
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-     <record id="view_result_tree" model="ir.ui.view">
+    <record id="view_result_tree" model="ir.ui.view">
         <field name="name">Result List Tree</field>
         <field name="model">school_management.result</field>
         <field name="arch" type="xml">
@@ -13,19 +12,23 @@
                 <field name="mcq_mark_not_applicable" invisible="1" />
                 <field name="practical_mark_not_applicable" invisible="1" />
                 <field name="save_button_not_applicable" invisible="1" />
-                <field name="written_mark" widget="written_mark_tree" attrs="{'invisible': [('written_mark_not_applicable', '=', True)]}" />
-                <field name="mcq_mark" widget="mcq_mark_tree" attrs="{'invisible': [('mcq_mark_not_applicable', '=', True)]}" />
-                <field name="practical_mark" widget="practical_mark_tree" attrs="{'invisible': [('practical_mark_not_applicable', '=', True)]}"/>
+                <!-- Updated fields with Odoo 17 syntax -->
+                <field name="written_mark" widget="written_mark_tree" invisible="written_mark_not_applicable" />
+                <field name="mcq_mark" widget="mcq_mark_tree" invisible="mcq_mark_not_applicable" />
+                <field name="practical_mark" widget="practical_mark_tree" invisible="practical_mark_not_applicable"/>
                 <field name="status" readonly="1" />
-                <button name="save" string="Save" type="object" class="btn btn-primary" />
-<!--                <button name="%(action_marks_wizard)d" string="Add Mark" type="action"-->
-<!--                    class="btn btn-primary" attrs="{'invisible': ['|',('status', '=', 'done'),('status', '=', 'archive')]}" ></button>-->
-<!--                <button name="%(action_marks_wizard)d" string="Update Mark" type="action"-->
-<!--                    class="btn btn-primary" attrs="{'invisible': ['|',('status', '=', 'pending'),('status', '=', 'archive')]}" ></button>-->
+                <button name="save" string="Save" type="object" class="btn-primary" />
+                <!-- Uncomment and update if needed -->
+                <!--
+                <button name="%(action_marks_wizard)d" string="Add Mark" type="action"
+                    class="btn-primary" invisible="status == 'done' or status == 'archive'"/>
+                <button name="%(action_marks_wizard)d" string="Update Mark" type="action"
+                    class="btn-primary" invisible="status == 'pending' or status == 'archive'"/>
+                -->
             </tree>
         </field>
-     </record>
-     <record id="view_result_form" model="ir.ui.view">
+    </record>
+    <record id="view_result_form" model="ir.ui.view">
         <field name="name">school_management.result.form</field>
         <field name="model">school_management.result</field>
         <field name="arch" type="xml">
@@ -44,17 +47,15 @@
             </form>
         </field>
     </record>
-
     <record id="action_result" model="ir.actions.act_window">
-            <field name="name">Result List</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">school_management.result</field>
-            <field name="view_mode">tree</field>
-            <field name="target">current</field>
-            <field name="domain">[('status', '!=', 'archive')]</field>
-            <field name="help" type="html">
-                <p class="o_view_nocontent_school_managementiling_face"> Create your first Result</p>
-            </field>
+        <field name="name">Result List</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school_management.result</field>
+        <field name="view_mode">tree</field>
+        <field name="target">current</field>
+        <field name="domain">[('status', '!=', 'archive')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_school_managementiling_face">Create your first Result</p>
+        </field>
     </record>
-
 </odoo>

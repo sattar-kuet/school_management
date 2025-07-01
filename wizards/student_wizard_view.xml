@@ -19,10 +19,10 @@
                 <form>
                     <group>
                         <group string="Student Profile">
-                            <field name="name" placeholder="Student Name"  required="True"/>
-                            <field name="roll" placeholder="Student Roll" />
+                            <field name="name" placeholder="Student Name" required="True"/>
+                            <field name="roll" placeholder="Student Roll"/>
                             <!-- <field name="blood_group" /> -->
-                            <field name="class_config" required="True" />
+                            <field name="class_config" required="True"/>
                         </group>
                         <group string="Guardian Profile">
                             <field name="guardian_name"/>
@@ -32,13 +32,14 @@
                     </group>
                     <group>
                         <group>
-                            <field name="class_has_group" invisible="1" />
-                            <field name="student_group" widget="radio" options="{'horizontal': True}" attrs="{'invisible':[('class_has_group','=',False)], 'required':[('class_has_group','=', True)]}" />
-                            <field name="phone" />
+                            <field name="class_has_group" invisible="1"/>
+                            <field name="student_group" widget="radio" options="{'horizontal': True}"
+                                   modifiers='{"invisible": [["class_has_group", "=", false]], "required": [["class_has_group", "=", true]]}'/>
+                            <field name="phone"/>
                             <field name="attendance_device_user_id"/>
                         </group>
                         <group string="Batch Information">
-                            <field name="batch" options="{'no_create': True}" />
+                            <field name="batch" options="{'no_create': True}"/>
                         </group>
                     </group>
                     <footer>
@@ -52,7 +53,7 @@
             <field name="name">Add Student</field>
             <field name="res_model">school_management.student.wizard</field>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="school_management.add_student_form_wizard" />
+            <field name="view_id" ref="school_management.add_student_form_wizard"/>
             <field name="target">new</field>
             <field name="binding_view_types">tree,form</field>
         </record>

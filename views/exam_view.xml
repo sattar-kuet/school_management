@@ -1,27 +1,42 @@
-<?xml version="1.0" encoding="utf-8" ?>
-
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-     <record id="view_exam_tree" model="ir.ui.view">
+    <record id="view_exam_tree" model="ir.ui.view">
         <field name="name">Exam List Tree</field>
         <field name="model">school_management.exam</field>
         <field name="arch" type="xml">
             <tree create="true" edit="true">
                 <field name="title_with_class_date" />
-                <field name="class_config"  />
+                <field name="class_config" />
                 <field name="status" />
                 <field name="ready_to_publish" invisible="1" />
-                 <button attrs="{'invisible': ['|', '|','|', ('status', '=', 'setup_done'), ('status', '=', 'processing'), ('status', '=', 'published'), ('status', '=', 'archive')]}" name="%(action_exam_config_wizard)d" string="Setup" type="action"
-                    class="btn btn-primary"></button>
-                <button attrs="{'invisible': ['|','|', ('status', '=', 'pending'), ('status', '=', 'processing'), ('status', '=', 'archive')]}" name="processing" string="Processing" type="object"
-                    class="btn btn-primary"></button>
-                 <button attrs="{'invisible': ['|', '|','|',('status', '=', 'pending'), ('status', '=', 'archive'), ('status', '=', 'processing'), ('status', '=', 'published')]}" name="remove_setup" string="Remove Setup" type="object"
-                    class="btn btn-primary"></button>
-                <button attrs="{'invisible': ['|', '|','|','|' , ('status', '=', 'archive'), ('status', '=', 'pending'), ('status', '=', 'setup_done'),('status', '=', 'published'), ('ready_to_publish','=', False)]}" name="result_publishing" string="Publish Result" type="object"
-                    class="btn btn-primary"></button>
+                <!-- Setup Button -->
+                <button name="%(action_exam_config_wizard)d" 
+                        string="Setup" 
+                        type="action"
+                        class="btn-primary"
+                        invisible="status == 'setup_done' or status == 'processing' or status == 'published' or status == 'archive'"/>
+                <!-- Processing Button -->
+                <button name="processing" 
+                        string="Processing" 
+                        type="object"
+                        class="btn-primary"
+                        invisible="status == 'pending' or status == 'processing' or status == 'archive'"/>
+                <!-- Remove Setup Button -->
+                <button name="remove_setup" 
+                        string="Remove Setup" 
+                        type="object"
+                        class="btn-primary"
+                        invisible="status == 'pending' or status == 'archive' or status == 'processing' or status == 'published'"/>
+                <!-- Publish Result Button -->
+                <button name="result_publishing" 
+                        string="Publish Result" 
+                        type="object"
+                        class="btn-primary"
+                        invisible="status == 'archive' or status == 'pending' or status == 'setup_done' or status == 'published' or not ready_to_publish"/>
             </tree>
         </field>
-     </record>
-     <record id="view_exam_form" model="ir.ui.view">
+    </record>
+    <record id="view_exam_form" model="ir.ui.view">
         <field name="name">school_management.exam.form</field>
         <field name="model">school_management.exam</field>
         <field name="arch" type="xml">
@@ -35,17 +50,14 @@
             </form>
         </field>
     </record>
-
     <record id="action_exam" model="ir.actions.act_window">
-            <field name="name">Exam List</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">school_management.exam</field>
-            <field name="view_mode">tree,form</field>
-            <field name="target">current</field>
-            <field name="help" type="html">
-                <p class="o_view_nocontent_school_managementiling_face"> Create your first First Exam</p>
-            </field>
+        <field name="name">Exam List</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school_management.exam</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_school_managementiling_face">Create your first Exam</p>
+        </field>
     </record>
-
-
 </odoo>

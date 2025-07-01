@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
         <record id="subject_tree_view_wizard" model="ir.ui.view">
@@ -17,7 +18,6 @@
                 </tree>
             </field>
         </record>
-
         <record id="add_subject_form_wizard" model="ir.ui.view">
             <field name="name">add_subject.form.wizard</field>
             <field name="model">school_management.subject.wizard</field>
@@ -28,8 +28,9 @@
                             <group>
                                 <field name="name" />
                                 <field name="has_two_part" />
-                                <field name="part1" attrs="{'invisible': [('has_two_part', '=', False)]}" />
-                                <field name="part2" attrs="{'invisible': [('has_two_part', '=', False)]}" />
+                                <!-- Updated fields with Odoo 17 syntax -->
+                                <field name="part1" invisible="not has_two_part" />
+                                <field name="part2" invisible="not has_two_part" />
                                 <field name="has_written" />
                                 <field name="has_mcq" />
                                 <field name="has_practical" />
@@ -41,13 +42,12 @@
                         </group>
                     </group>
                     <footer>
-                        <button string="Confirm" type="object" name="add_subject" class="btn btn-primary"/>
-                        <button string="Cancel" special="cancel" class="btn btn-secondary"/>
+                        <button string="Confirm" type="object" name="add_subject" class="btn-primary"/>
+                        <button string="Cancel" special="cancel" class="btn-secondary"/>
                     </footer>
                 </form>
             </field>
         </record>
-
         <record id="action_add_subject_wizard" model="ir.actions.act_window">
             <field name="name">Add Subject</field>
             <field name="res_model">school_management.subject.wizard</field>

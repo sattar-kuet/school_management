@@ -1,20 +1,20 @@
 <odoo>
     <data noupdate="0">
-        <record model="sm.subject" id="bangla">
+        <record model="sm.subject" id="subject_bangla">
             <field name="name">Bangla</field>
             <field name="has_practical">False</field>
             <field name="has_written">True</field>
             <field name="has_mcq">True</field>
             <field name="mandatory">True</field>
         </record>
-        <record model="sm.subject" id="english">
+        <record model="sm.subject" id="subject_english">
             <field name="name">English</field>
             <field name="has_practical">False</field>
             <field name="has_written">True</field>
             <field name="has_mcq">True</field>
             <field name="mandatory">True</field>
         </record>
-        <record model="sm.subject" id="science">
+        <record model="sm.subject" id="subject_science">
             <field name="name">Science</field>
             <field name="has_practical">False</field>
             <field name="has_written">True</field>

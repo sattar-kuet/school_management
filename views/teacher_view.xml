@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
 <odoo>
     <record id="view_teacher_form" model="ir.ui.view">
         <field name="name">school_management.teacher.form</field>
@@ -10,10 +9,6 @@
                     <group>
                         <field name="name" placeholder="Teacher Name"  required="True"/>
                         <field name="phone" placeholder="Teacher Phone" required="True"/>
-                        <field name="sms_number" placeholder="Teacher SMS Phone" required="True"/>
-                        <field name="batch" placeholder="Batch" required="True"/>
-                        <field name="designation" placeholder="Teacher Designation" required="True"/>
-                        <field name="attendance_device_user_id"></field>
                     </group>
                 </sheet>
             </form>
@@ -26,15 +21,9 @@
             <tree>
                 <field name="name" />
                 <field name="phone"/>
-                <field name="sms_number"/>
-                <field name="designation" />
-                <field name="batch" />
-                <field name="attendance_device_user_id"></field>
             </tree>
         </field>
     </record>
-
-
     <record id="action_teacher" model="ir.actions.act_window">
         <field name="name">Teacher List</field>
         <field name="type">ir.actions.act_window</field>
@@ -51,6 +40,4 @@
         </field>
         <field name="domain">[('groups_id.name','=','School Teacher')]</field>
     </record>
-
-
 </odoo>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
 <odoo>
     <record id="view_bulk_sms_wizard_form" model="ir.ui.view">
         <field name="name">bulk.sms.wizard.form</field>
@@ -9,13 +8,17 @@
                 <sheet>
                     <group>
                         <field name="receiver" widget="radio" options="{'horizontal': True}"/>
-                        <field name="phone_number" attrs="{'invisible': ['|', ('receiver', '=', 'student'), ('receiver', '=', False)]}"/>
-                        <field name="students" attrs="{'invisible': ['|', ('receiver', '=', 'phone'), ('receiver', '=', False)]}"/>
-                        <field name="message_content" attrs="{'invisible':  [('receiver', '=', False)]}"/>
+                        <field name="phone_number" 
+                               invisible="receiver == 'student' or receiver == False"/>
+                        <field name="students" 
+                               invisible="receiver == 'phone' or receiver == False"/>
+                        <field name="message_content" 
+                               invisible="receiver == False"/>
                     </group>
                     <footer>
                         <button string="Cancel" special="cancel" class="btn btn-secondary"/>
-                        <button string="SEND" type="object" name="send"  class="btn btn-primary" attrs="{'invisible':  [('receiver', '=', False)]}"/>
+                        <button string="SEND" type="object" name="send" class="btn btn-primary"
+                                invisible="receiver == False"/>
                     </footer>
                 </sheet>
             </form>
@@ -31,5 +34,4 @@
             <p class="o_view_nocontent_school_managementiling_face"> Create Bulk SMS</p>
         </field>
     </record>
-
 </odoo>
