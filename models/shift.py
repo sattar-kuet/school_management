@@ -7,10 +7,10 @@ class Shift(models.Model):
     _description = 'Shift'
 
     name = fields.Char(string='Name', required=True)
-    start_time = fields.Char(string='Start Time', required=True)
-    start_time_am_pm = fields.Char(string='Start Time',compute='_compute_start_time')
-    end_time = fields.Char(string='End Time', required=True)
-    end_time_am_pm = fields.Char(string='End Time',compute='_compute_end_time')
+    start_time = fields.Char(string='Start Time (HH:MM)', required=True)
+    start_time_am_pm = fields.Char(string='Start Time Period (AM/PM)',compute='_compute_start_time')
+    end_time = fields.Char(string='End Time (HH:MM)', required=True)
+    end_time_am_pm = fields.Char(string='End Time Period (AM/PM)',compute='_compute_end_time')
 
     def _compute_start_time(self):
         for record in self:

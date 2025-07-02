@@ -7,7 +7,7 @@ class StudentAttendance(models.Model):
     _description = 'Student Attendance'
 
     user = fields.Many2one('res.users', string='Name', required=True)
-    present = fields.Boolean(string="Present", Default=False)
+    present = fields.Boolean(string="Present", default=False)
     effective_date = fields.Datetime(string="Date", default=lambda self: datetime.today())
     access_id = fields.Integer()
     user_type = fields.Char(string="User Type")

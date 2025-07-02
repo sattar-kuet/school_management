@@ -7,18 +7,17 @@ class ResultConfig(models.Model):
     _name = 'school_management.result_config'
     _description = 'Result Config'
 
-    subject = fields.Many2one('school_management.combined_subject', string='Subject', required=True,
-                              relation='subject_combined_subject')
+    subject = fields.Many2one('school_management.combined_subject', string='Subject', required=True)
     exam = fields.Many2many('school_management.exam', string='Exam')
     written_pass_mark = fields.Float(string='Written Pass Mark')
     written_max_mark = fields.Float(string='Written Max Mark')
-    written_max_mark_computed = fields.Float(string='Written Max Mark', compute='_compute_written_max_mark')
+    written_max_mark_computed = fields.Float(string='Written Max Mark Computed', compute='_compute_written_max_mark')
     mcq_pass_mark = fields.Float(string='MCQ Pass Mark')
     mcq_max_mark = fields.Float(string='MCQ Max Mark')
-    mcq_max_mark_computed = fields.Float(string='MCQ Max Mark', compute='_compute_mcq_max_mark')
+    mcq_max_mark_computed = fields.Float(string='MCQ Max Mark Computed', compute='_compute_mcq_max_mark')
     practical_pass_mark = fields.Float(string='Practical Pass Mark')
     practical_max_mark = fields.Float(string='Practical Max Marks')
-    practical_max_mark_computed = fields.Float(string='Practical Max Marks', compute='_compute_practical_max_mark')
+    practical_max_mark_computed = fields.Float(string='Practical Max Marks Computed', compute='_compute_practical_max_mark')
     total_pass_mark = fields.Float(string='Total Pass Marks')
 
     has_practical = fields.Boolean(compute="_has_practical")

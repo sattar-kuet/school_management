@@ -10,7 +10,7 @@ class Exam(models.Model):
     _description = 'Exam'
     _rec_name = 'title_with_class_date'
 
-    title_with_class_date = fields.Char(string='Name', compute='_compute_title_with_class_date')
+    title_with_class_date = fields.Char(string='Title With Class Date', compute='_compute_title_with_class_date')
     name = fields.Char(string='Name', required=True)
     class_config = fields.Many2one('sm.class_config', required=True)
     status = fields.Selection(

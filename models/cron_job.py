@@ -6,6 +6,7 @@ import pytz
 
 class CronJob(models.AbstractModel):
     _name = 'school_management.cron.job'
+    _description = 'School Management Cron Job'
 
     def pull_attendance_record(self):
         time_zone_obj = pytz.timezone("Asia/Dhaka")
