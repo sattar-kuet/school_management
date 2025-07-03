@@ -7,6 +7,7 @@
     'website': 'https://www.itscholarbd.com',
     'data': [
         'data/demo.xml',
+        'data/section.xml',
         'security/user_group.xml',
         'data/application_group.xml',
         'views/batch_view.xml',

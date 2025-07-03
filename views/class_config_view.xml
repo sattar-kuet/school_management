@@ -3,68 +3,25 @@
 <odoo>
     <record id="view_class_config_tree" model="ir.ui.view">
         <field name="name">class Config List Tree</field>
-        <field name="model">sm.class_config</field>
+        <field name="model">sm.class</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
-                <field name="has_group" />
-                <field name="shift"/>
-                <field name="section"/>
-                <field name="computed_setup_info" widget="html"/>
+                
 
             </tree>
         </field>
     </record>
     <record id="view_class_form" model="ir.ui.view">
         <field name="name">school_management.class.form</field>
-        <field name="model">sm.class_config</field>
+        <field name="model">sm.class</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
                     <group>
-                        <group>
-                            <group>
-                                <field name="name" />
-                            </group>
-                            <group>
-                                <field name="has_group"/>
-                            </group>
-                        </group>
-                        <group>
-                            <group>
-                                <field name="shift"/>
-                            </group>
-                            <group>
-                                <field name="section"/>
-                            </group>
-                        </group>
+                         <field name="name" />
                     </group>
-                    <group>
-                        <field name="setup_lines">
-                            <form>
-                                <group>
-                                    <group>
-                                        <field name="subject" options="{'no_create': True}" />
-                                        <field name="teacher" options="{'no_create': True}" />
-                                        <field name="class_room"/>
-                                    </group>
-                                    <group>
-                                        <field name="start_at" widget="time"/>
-                                        <field name="end_at" widget="time"/>
-                                        <field name="off_days" widget="many2many_tags" options="{'no_create': True}"/>
-                                    </group>
-                                </group>
-                            </form>
-                            <tree>
-                                <field name="subject"/>
-                                <field name="teacher"/>
-                                <field name="class_room"/>
-                                <field name="start_at_am_pm"/>
-                                <field name="end_at_am_pm"/>
-                                <field name="off_days" widget="many2many_tags"/>
-                            </tree>
-                        </field>
-                    </group>
+                   
                 </sheet>
             </form>
         </field>
@@ -73,11 +30,11 @@
     <record id="action_class_config" model="ir.actions.act_window">
         <field name="name">Class Config List</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">sm.class_config</field>
+        <field name="res_model">sm.class</field>
         <field name="view_mode">tree,form</field>
         <field name="target">current</field>
         <field name="help" type="html">
-            <p class="o_view_nocontent_school_managementiling_face"> Create your first Class Config</p>
+            <p class="o_view_nocontent_school_managementiling_face"> Create your first Class</p>
         </field>
     </record>
 

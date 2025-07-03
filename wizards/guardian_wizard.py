@@ -1,4 +1,5 @@
 from odoo import fields, models, api
+from odoo.exceptions import UserError
 
 
 class GuardianWizard(models.TransientModel):
@@ -10,10 +11,16 @@ class GuardianWizard(models.TransientModel):
     sms_number = fields.Char(string="SMS Number")
 
     def add_guardian(self):
+        print("---14---"*11)
+        if not self.phone:
+            raise UserError("Phone is required and must be unique for login.")
+
+        login = self.phone.strip()
         created_guardian = self.env['res.users'].create({
             'name': self.name,
             'phone': self.phone,
-            'sms_number': self.sms_number
+            'sms_number': self.sms_number,
+            'login' : login
         })
 
         guardian_group = self.env.ref('school_management.group_school_guardian')

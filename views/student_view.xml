@@ -13,7 +13,7 @@
                         <field name="blood_group" placeholder="Student blood group" required="True" widget="radio"/>
                         <field name="class_id" placeholder="Student Class" required="True" widget="radio"/>
                         <field name="section_id" placeholder="Student Section" required="True" widget="radio"/>
-                        <field name="login" placeholder="User name" required="True"/>
+                        
                     </group>
                 </sheet>
             </form>

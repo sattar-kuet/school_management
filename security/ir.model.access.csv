@@ -1,4 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+school_management.access_class,access_class,school_management.model_sm_class,,1,1,1,1
 school_management.access_class_config,access_class_config,school_management.model_sm_class_config,,1,1,1,1
 school_management.access_exam,access_exam,school_management.model_school_management_exam,,1,1,1,1
 school_management.access_result_config,access_result_config,school_management.model_school_management_result_config,,1,1,1,1
